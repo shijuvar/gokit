@@ -1,5 +1,5 @@
 # Go Programming Workshop
-[![alt text](https://github.com/shijuvar/gokit/blob/master/img/go_gopher_small.png "Gopher")](https://medium.com/@shijuvar)
+[![alt text](https://github.com/shijuvar/gokit/blob/master/img/gopher_kubernetes.png "Gopher")](https://medium.com/@shijuvar)
 
 **Provides on-site training (in India) and technology consulting on Go, Microservices and cloud-native distributed systems architectures.** 
 
