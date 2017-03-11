@@ -1,8 +1,8 @@
 # Go Programming Workshop
 
-**Provides on-site training (in India) and technology consulting on Go, Microservices and cloud-native distributed systems architectures** 
+**Provides on-site training (in India) and technology consulting on Go, Microservices and cloud-native distributed systems architectures.** 
 
-**Contact: Email:gophermonk@gmail.com**  
+**Email:gophermonk@gmail.com**  
 
 
 ## Courses
