@@ -1,8 +1,8 @@
 # Go Programming Workshop
 
-**Provides on-site training and technology consulting on Go, Microservices and cloud-native distributed systems architectures** 
+**Provides on-site training (in India) and technology consulting on Go, Microservices and cloud-native distributed systems architectures** 
 
-**Contact: Phone: +91-9400337210 | Email: gophermonk@gmail.com**  
+**Contact: Email:gophermonk@gmail.com**  
 
 
 ## Courses
@@ -12,8 +12,8 @@ Course Duration:  3 Days
 
 Course Objective: Master Go programming language and its concurrency capabilities.
 
-###Building Web Apps and RESTful APIs with Go
----------------------------------------------
+###Building Web Apps with Go
+----------------------------
 Course Duration:  2 Days
 
 Course Objective: Build real-world, highly scalable web apps and RESTful APIs with Go.
