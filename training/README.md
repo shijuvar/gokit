@@ -15,6 +15,7 @@
 * Create data models with Structs, write highly extensible systems with Interfaces.
 * Work on Package ecosystem.
 * Write high-performance, massively scalable apps using Go’s concurrency.
+* Test Go applications.
 * Build reliable and efficient software systems using Go.
 
 
@@ -28,7 +29,7 @@
 * Persist data into MongoDB, Cassandra, InfluxDB and SQL databases.
 * Write cross-cutting components using HTTP Middleware. 
 * Best practices and solution architecture for building backend systems.
-* Test Go applications.
+* Test Go web applications.
 
 
 ###Building Microservices and Distributed Systems with Go
