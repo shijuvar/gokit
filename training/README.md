@@ -18,7 +18,7 @@ Course Duration:  2 Days
 
 Course Objective: Build real-world, highly scalable web apps and RESTful APIs with Go.
 
-###Building Microservices and Distributed Systemswith Go
+###Building Microservices and Distributed Systems with Go
 --------------------------------------------------------
 Course Duration:  2 Days
 
