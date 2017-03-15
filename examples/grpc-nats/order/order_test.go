@@ -11,7 +11,7 @@ import (
 )
 
 var order = &Order{
-	Id:        "101",
+	OrderId:   "101",
 	Status:    "Created",
 	CreatedOn: time.Now().Unix(),
 	OrderItems: []*Order_OrderItem{
