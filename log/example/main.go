@@ -12,7 +12,7 @@ func main() {
 	logLevel := flag.Int("loglevel", 0, "an integer value (0-4)")
 	flag.Parse()
 	// Calling the SetLogLevel with the command-line argument
-	log.SetLogLevel(log.Level(*logLevel))
+	log.SetLogLevel(log.Level(*logLevel), "logs.txt")
 	log.Trace.Println("Main started")
 	loop()
 	err := errors.New("Sample Error")

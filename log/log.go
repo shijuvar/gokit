@@ -54,10 +54,10 @@ func initLog(
 }
 
 // SetLogLevel sets the logging level preference
-func SetLogLevel(level Level) {
+func SetLogLevel(level Level, logFile string) {
 
 	// Creates os.*File, which has implemented io.Writer intreface
-	f, err := os.OpenFile("logs.txt", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+	f, err := os.OpenFile(logFile, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
 		log.Fatalf("Error opening log file: %s", err.Error())
 	}
