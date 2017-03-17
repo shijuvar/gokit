@@ -40,8 +40,9 @@
 
 **Course Objective:** 
 *	Build cloud-native distributed systems and Microservices with Go ecosystem.
-*	How to solve practical challenges of Microservices architecture?
-*	How to make inter-process communication between Microservices?
+*	Solve practical challenges of Microservices architecture.
+*	Inter-process communication between Microservices.
+* Manage ddata consistency and transactions in Microservices.
 *	Use Container technologies, Google Cloud, Protocol Buffers, gRPC and cloud-native messaging systems.
 *	Use Apcera NATS as the messaging system for building Microservices with reactive, event-driven architecture.
 * Building Microservices with Domain-Driven Design, CQRS and Event-Sourcing.
