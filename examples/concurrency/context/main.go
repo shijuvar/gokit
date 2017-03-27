@@ -32,7 +32,6 @@ func main() {
 	for n := range counter {
 		fmt.Println(n)
 		if n == 10 {
-			cancel()
 			break
 		}
 	}
