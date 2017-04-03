@@ -32,7 +32,6 @@ func main() {
 
 	// Delete an element
 	delete(langs, "EL")
-
 	// Lookout an element with key
 	if lan, ok := langs["EL"]; ok {
 		fmt.Println(lan)
