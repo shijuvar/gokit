@@ -12,7 +12,7 @@ import (
 func ReadFile(path string) ([]byte, error) {
 	f, err := os.Open(path)
 	if err != nil {
-		return nil, errors.WithMessage(err, "Failed to open file")
+		return nil, errors.Wrap(err, "Failed to open file")
 	}
 	defer f.Close()
 
