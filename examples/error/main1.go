@@ -23,7 +23,7 @@ func ReadFile(path string) ([]byte, error) {
 }
 
 func main() {
-	data, err := ReadFile("data.txt")
+	data, err := ReadFile("data1.txt")
 	if err != nil {
 		fmt.Printf("%+v\n", err)
 		os.Exit(1)

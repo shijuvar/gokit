@@ -21,6 +21,7 @@ func main() {
 	fmt.Println(len(y))
 	fmt.Println(cap(y))
 
+	// Slice literal
 	z := []int{10, 20, 30}
 	fmt.Println(len(z))
 	fmt.Println(cap(z))

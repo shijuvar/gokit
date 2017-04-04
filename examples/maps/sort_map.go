@@ -13,6 +13,7 @@ func main() {
 	chapts[1] = "Beginning Go"
 	chapts[2] = "Go Fundamentals"
 	chapts[3] = "Structs and Interfaces"
+	fmt.Println("Before sorting")
 	for k, v := range chapts {
 		fmt.Println(k, v)
 	}
@@ -25,6 +26,7 @@ func main() {
 	}
 	// Ints sorts a slice of ints in increasing order.
 	sort.Ints(keys)
+	fmt.Println("After sorting")
 	// Iterate over the map with an order
 	for _, k := range keys {
 		fmt.Println("Key:", k, "Value:", chapts[k])
