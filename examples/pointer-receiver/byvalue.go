@@ -1,4 +1,4 @@
-// Person struct with methods of pointer receiver
+// Person struct with methods of value receiver
 
 package main
 
