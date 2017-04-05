@@ -30,8 +30,6 @@ type server struct {
 func (s *server) CreateOrder(ctx context.Context, in *pb.Order) (*pb.OrderResponse, error) {
 	store := store.OrderStore{}
 	store.CreateOrder(in)
-	//s.savedOrders = append(s.savedOrders, in) // ToDO: Persist into CockroachDB
-	// Publsih OrderCreated event
 	go publishOrderCreated(in)
 	return &pb.OrderResponse{IsSuccess: true}, nil
 }

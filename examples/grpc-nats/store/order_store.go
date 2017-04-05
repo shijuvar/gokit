@@ -12,7 +12,7 @@ type OrderStore struct {
 func (store OrderStore) CreateOrder(order *pb.Order) error {
 	session := mgoSession.Copy()
 	defer session.Close()
-	col := session.DB("msdemo").C("orders")
+	col := session.DB("natsdemo").C("orders")
 	err := col.Insert(order)
 	return err
 }
@@ -22,7 +22,7 @@ func (store OrderStore) GetOrders() []pb.Order {
 	var orders []pb.Order
 	session := mgoSession.Copy()
 	defer session.Close()
-	col := session.DB("msdemo").C("orders")
+	col := session.DB("natsdemo").C("orders")
 	iter := col.Find(nil).Iter()
 	result := pb.Order{}
 	for iter.Next(&result) {

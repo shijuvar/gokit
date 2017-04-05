@@ -36,7 +36,7 @@ func main() {
 	taskQueue := make(chan *Task, 10)
 
 	// Launch goroutines to handle the work.
-	// The worker process is distributing with the value of noOfWorkers.
+	// The worker1 process is distributing with the value of noOfWorkers.
 	wg.Add(noOfWorkers)
 	for gr := 1; gr <= noOfWorkers; gr++ {
 		go worker(taskQueue, gr)

@@ -8,10 +8,12 @@ import (
 	"github.com/nats-io/nats"
 
 	pb "github.com/shijuvar/gokit/examples/grpc-nats/order"
-	"github.com/shijuvar/gokit/examples/grpc-nats/store"
 )
 
-const subject = "Order.>"
+const (
+	queue   = "Orders.OrdersCreatedQueue"
+	subject = "Order.OrderCreated"
+)
 
 func main() {
 
@@ -20,14 +22,11 @@ func main() {
 	log.Println("Connected to " + nats.DefaultURL)
 	eventStore := pb.EventStore{}
 	// Subscribe to subject
-	natsConnection.Subscribe(subject, func(msg *nats.Msg) {
+	natsConnection.QueueSubscribe(subject, queue, func(msg *nats.Msg) {
 		err := proto.Unmarshal(msg.Data, &eventStore)
 		if err == nil {
 			// Handle the message
-			log.Printf("Received message in EventStore service: %+v\n", eventStore)
-			store := store.EventStore{}
-			store.CreateEvent(&eventStore)
-			log.Println("Inserted event into Event Store")
+			log.Printf("Subscribed message in Worker 2: %+v\n", eventStore)
 		}
 	})
 

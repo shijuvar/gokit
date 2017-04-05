@@ -30,6 +30,7 @@ func main() {
 			log.Fatalf("Error on unmarshal: %v", err)
 		}
 		address = orderServiceDiscovery.OrderServiceUri
+		log.Println("OrderService endpoint found at:", address)
 		//Set up a connection to the gRPC server.
 		conn, err := grpc.Dial(address, grpc.WithInsecure())
 		if err != nil {
