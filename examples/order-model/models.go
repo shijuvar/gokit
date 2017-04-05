@@ -65,11 +65,11 @@ type OrderItem struct {
 }
 
 func (item OrderItem) Total() float64 {
-	return float64(item.Quantity) * item.Product.UnitPrice
+	return float64(item.Quantity) * item.UnitPrice
 }
 func (item OrderItem) ToString() string {
 	itemStr := fmt.Sprintf("Code:%s, Product:%s -- %s, UnitPrice:%f, Quantity:%d, Total:%f",
-		item.Product.Code, item.Product.Name, item.Product.Description, item.Product.UnitPrice, item.Quantity, item.Total())
+		item.Code, item.Name, item.Description, item.UnitPrice, item.Quantity, item.Total())
 	return itemStr
 
 }
