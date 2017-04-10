@@ -27,11 +27,13 @@
 **Course Duration:**  2 Days
 
 **Course Objective**: 
+* Learn in-depth on http package.
 * Build real-world web apps and RESTful APIs in Go.
 * Persist data into MongoDB, Cassandra, InfluxDB and SQL databases.
 * Write cross-cutting components using HTTP Middleware. 
-* Best practices and solution architecture for building backend systems.
+* Best practices and solution architecture for building web backend systems.
 * Testing Go web applications.
+* Using Package context with http apps.
 
 
 ### Building Microservices and Distributed Systems with Go
