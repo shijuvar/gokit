@@ -18,6 +18,7 @@ func main() {
 
 	// Create NATS server connection
 	natsConnection, _ := nats.Connect(nats.DefaultURL)
+	defer natsConnection.Close()
 	log.Println("Connected to " + nats.DefaultURL)
 	msg, err := natsConnection.Request("Discovery.OrderService", nil, 1000*time.Millisecond)
 	if err == nil && msg != nil {
