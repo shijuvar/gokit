@@ -21,7 +21,7 @@ func main() {
 	go addTable()
 	go multiTable()
 	// Wait for the goroutines to finish.
-	fmt.Println("Waiting To Finish")
+	//fmt.Println("Waiting To Finish")
 	wg.Wait()
 	fmt.Println("\nTerminating Program")
 }

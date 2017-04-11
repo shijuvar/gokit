@@ -22,9 +22,7 @@ const (
 	event     = "OrderCreated"
 )
 
-type server struct {
-	savedOrders []*pb.Order
-}
+type server struct{}
 
 // CreateOrder creates a new Order
 func (s *server) CreateOrder(ctx context.Context, in *pb.Order) (*pb.OrderResponse, error) {

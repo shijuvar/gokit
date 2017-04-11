@@ -18,9 +18,9 @@ func main() {
 	// Create server connection
 	natsConnection, _ := nats.Connect(nats.DefaultURL)
 	log.Println("Connected to " + nats.DefaultURL)
-	eventStore := pb.EventStore{}
 	// Subscribe to subject
 	natsConnection.Subscribe(subject, func(msg *nats.Msg) {
+		eventStore := pb.EventStore{}
 		err := proto.Unmarshal(msg.Data, &eventStore)
 		if err == nil {
 			// Handle the message

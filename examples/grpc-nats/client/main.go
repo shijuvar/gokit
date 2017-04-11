@@ -20,16 +20,14 @@ func main() {
 	// Create NATS server connection
 	natsConnection, _ := nats.Connect(nats.DefaultURL)
 	log.Println("Connected to " + nats.DefaultURL)
-
-	var address string
-	orderServiceDiscovery := pb.ServiceDiscovery{}
 	msg, err := natsConnection.Request("Discovery.OrderService", nil, 1000*time.Millisecond)
 	if err == nil && msg != nil {
+		orderServiceDiscovery := pb.ServiceDiscovery{}
 		err := proto.Unmarshal(msg.Data, &orderServiceDiscovery)
 		if err != nil {
 			log.Fatalf("Error on unmarshal: %v", err)
 		}
-		address = orderServiceDiscovery.OrderServiceUri
+		address := orderServiceDiscovery.OrderServiceUri
 		log.Println("OrderService endpoint found at:", address)
 		//Set up a connection to the gRPC server.
 		conn, err := grpc.Dial(address, grpc.WithInsecure())
@@ -43,8 +41,7 @@ func main() {
 		log.Println("------Orders-------")
 		getOrders(client, filter)
 	}
-	// Keep the connection alive
-	runtime.Goexit()
+
 }
 
 // createCustomer calls the RPC method CreateCustomer of CustomerServer
