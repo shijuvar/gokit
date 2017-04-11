@@ -4,7 +4,6 @@ import (
 	"context"
 	"io"
 	"log"
-	"runtime"
 	"time"
 
 	"github.com/golang/protobuf/proto"
