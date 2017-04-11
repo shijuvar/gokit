@@ -1,0 +1,11 @@
+# TOML config file.
+[development]
+Server      = "0.0.0.0:8080"
+MongoDBHost = "127.0.0.1"
+MongoDBUser	= ""
+MongoDBPwd	= ""
+Database    ="bookmarkdb"
+LogLevel    = 4
+
+
+
