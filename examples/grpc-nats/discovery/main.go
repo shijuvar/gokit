@@ -5,7 +5,7 @@ import (
 	"runtime"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/nats-io/nats"
+	"github.com/nats-io/go-nats"
 	"github.com/spf13/viper"
 
 	pb "github.com/shijuvar/gokit/examples/grpc-nats/order"
