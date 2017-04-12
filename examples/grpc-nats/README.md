@@ -6,6 +6,7 @@
 * eventstore - A NATS client app that subscribes messages by subscribing messages on a subject wildcard.
 * worker1 - A NATS client app that subscribes messages via subscriber queue group.
 * worker2 - A NATS client app that subscribes messages via subscriber queue group.
+* store - Persistence layer that performs the persistence operations on MongoDB.
 
 ## Compile Proto files
 Run the command below from the grpc-nats directory:
