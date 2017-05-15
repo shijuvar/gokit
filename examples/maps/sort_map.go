@@ -11,8 +11,8 @@ func main() {
 
 	// Add data as key/value pairs
 	chapts[1] = "Beginning Go"
-	chapts[2] = "Go Fundamentals"
 	chapts[3] = "Structs and Interfaces"
+	chapts[2] = "Go Fundamentals"
 	fmt.Println("Before sorting")
 	for k, v := range chapts {
 		fmt.Println(k, v)
