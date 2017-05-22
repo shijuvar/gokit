@@ -21,6 +21,10 @@ func main() {
 	total = Sum(5, 7, 8)
 	fmt.Println("The Sum is:", total)
 
+	// without arguments
+	total = Sum()
+	fmt.Println("The Sum is:", total)
+
 	// Providing a Slice as an argument
 	nums := []int{1, 2, 3, 4, 5}
 	total = Sum(nums...)
