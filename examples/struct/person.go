@@ -24,14 +24,23 @@ func (p Person) PrintDetails() {
 }
 
 func main() {
-	p := Person{
-		"Shiju",
-		"Varghese",
-		time.Date(1979, time.February, 17, 0, 0, 0, 0, time.UTC),
-		"shiju@email.com",
-		"Kochi",
+	var p Person
+	p.FirstName = "Rob"
+	p.LastName = "Pike"
+	p.Dob = time.Date(1957, time.February, 17, 0, 0, 0, 0, time.UTC)
+	p.Email = "pike.email.com"
+	p.Location = "California"
+
+	p1 := Person{
+		FirstName: "Shiju",
+		LastName:  "Varghese",
+		Dob:       time.Date(1979, time.February, 17, 0, 0, 0, 0, time.UTC),
+		Email:     "shiju@email.com",
+		Location:  "Kochi",
 	}
 	p.PrintName()
 	p.PrintDetails()
+	p1.PrintName()
+	p1.PrintDetails()
 
 }
