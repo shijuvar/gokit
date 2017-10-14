@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"database/sql"
 	"fmt"
 	"log"
@@ -39,9 +40,10 @@ func main() {
 	}
 
 	// Run a transfer in a transaction.
-	err = crdb.ExecuteTx(db, func(tx *sql.Tx) error {
+	err = crdb.ExecuteTx(context.Background(), db, nil, func(tx *sql.Tx) error {
 		return transferFunds(tx, 1 /* from acct# */, 2 /* to acct# */, 100 /* amount */)
 	})
+
 	if err == nil {
 		fmt.Println("Success")
 	} else {

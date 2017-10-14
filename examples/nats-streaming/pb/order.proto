@@ -1,0 +1,19 @@
+syntax = "proto3";
+package pb;
+
+message Order {
+    string order_id = 1;
+    string customer_id = 2;
+    string status = 3;
+    int64 created_on = 4; // Date stores as unix int64 value
+    string restaurant_id = 5;
+
+    message OrderItem {
+        string code = 1;
+        string name = 2;
+        float unit_price = 3;
+        int32 quantity = 4;
+    }
+
+    repeated OrderItem order_items = 6;
+}
