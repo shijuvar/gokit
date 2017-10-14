@@ -37,6 +37,7 @@ func main() {
 			// Handle the message
 			log.Printf("Subscribed message from clientID - %s: %+v\n", clientID, order)
 			queryStore := store.QueryStore{}
+			// Perform data replication for query model into CockroachDB
 			err := queryStore.SyncOrderQueryModel(order)
 			if err != nil {
 				log.Printf("Error while replicating the query model %+v", err)

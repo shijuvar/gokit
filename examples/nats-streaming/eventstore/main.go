@@ -24,6 +24,7 @@ type server struct{}
 func (s *server) CreateEvent(ctx context.Context, in *pb.Event) (*pb.Response, error) {
 	// Persist data into EventStore database
 	command := store.EventStore{}
+	// Persist events as immutable logs into CockroachDB
 	err := command.CreateEvent(in)
 	if err != nil {
 		return nil, err

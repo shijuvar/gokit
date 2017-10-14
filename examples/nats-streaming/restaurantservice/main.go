@@ -33,11 +33,15 @@ func main() {
 	sc.Subscribe(channel, func(msg *stan.Msg) {
 		msg.Ack() // Manual ACK
 		order := pb.Order{}
+		// Unmarshal JSON that represents the Order data
 		err := json.Unmarshal(msg.Data, &order)
-		if err == nil {
-			// Handle the message
-			log.Printf("Subscribed message from clientID - %s for Order: %+v\n", clientID, order)
+		if err != nil {
+			log.Print(err)
+			return
 		}
+		// Handle the message
+		log.Printf("Subscribed message from clientID - %s for Order: %+v\n", clientID, order)
+
 	}, stan.DurableName(durableID),
 		stan.MaxInflight(25),
 		stan.SetManualAckMode(),
