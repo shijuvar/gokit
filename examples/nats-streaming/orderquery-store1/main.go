@@ -8,7 +8,7 @@ import (
 	stan "github.com/nats-io/go-nats-streaming"
 
 	"github.com/shijuvar/gokit/examples/nats-streaming/pb"
-	//"github.com/shijuvar/gokit/examples/nats-streaming/store"
+	"github.com/shijuvar/gokit/examples/nats-streaming/store"
 )
 
 const (
@@ -36,11 +36,11 @@ func main() {
 		if err == nil {
 			// Handle the message
 			log.Printf("Subscribed message from clientID - %s: %+v\n", clientID, order)
-			//queryStore := store.QueryStore{}
-			//err := queryStore.SyncOrderQueryModel(order)
-			//if err != nil {
-			//	log.Printf("Error while syncing the query model %+v", err)
-			//}
+			queryStore := store.QueryStore{}
+			err := queryStore.SyncOrderQueryModel(order)
+			if err != nil {
+				log.Printf("Error while replicating the query model %+v", err)
+			}
 		}
 	}, stan.DurableName(durableID),
 	)
