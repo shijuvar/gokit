@@ -3,10 +3,11 @@ Reference: https://golang.org/pkg/net/rpc/
 
 Conditions to be exposed as RPC:
 
-1. The method is exported.
-2. The method has two arguments, both exported (or builtin) types.
-3. The method's second argument is a pointer.
-4. The method has return type error.
+- the method's type is exported.
+- the method is exported.
+- the method has two arguments, both exported (or builtin) types.
+- the method's second argument is a pointer.
+- the method has return type error.
 */
 
 package rpcexample
