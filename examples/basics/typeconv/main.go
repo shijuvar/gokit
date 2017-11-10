@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"reflect"
+	"strconv"
 )
 
 func main() {
@@ -16,4 +17,8 @@ func main() {
 	var x interface{} = float64(100)
 	y := x.(float64)
 	fmt.Println(reflect.TypeOf(y))
+
+	// Itoa is shorthand for FormatInt(int64(i), 10).
+	fmt.Println(strconv.Itoa(i))
+
 }
