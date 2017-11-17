@@ -4,7 +4,7 @@
 * CockroachDB
 
 ## Components in the Demo App
- *Protocol Buffers definition file.
+* pb - Protocol Buffers definition file.
 * client - A gRPC client app, which is used for demonstrate Request-Reply messaging of NATS by sending a request on a subject.
 * discovery - A simple service discovery app, which is used for demonstrate Request-Reply messaging of NATS by publishing a reply for the request on a subject.
 * server - A gRPC server app, which is used for demonstrate Publish-Subscribe messaging of NATS by publishing messages.
