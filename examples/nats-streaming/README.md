@@ -4,14 +4,13 @@
 * CockroachDB
 
 ## Components in the Demo App
-* pb - Protocol Buffers definition file.
-* client - A gRPC client app, which is used for demonstrate Request-Reply messaging of NATS by sending a request on a subject.
-* discovery - A simple service discovery app, which is used for demonstrate Request-Reply messaging of NATS by publishing a reply for the request on a subject.
-* server - A gRPC server app, which is used for demonstrate Publish-Subscribe messaging of NATS by publishing messages.
-* eventstore - A NATS client app that subscribes messages by subscribing messages on a subject wildcard.
-* worker1 - A NATS client app that subscribes messages via subscriber queue group.
-* worker2 - A NATS client app that subscribes messages via subscriber queue group.
-* store - Persistence layer that performs the persistence operations on MongoDB.
+* pb: Protocol Buffers definitions to describe message types and RPC endpoints.
+orderservice: An HTTP API server that let customers to create Orders. When a new Order is placed, an event “OrderCreated” is triggered, hence it calls an gRPC method “CreateEvent” provided by eventstore to publish events to the Event Store.
+* eventstore: A gRPC server and a NATS Streaming client that persists domain events into Event Store and publish events on NATS Streaming channels. This example assumes that state of the application is composed by various events ( A fluid implementation of Event Sourcing pattern). All command operations are persisted into an Event Store as events. Here CockroachDB is used for persisting events.
+* restuarantservice: A NATS Streaming client that subscribe messages from a NATS Streaming channel “order-notification” to get messages when new orders are created via orderservice and messages are published over channel “order-notification” from eventstore.
+* orderquery-store1: A NATS Streaming client that subscribes messages with a QueueGroup (a NATS messaging pattern) from a NATS Streaming channel “order-notification” to get messages when events are happened on a aggregate Order. The objective of this package is to persist data model for querying data, based on the domain events persisted in the Event Store. The example demo assumes that separate data models are being used for both command operations and query operations (CQRS). Because you’re keeping separate data models for both command and query, you can have denormalized data sets o n the data models for query. Here CockroachDB is used for persisting data sets for query model. In real-world scenarios, separate databases will be used for both command and query models.
+* orderquery-store2: A NATS Streaming client that subscribes messages with a QueueGroup from a NATS Streaming channel “order-notification”. Both orderquery-store1 and orderquery-store2 do the same thing — perform the data replication logic for making a store for querying the data which is constructed from Event Store. In order to distribute data replication logic, it works as QueueGroup subscriber clients (orderquery-store1 and orderquery-store2).
+* store: This is a shared library package that provides persistence logic to working with CockroachDB database. 
 
 ## Compile Proto files
 Run the command below from the nats-streaming directory:
