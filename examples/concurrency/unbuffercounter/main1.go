@@ -17,16 +17,11 @@ func main() {
 
 	fmt.Println("Start Goroutines")
 	// Launch a goroutine with label "Goroutine-1"
-
-	go func(){
-		count <- 1
-	}()
-
 	go printCounts("Goroutine-1", count)
 	// Launch a goroutine with label "Goroutine-2"
 	go printCounts("Goroutine-2", count)
 	fmt.Println("Communication of channel begins")
-
+	count <- 1
 	// Wait for the goroutines to finish.
 	fmt.Println("Waiting To Finish")
 	wg.Wait()
