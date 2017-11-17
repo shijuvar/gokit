@@ -29,16 +29,14 @@ func main() {
 	// call cancel as soon as the operations running in this Context complete.
 	//ctx, cancel := context.WithCancel(context.Background())
 	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-	
+
 	counter := make(chan int)
-	//defer cancel()
+	defer cancel()
 	go generateValues(ctx, counter)
 	for n := range counter {
 		fmt.Println(n)
-		if n == 10 {
-			cancel()
-		}
+		//if n == 10 {
+		//	cancel()
+		//}
 	}
-	 cancel()
-
 }
