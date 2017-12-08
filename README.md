@@ -1,2 +1,2 @@
 # gokit
-Go Examples
+Code examples for Go programming language.
