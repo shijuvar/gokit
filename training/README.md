@@ -18,7 +18,7 @@
 * Work on Package ecosystem.
 * Write high-performance, concurrent systems using Go’s concurrency.
 * Leverage Mutexes to develop concurrent systems by preventing race conditions.
-* Test Go applications.
+* Testing Go applications.
 * Learn to use Package context to carries deadlines, cancelation signals, and other request-scoped values across API boundaries and between processes.
 * Build reliable and efficient software systems using Go.
 
