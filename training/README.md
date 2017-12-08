@@ -11,11 +11,12 @@
 -------------------------------
 **Course Duration:**  3 Days
 
-**Course Objective:** 
+**Learning Objectives:** 
 * Master Go programming language and its core fundamentals. 
 * Create data models with Structs, write highly extensible systems with Interfaces.
 * Work on Package ecosystem.
 * Write high-performance, concurrent systems using Go’s concurrency.
+* Leverage Mutexes to develop concurrent systems by preventing race conditions.
 * Testing Go applications.
 * Using Package context to carries deadlines, cancelation signals, and other request-scoped values across API boundaries and between processes.
 * Build reliable and efficient software systems using Go.
@@ -26,7 +27,7 @@
 ----------------------------
 **Course Duration:**  2 Days
 
-**Course Objective**: 
+**Learning Objectives**: 
 * Learn in-depth on http package.
 * Build real-world web apps and RESTful APIs in Go.
 * Persist data into MongoDB, CockroachDB, InfluxDB and SQL databases.
@@ -40,7 +41,7 @@
 --------------------------------------------------------
 **Course Duration:**  2 Days
 
-**Course Objective:** 
+**Learning Objectives:** 
 *	Build cloud-native distributed systems and Microservices with Go ecosystem.
 *	Solve practical challenges of Microservices architecture.
 *	Inter-process communication between Microservices.
