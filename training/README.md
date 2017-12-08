@@ -51,3 +51,5 @@
 *	Use Apcera NATS as the messaging system for building Microservices with reactive, event-driven architecture.
 * Building Microservices with Domain-Driven Design, NATS Streaming, CQRS and Event-Sourcing.
 
+### About the Trainer
+Shiju Varghese is a solutions architect, consultant, published author and speaker. He is focused on building highly scalable cloud-native applications with a special interest on APIs, distributed systems, microservices and containerized architecture. His current technology focus is on Go, Google Cloud, NATS, gRPC, CockroachDB and Kubernetes. He is an early adopter of Go programming language, and provides consulting and training for building backend systems and microservices with Go ecosystem. Before adopting Go as the primary technology stack, he worked extensively on C# and Node.js, and was awarded Microsoft MVP seven times. He has spoken at numerous conferences including GopherCon India (Go Conference in India) and Great Indian Developer Summit. He has authored two books on Go, titled "Web Development with Go" and "Go Recipes", both published by Apress.
