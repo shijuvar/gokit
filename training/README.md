@@ -14,11 +14,12 @@
 **Learning Objectives:** 
 * Master Go programming language and its core fundamentals. 
 * Create data models with Structs, write highly extensible systems with Interfaces.
+* Learn in-depth on Go functions, which includes functional programming. 
 * Work on Package ecosystem.
 * Write high-performance, concurrent systems using Go’s concurrency.
 * Leverage Mutexes to develop concurrent systems by preventing race conditions.
-* Testing Go applications.
-* Using Package context to carries deadlines, cancelation signals, and other request-scoped values across API boundaries and between processes.
+* Test Go applications.
+* Learn to use Package context to carries deadlines, cancelation signals, and other request-scoped values across API boundaries and between processes.
 * Build reliable and efficient software systems using Go.
 
 
@@ -34,7 +35,7 @@
 * Write cross-cutting components using HTTP Middleware. 
 * Best practices and solution architecture for building web backend systems.
 * Testing Go web applications.
-* Using Package context with http apps.
+* Learn to use Package context with http apps.
 
 
 ### Building Microservices and Distributed Systems with Go
@@ -48,5 +49,5 @@
 * Manage ddata consistency and transactions in Microservices.
 *	Use Container technologies, Google Cloud, Protocol Buffers, gRPC and cloud-native messaging systems.
 *	Use Apcera NATS as the messaging system for building Microservices with reactive, event-driven architecture.
-* Building Microservices with Domain-Driven Design, CQRS and Event-Sourcing.
+* Building Microservices with Domain-Driven Design, NATS Streaming, CQRS and Event-Sourcing.
 
