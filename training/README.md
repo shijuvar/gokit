@@ -14,7 +14,7 @@
 **Learning Objectives:** 
 * Master Go programming language and its core fundamentals. 
 * Create data models with Structs, write highly extensible systems with Interfaces.
-* Learn in-depth on Go functions, which includes functional programming. 
+* Learn in-depth on Go functions, including functional programming. 
 * Work on Package ecosystem.
 * Write high-performance, concurrent systems using Go’s concurrency.
 * Leverage Mutexes to develop concurrent systems by preventing race conditions.
@@ -52,4 +52,4 @@
 * Building Microservices with Domain-Driven Design, NATS Streaming, CQRS and Event-Sourcing.
 
 ### About the Trainer
-Shiju Varghese is a solutions architect, consultant, published author and speaker. He is focused on building highly scalable cloud-native applications with a special interest on APIs, distributed systems, microservices and containerized architecture. His current technology focus is on Go, Google Cloud, NATS, gRPC, CockroachDB and Kubernetes. He is an early adopter of Go programming language, and provides consulting and training for building backend systems and microservices with Go ecosystem. Before adopting Go as the primary technology stack, he worked extensively on C# and Node.js, and was awarded Microsoft MVP seven times. He has spoken at numerous conferences including GopherCon India (Go Conference in India) and Great Indian Developer Summit. He has authored two books on Go, titled "Web Development with Go" and "Go Recipes", both published by Apress.
+Shiju Varghese is a solutions architect, consultant, published author and speaker. He is focused on building highly scalable cloud-native applications with a special interest on APIs, distributed systems architectures, microservices and container technologies. His current technology focus is on Go, Google Cloud, NATS, gRPC, CockroachDB and Kubernetes. He is an early adopter of Go programming language, and provides consulting and training for building backend systems and microservices with Go ecosystem. Before adopting Go as the primary technology stack, he worked extensively on C# and Node.js, and was awarded Microsoft MVP seven times. He has spoken at numerous conferences including GopherCon India (Go Conference in India) and Great Indian Developer Summit. He has authored two books on Go, titled "Web Development with Go" and "Go Recipes", both published by Apress.
