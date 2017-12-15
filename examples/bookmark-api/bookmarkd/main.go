@@ -29,12 +29,11 @@ func main() {
 	interrupt := make(chan os.Signal, 1)
 	signal.Notify(interrupt, os.Interrupt, os.Kill, syscall.SIGTERM)
 
+	// Running the HTTP server
 	go func() {
 		if err := server.ListenAndServe(); err != nil {
 			util.Error.Fatalf("Error on starting the HTTP server:v%", err)
 		}
-		util.Info.Print("HTTP Server is started")
-
 	}()
 
 	interruptSignal := <-interrupt
@@ -47,7 +46,7 @@ func main() {
 		util.Error.Print("Got SIGTERM...")
 	}
 
-	util.Error.Print("The service is shutting down...")
+	util.Info.Print("The service is shutting down...")
 	server.Shutdown(context.Background())
-	util.Error.Print("Shut down is done")
+	util.Info.Print("Shut down is done")
 }
