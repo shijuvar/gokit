@@ -1,11 +1,15 @@
 package main
 
 import (
+	"context"
 	"log"
 	"net/http"
+	"os"
+	"os/signal"
+	"syscall"
 
-	"github.com/shijuvar/gokit/examples/bookmark-api/routers"
 	"github.com/shijuvar/gokit/examples/bookmark-api/bootstrapper"
+	"github.com/shijuvar/gokit/examples/bookmark-api/routers"
 )
 
 // Entry point of the program
@@ -21,7 +25,26 @@ func main() {
 		Addr:    bootstrapper.AppConfig.Server,
 		Handler: router,
 	}
-	log.Println("Listening...")
-	// Running the HTTP Server
-	server.ListenAndServe()
+
+	interrupt := make(chan os.Signal, 1)
+	signal.Notify(interrupt, os.Interrupt, os.Kill, syscall.SIGTERM)
+
+	go func() {
+		log.Fatal(server.ListenAndServe())
+	}()
+	log.Print("The HTTP Server is ready to listen and serve.")
+
+	killSignal := <-interrupt
+	switch killSignal {
+	case os.Kill:
+		log.Print("Got SIGKILL...")
+	case os.Interrupt:
+		log.Print("Got SIGINT...")
+	case syscall.SIGTERM:
+		log.Print("Got SIGTERM...")
+	}
+
+	log.Print("The service is shutting down...")
+	server.Shutdown(context.Background())
+	log.Print("Done")
 }
