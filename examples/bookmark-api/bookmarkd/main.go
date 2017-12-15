@@ -22,8 +22,9 @@ func main() {
 
 	// Create the Server
 	server := &http.Server{
-		Addr:    bootstrapper.AppConfig.Server,
-		Handler: router,
+		Addr:     bootstrapper.AppConfig.Server,
+		Handler:  router,
+		ErrorLog: util.Error,
 	}
 
 	interrupt := make(chan os.Signal, 1)
@@ -31,9 +32,7 @@ func main() {
 
 	// Running the HTTP server
 	go func() {
-		if err := server.ListenAndServe(); err != nil {
-			util.Error.Fatalf("Error on starting the HTTP server:v%", err)
-		}
+		server.ListenAndServe()
 	}()
 
 	interruptSignal := <-interrupt
