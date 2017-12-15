@@ -8,8 +8,8 @@ import (
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 
+	utils "github.com/shijuvar/gokit/examples/bookmark-api/apputil"
 	"github.com/shijuvar/gokit/examples/bookmark-api/store"
-	utils "github.com/shijuvar/gokit/examples/bookmark-api/webutils"
 )
 
 // CreateBookmark insert a new Bookmark.

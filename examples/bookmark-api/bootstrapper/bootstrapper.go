@@ -5,15 +5,15 @@ import (
 
 	"github.com/spf13/viper"
 
-	utils "github.com/shijuvar/gokit/examples/bookmark-api/webutils"
+	util "github.com/shijuvar/gokit/examples/bookmark-api/apputil"
 )
 
 // StartUp bootstrapps the application
 func StartUp() {
 	// Initialize private/public keys for JWT authentication
-	utils.InitRSAKeys()
+	util.InitRSAKeys()
 	// Initialize Logger objects with Log Level
-	utils.SetLogLevel(utils.Level(AppConfig.LogLevel))
+	util.SetLogLevel(util.Level(AppConfig.LogLevel))
 	// Start a MongoDB session
 	createDBSession()
 	// Add indexes into MongoDB

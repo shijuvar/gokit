@@ -2,12 +2,12 @@ package main
 
 import (
 	"context"
-	"log"
 	"net/http"
 	"os"
 	"os/signal"
 	"syscall"
 
+	util "github.com/shijuvar/gokit/examples/bookmark-api/apputil"
 	"github.com/shijuvar/gokit/examples/bookmark-api/bootstrapper"
 	"github.com/shijuvar/gokit/examples/bookmark-api/routers"
 )
@@ -30,21 +30,24 @@ func main() {
 	signal.Notify(interrupt, os.Interrupt, os.Kill, syscall.SIGTERM)
 
 	go func() {
-		log.Fatal(server.ListenAndServe())
-	}()
-	log.Print("The HTTP Server is ready to listen and serve.")
+		if err := server.ListenAndServe(); err != nil {
+			util.Error.Fatalf("Error on starting the HTTP server:v%", err)
+		}
+		util.Info.Print("HTTP Server is started")
 
-	killSignal := <-interrupt
-	switch killSignal {
+	}()
+
+	interruptSignal := <-interrupt
+	switch interruptSignal {
 	case os.Kill:
-		log.Print("Got SIGKILL...")
+		util.Error.Print("Got SIGKILL...")
 	case os.Interrupt:
-		log.Print("Got SIGINT...")
+		util.Error.Print("Got SIGINT...")
 	case syscall.SIGTERM:
-		log.Print("Got SIGTERM...")
+		util.Error.Print("Got SIGTERM...")
 	}
 
-	log.Print("The service is shutting down...")
+	util.Error.Print("The service is shutting down...")
 	server.Shutdown(context.Background())
-	log.Print("Done")
+	util.Error.Print("Shut down is done")
 }

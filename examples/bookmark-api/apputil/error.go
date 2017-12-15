@@ -1,4 +1,4 @@
-package webutils
+package apputil
 
 import (
 	"encoding/json"

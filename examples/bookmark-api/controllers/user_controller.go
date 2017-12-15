@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"net/http"
 
+	utils "github.com/shijuvar/gokit/examples/bookmark-api/apputil"
 	"github.com/shijuvar/gokit/examples/bookmark-api/model"
 	"github.com/shijuvar/gokit/examples/bookmark-api/store"
-	utils "github.com/shijuvar/gokit/examples/bookmark-api/webutils"
 )
 
 // Register add a new User document
