@@ -46,7 +46,7 @@ func responseHandler(h func(http.ResponseWriter, *http.Request) (interface{}, in
 	})
 }
 
-//Variable to generate key for the collection
+// Variable to generate key for the collection
 var id int = 0
 
 //HTTP Post - /api/notes
@@ -67,7 +67,7 @@ func (h handler) postNoteHandler(w http.ResponseWriter, r *http.Request) (interf
 	return note, http.StatusCreated, nil
 }
 
-//HTTP Get - /api/notes
+// HTTP Get - /api/notes
 func (h handler) getNoteHandler(w http.ResponseWriter, r *http.Request) (interface{}, int, error) {
 	var notes []note
 	for _, v := range h.store {
@@ -76,7 +76,7 @@ func (h handler) getNoteHandler(w http.ResponseWriter, r *http.Request) (interfa
 	return notes, http.StatusOK, nil
 }
 
-//HTTP Put - /api/notes/{id}
+// HTTP Put - /api/notes/{id}
 func (h handler) putNoteHandler(w http.ResponseWriter, r *http.Request) (interface{}, int, error) {
 	var err error
 	vars := mux.Vars(r)
@@ -98,7 +98,7 @@ func (h handler) putNoteHandler(w http.ResponseWriter, r *http.Request) (interfa
 	return nil, http.StatusNoContent, nil
 }
 
-//HTTP Delete - /api/notes/{id}
+// HTTP Delete - /api/notes/{id}
 func (h handler) deleteNoteHandler(w http.ResponseWriter, r *http.Request) (interface{}, int, error) {
 	vars := mux.Vars(r)
 	k := vars["id"]
@@ -112,7 +112,7 @@ func (h handler) deleteNoteHandler(w http.ResponseWriter, r *http.Request) (inte
 	return nil, http.StatusNoContent, nil
 }
 
-//Entry point of the program
+// Entry point of the program
 func main() {
 
 	h := handler{
