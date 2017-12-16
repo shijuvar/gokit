@@ -13,7 +13,7 @@ import (
 )
 
 type (
-	Response struct {
+	response struct {
 		Data interface{} `json:"data"`
 	}
 	handler struct {
@@ -37,7 +37,7 @@ func responseHandler(h func(http.ResponseWriter, *http.Request) (interface{}, in
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(status)
 		if data != nil {
-			err = json.NewEncoder(w).Encode(Response{Data: data})
+			err = json.NewEncoder(w).Encode(response{Data: data})
 			if err != nil {
 				log.Printf("could not encode response to output: %v", err)
 			}
