@@ -9,7 +9,7 @@ import (
 
 	util "github.com/shijuvar/gokit/examples/bookmark-api/apputil"
 	"github.com/shijuvar/gokit/examples/bookmark-api/bootstrapper"
-	"github.com/shijuvar/gokit/examples/bookmark-api/routers"
+	"github.com/shijuvar/gokit/examples/bookmark-api/router"
 )
 
 // Entry point of the program
@@ -18,7 +18,7 @@ func main() {
 	// Calls startup logic
 	bootstrapper.StartUp()
 	// Get the mux router object
-	router := routers.InitRoutes()
+	router := router.InitRoutes()
 
 	// Create the Server
 	server := &http.Server{

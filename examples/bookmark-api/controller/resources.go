@@ -1,4 +1,4 @@
-package controllers
+package controller
 
 import (
 	"github.com/shijuvar/gokit/examples/bookmark-api/model"
