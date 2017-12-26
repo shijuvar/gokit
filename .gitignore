@@ -11,6 +11,9 @@ _test
 .vscode
 .idea
 
+# vendor directory
+vendor
+
 # Architecture specific extensions/prefixes
 *.[568vq]
 [568vq].out
