@@ -41,7 +41,7 @@
 
 
 
-### Building Microservices and Distributed Systems with Go
+### Building Microservices and Distributed Systems in Go
 --------------------------------------------------------
 **Course Duration:**  2 Days
 
