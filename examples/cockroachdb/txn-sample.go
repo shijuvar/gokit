@@ -43,7 +43,6 @@ func main() {
 	err = crdb.ExecuteTx(context.Background(), db, nil, func(tx *sql.Tx) error {
 		return transferFunds(tx, 1 /* from acct# */, 2 /* to acct# */, 100 /* amount */)
 	})
-
 	if err == nil {
 		fmt.Println("Success")
 	} else {
