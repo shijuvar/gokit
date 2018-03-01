@@ -35,10 +35,10 @@
 **Level:** Advanced 
 
 **Learning Objectives:** 
-* Learn distributed systems architetcure patterns.
+* Learn distributed systems architecture patterns.
 *	Build cloud-native distributed systems and Microservices with Go ecosystem.
 *	Solve the practical challenges of Microservices architecture with data and transactions.
-*	Inter-process communication in Microservices architecture. 
+*	Perform inter-process communication in Microservices architecture. 
 *	Build Microservices with Domain-Driven Design, gRPC, NATS Streaming, CQRS and Event-Sourcing.
 *	Learn in-depth on gRPC, NATS Server and NATS Streaming Server.
 
