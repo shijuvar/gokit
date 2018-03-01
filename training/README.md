@@ -9,8 +9,10 @@
 ## Courses
 ### Professional Go Programming 
 -------------------------------
-**Course Duration:**  5 Days
+**Course Duration:**  5 Days 
+
 **Prerequisite:**  None
+
 **Level:** Beginner to Advanced 
 
 **Learning Objectives:** 
@@ -26,8 +28,10 @@
 
 ### Building Microservices and Distributed Systems in Go
 --------------------------------------------------------
-**Course Duration:**  2 Days
-**Prerequisite:**  Experience in building Go apps 
+**Course Duration:**  2 Days 
+
+**Prerequisite:**  Experience in building Go apps; Knowledge in Distributed Systems 
+
 **Level:** Advanced 
 
 **Learning Objectives:** 
@@ -40,4 +44,4 @@
 
 
 ### About the Trainer
-Shiju Varghese is a solutions architect, consultant, published author and speaker. He is focused on building highly scalable cloud-native applications with a special interest on APIs, distributed systems architectures, microservices and container technologies. His current technology focus is on Go, Google Cloud, NATS, gRPC, CockroachDB and Kubernetes. He is an early adopter of Go programming language, and provides consulting and training for building backend systems and microservices with Go ecosystem. Before adopting Go as the primary technology stack, he worked extensively on C# and Node.js, and was awarded Microsoft MVP seven times. He has spoken at numerous conferences including GopherCon India (Go Conference in India) and Great Indian Developer Summit. He has authored two books on Go, titled "Web Development with Go" and "Go Recipes", both published by Apress.
+Shiju Varghese is a solutions architect, consultant, published author and speaker. He is focused on building highly scalable cloud-native applications with a special interest on API/RPC services, distributed systems architectures, microservices and container technologies. His current technology focus is on Go, Google Cloud, NATS, gRPC, CockroachDB and Kubernetes. He is an early adopter of Go programming language, and provides consulting and training for building backend systems and microservices with Go ecosystem. Before adopting Go as the primary technology stack, he worked extensively on C# and Node.js, and was awarded Microsoft MVP seven times. He has spoken at numerous conferences including GopherCon India (Go Conference in India) and Great Indian Developer Summit. He has authored two books on Go, titled "Web Development with Go" and "Go Recipes", both published by Apress.
