@@ -9,7 +9,7 @@ import (
 	"github.com/shijuvar/gokit/examples/testing/gomock/mocks"
 )
 
-var _ = Describe("Table", func() {
+var _ = Describe("Controller", func() {
 
 	var (
 		mockCtrl       *gomock.Controller
