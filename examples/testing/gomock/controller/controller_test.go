@@ -27,7 +27,7 @@ var _ = Describe("Table", func() {
 		mockCtrl.Finish()
 	})
 
-	It("should consume things", func() {
+	It("Add User", func() {
 		mockStore.EXPECT().AddUser("shijuvar").Return(nil).Times(1)
 		err := userController.Create("shijuvar")
 		Ω(err).Should(BeNil())
