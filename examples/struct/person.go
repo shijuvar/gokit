@@ -13,12 +13,12 @@ type Person struct {
 	Email, Location     string
 }
 
-//A person method with pointer receiver
+//A person method with value receiver
 func (p Person) PrintName() {
 	fmt.Printf("\n%s %s\n", p.FirstName, p.LastName)
 }
 
-//A person method with pointer receiver
+//A person method with value receiver
 func (p Person) PrintDetails() {
 	fmt.Printf("[Date of Birth: %s, Email: %s, Location: %s ]\n", p.Dob.String(), p.Email, p.Location)
 }
@@ -28,9 +28,10 @@ func main() {
 	p.FirstName = "Rob"
 	p.LastName = "Pike"
 	p.Dob = time.Date(1957, time.February, 17, 0, 0, 0, 0, time.UTC)
-	p.Email = "pike.email.com"
+	p.Email = "pike@email.com"
 	p.Location = "California"
 
+	// Struct literal
 	p1 := Person{
 		FirstName: "Shiju",
 		LastName:  "Varghese",
