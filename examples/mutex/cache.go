@@ -35,12 +35,12 @@ func (ds *MemCache) Set(key string, value string) {
 }
 func (ds *MemCache) Get(key string) string {
 	ds.RLock()
-	defer ds.RLock()
+	defer ds.RUnlock()
 	return ds.get(key)
 }
 func (ds *MemCache) Count() int {
 	ds.RLock()
-	defer ds.RLock()
+	defer ds.RUnlock()
 	return ds.count()
 }
 func main() {
