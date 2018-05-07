@@ -3,6 +3,7 @@ package main
 
 import (
 	"fmt"
+	"reflect"
 	"time"
 )
 
@@ -60,6 +61,10 @@ func (m Manager) PrintDetails() {
 	}
 }
 
+func (m Manager) ToString() {
+	fmt.Printf("%+v\n", m)
+}
+
 type Team struct {
 	Name, Description string
 	TeamMembers       []TeamMember
@@ -69,8 +74,15 @@ func (t Team) PrintTeamDetails() {
 	fmt.Printf("Team: %s  - %s\n", t.Name, t.Description)
 	fmt.Println("Details of the team members:")
 	for _, v := range t.TeamMembers {
+		// Get the concrete type name
+		t := reflect.TypeOf(v)
+		fmt.Println("\nType:", t)
 		v.PrintName()
 		v.PrintDetails()
+		if t.String() == "main.Manager" {
+			m := v.(Manager) // Type assertion
+			m.ToString()
+		}
 	}
 }
 
