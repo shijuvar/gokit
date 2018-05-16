@@ -2,31 +2,31 @@ package main
 
 import "fmt"
 
-type Logger interface {
+type Writer interface {
 	Write()
 }
 
-type ConsoleLogger struct {
+type ConsoleWriter struct {
 	Message string
 }
 
-func (c ConsoleLogger) Write() {
+func (c ConsoleWriter) Write() {
 	fmt.Println("Write into console...")
 	fmt.Println("Log:", c.Message)
 }
 
-type TextLogger struct {
+type TextWriter struct {
 	Message string
 }
 
-func (t TextLogger) Write() {
+func (t TextWriter) Write() {
 	fmt.Println("Write into text file...")
 	fmt.Println("Log:", t.Message)
 }
 
-type LoggerHelper struct {
+type Logger struct {
 }
 
-func (lh LoggerHelper) Log(l Logger) {
-	l.Write()
+func (lh Logger) Log(writer Writer) {
+	writer.Write()
 }

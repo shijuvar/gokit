@@ -1,7 +1,7 @@
 package main
 
 func main() {
-	l := TextLogger{"Sample message"}
-	lh := LoggerHelper{}
-	lh.Log(l)
+	tw := TextWriter{"Sample message"}
+	l := Logger{}
+	l.Log(tw)
 }

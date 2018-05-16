@@ -3,26 +3,26 @@ package main
 import "fmt"
 
 func main() {
-	lh := LoggerHelper{}
+	l := Logger{}
 
-	// Logging with ConsoleLogger
-	cl := ConsoleLogger{"Sample message"}
-	lh.Log(cl)
+	// Logging with ConsoleWriter
+	cw := ConsoleWriter{"Sample message"}
+	l.Log(cw)
 
-	// Logging with TextLogger
-	tl := TextLogger{"Sample message"}
-	lh.Log(tl)
+	// Logging with TextWriter
+	tw := TextWriter{"Sample message"}
+	l.Log(tw)
 
-	// Logging with XmlLogger
-	xl := XmlLogger{"Sample message"}
-	lh.Log(xl)
+	// Logging with XmlWriter
+	xw := XmlWriter{"Sample message"}
+	l.Log(xw)
 }
 
-type XmlLogger struct {
+type XmlWriter struct {
 	Message string
 }
 
-func (x XmlLogger) Write() {
+func (x XmlWriter) Write() {
 	fmt.Println("Write into xml file...")
 	fmt.Println("Log:", x.Message)
 }
