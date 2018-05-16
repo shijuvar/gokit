@@ -22,6 +22,7 @@ type XmlWriter struct {
 	Message string
 }
 
+// XmlWriter writes logs into xml file
 func (x XmlWriter) Write() {
 	fmt.Println("Write into xml file...")
 	fmt.Println("Log:", x.Message)
