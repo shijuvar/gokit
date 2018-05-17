@@ -1,7 +1,8 @@
 # Go Programming Workshop 2018
-<a href="(https://medium.com/@shijuvar"><img src="https://github.com/shijuvar/gokit/blob/master/img/go_logo.png" align="center" height="200" width="350" ></a>
+<a href="(https://medium.com/@shijuvar"><img src="https://github.com/shijuvar/gokit/blob/master/img/go_logo.png" align="center" height="200" width="300" ></a>
 
-**Provides on-site training (PAN India) and technology consulting on Go, Microservices and cloud-native distributed systems architectures.** 
+* Provides onsite training and consulting on Go, Microservices and cloud-native distributed systems architectures in PAN India.** 
+* Provides one-to-one mentoring via online on Go and cloud-native distributed systems architectures.
 
 **Contact: gophermonk@gmail.com**  
 
