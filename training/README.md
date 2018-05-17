@@ -1,5 +1,5 @@
 # Go Programming Workshop 2018
-<a href="(https://medium.com/@shijuvar"><img src="https://github.com/shijuvar/gokit/blob/master/img/Go-Logo_Blue.jpg" align="center" height="450" width="450" ></a>
+<a href="(https://medium.com/@shijuvar"><img src="https://github.com/shijuvar/gokit/blob/master/img/go_logo.png" align="center" height="450" width="450" ></a>
 
 **Provides on-site training (PAN India) and technology consulting on Go, Microservices and cloud-native distributed systems architectures.** 
 
