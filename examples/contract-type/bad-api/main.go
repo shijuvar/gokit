@@ -1,8 +1,8 @@
 package main
 
 func main() {
-	tw := TextWriter{"Sample message"}
-	l := Logger{}
+	tw := TextWriter{}
+	l := Logger{"Sample message"}
 	// Log with TextWriter
 	l.Log(tw)
 }

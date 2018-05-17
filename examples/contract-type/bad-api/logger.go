@@ -2,19 +2,18 @@ package main
 
 import "fmt"
 
-type TextWriter struct {
-	Message string
-}
+type TextWriter struct{}
 
 // TextWriter writes logs into text file
-func (t TextWriter) Write() {
+func (t TextWriter) Write(message string) {
 	fmt.Println("Write into text file...")
-	fmt.Println("Log:", t.Message)
+	fmt.Println("Log:", message)
 }
 
 type Logger struct {
+	Message string
 }
 
 func (l Logger) Log(t TextWriter) {
-	t.Write()
+	t.Write(l.Message)
 }
