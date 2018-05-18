@@ -42,7 +42,7 @@
 *	Perform inter-process communication in Microservices architecture. 
 *	Build Microservices with Domain-Driven Design, gRPC, NATS Streaming, CQRS and Event-Sourcing.
 *	Learn in-depth on gRPC, NATS Server and NATS Streaming Server.
-*	Understanding service mesh and Istio service mesh platform.
+*	Understand service mesh and Istio service mesh platform.
 
 
 ### About the Trainer
