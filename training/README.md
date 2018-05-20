@@ -16,15 +16,21 @@
 
 **Level:** Beginner to Advanced 
 
-**Learning Objectives:** 
-*	Master on Go programming language and its core fundamentals.
-*	Learn in-depth on Go functions, including functional programming.
-*	Write highly maintainable and extensible systems with Go's type system.
-*	Write high-performance, concurrent systems using Go’s concurrency primitives and various concurrency patterns.
-*	Build real-world web apps and RESTful APIs in Go.
-*	Persistence with databases such as MongoDB, CockroachDB, InfluxDB and SQL databases.
-*	Testing Go applications. 
-*	Build highly scalable distributed systems and microservices with gRPC and NATS Streaming Server.
+**Summary of Course Contents:** 
+*	Go programming language and its core fundamentals.
+* Package ecosystem and tooling.
+*	Functional programming.
+*	Struct and Interface.
+*	Concurrency primitives: Goroutines and Channels.
+*	Advanced Concurrency patterns.
+* Mutexes
+* Context package
+* HTTP programming: Basics to building production-ready apps.
+*	Persistence with databases: MongoDB, CockroachDB, InfluxDB and SQL databases.
+*	Testing Go applications: Basics to BDD-style testing and mocking.
+*	Building next-generation APIs with gRPC.
+* Working with cloud-native messaging systems: NATS and NATS Streaming Server.
+* A primer on building distributed systems and microservices with Go ecosystem.
 
 
 ### Building Microservices and Distributed Systems in Go
@@ -35,14 +41,17 @@
 
 **Level:** Advanced 
 
-**Learning Objectives:** 
-* Learn distributed systems architecture patterns.
-*	Build cloud-native distributed systems and Microservices with Go ecosystem.
-*	Solve the practical challenges of Microservices architecture with data and transactions.
-*	Perform inter-process communication in Microservices architecture. 
-*	Build Microservices with Domain-Driven Design, gRPC, NATS Streaming, CQRS and Event-Sourcing.
-*	Learn in-depth on gRPC, NATS Server and NATS Streaming Server.
-*	Understand service mesh and Istio service mesh platform.
+**Summary of Course Contents:**  
+* An introduction to cloud-native distributed systems architecture patterns.
+* Introduction to Microservices Architecture.
+* Decomposition Patterns for Microservices. 
+* Inter-process communication between Microservices with gRPC and Protocol Buffers.
+* Managing Transactions in Microservices.
+* Building Microservices with Event Sourcing and CQRS. 
+* A deep dive into cloud-native messaging systems: NATS and NATS Streaming Server. 
+* Building Event-Driven Microservices with NATS Streaming Server.
+*	Introduction to Docker and Kubernetes.
+*	Introduction to service mesh and Istio.
 
 
 ### About the Trainer
