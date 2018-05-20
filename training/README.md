@@ -23,8 +23,8 @@
 *	Struct and Interface.
 *	Concurrency primitives: Goroutines and Channels.
 *	Advanced Concurrency patterns.
-* Mutexes
-* Context package
+* Mutexes.
+* Context package.
 * HTTP programming: Basics to building production-ready apps.
 *	Persistence with databases: MongoDB, CockroachDB, InfluxDB and SQL databases.
 *	Testing Go applications: Basics to BDD-style testing and mocking.
