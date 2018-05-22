@@ -20,6 +20,7 @@ func main() {
 	urls := []string{
 		"https://golang.org",
 		"https://www.google.com",
+		"https://twitter.com",
 	}
 
 	wg.Add(2)
@@ -66,8 +67,7 @@ func printWebResponses(webResponses <-chan webResponse) {
 			fmt.Println("Error:", v.error)
 		}
 		fmt.Println("HTTP Status Code:", v.status)
-		fmt.Println("Response Lenght:", len(v.responseText))
-		fmt.Println("Response Text:", v.responseText)
+		fmt.Println("Response Text:\n", v.responseText)
 
 	}
 }
