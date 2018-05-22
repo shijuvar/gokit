@@ -24,8 +24,8 @@ func main() {
 
 	wg.Add(2)
 	webResponses := make(chan webResponse, 2)
-	getWebResponses(urls, webResponses)
-	printWebResponses(webResponses)
+	go getWebResponses(urls, webResponses)
+	go printWebResponses(webResponses)
 	wg.Wait()
 }
 
@@ -35,11 +35,11 @@ func getWebResponses(urls []string, webResponses chan<- webResponse) {
 	var wgUrlReq sync.WaitGroup
 	wgUrlReq.Add(len(urls))
 	for _, v := range urls {
-		go func() {
+		go func(url string) {
 			defer wgUrlReq.Done()
 			responseVal := webResponse{}
-			responseVal.requestUrl = v
-			response, err := http.Get(v)
+			responseVal.requestUrl = url
+			response, err := http.Get(url)
 			if err != nil {
 				responseVal.error = err
 				responseVal.status = http.StatusInternalServerError
@@ -53,7 +53,7 @@ func getWebResponses(urls []string, webResponses chan<- webResponse) {
 				responseVal.status = response.StatusCode
 			}
 			webResponses <- responseVal
-		}()
+		}(v)
 	}
 	wgUrlReq.Wait()
 }
@@ -67,5 +67,7 @@ func printWebResponses(webResponses <-chan webResponse) {
 		}
 		fmt.Println("HTTP Status Code:", v.status)
 		fmt.Println("Response Lenght:", len(v.responseText))
+		fmt.Println("Response Text:", v.responseText)
+
 	}
 }
