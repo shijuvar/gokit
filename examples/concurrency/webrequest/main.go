@@ -24,7 +24,7 @@ func main() {
 	}
 
 	wg.Add(2)
-	webResponses := make(chan webResponse, 2)
+	webResponses := make(chan webResponse, len(urls))
 	go getWebResponses(urls, webResponses)
 	go printWebResponses(webResponses)
 	wg.Wait()
