@@ -2,7 +2,7 @@
 <a href="(https://medium.com/@shijuvar"><img src="https://github.com/shijuvar/gokit/blob/master/img/go_logo.png" align="center" height="200" width="300" ></a>
 
 * Provides onsite training and consulting on Go, Microservices and cloud-native distributed systems architectures in PAN India.
-* Provides one-to-one mentoring via online on Go and cloud-native distributed systems architectures.
+* Provides one-to-one mentoring via online on Go and distributed systems architectures.
 
 **Contact: gophermonk@gmail.com**  
 
@@ -19,6 +19,7 @@
 **Summary of Course Contents:** 
 *	Go programming language and its core fundamentals.
 * Package ecosystem and tooling.
+* Dependency management for Go: Dep and Vgo
 *	Functional programming.
 *	Struct and Interface.
 *	Concurrency primitives: Goroutines and Channels.
@@ -28,6 +29,7 @@
 * HTTP programming: Basics to building production-ready apps.
 *	Persistence with databases: MongoDB, CockroachDB, InfluxDB and SQL databases.
 *	Testing Go applications: Basics to BDD-style testing and mocking.
+* Debugging, Profiling and Tracing Go programs. 
 *	Building next-generation APIs with gRPC.
 * Working with cloud-native messaging systems: NATS and NATS Streaming Server.
 * A primer on building distributed systems and microservices with Go ecosystem.
