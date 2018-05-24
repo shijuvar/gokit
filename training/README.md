@@ -19,7 +19,6 @@
 **Summary of Course Contents:** 
 *	Go programming language and its core fundamentals.
 * Package ecosystem and tooling.
-* Dependency management for Go: Dep and Vgo
 *	Functional programming.
 *	Struct and Interface.
 *	Concurrency primitives: Goroutines and Channels.
@@ -29,10 +28,11 @@
 * HTTP programming: Basics to building production-ready apps.
 *	Persistence with databases: MongoDB, CockroachDB, InfluxDB and SQL databases.
 *	Testing Go applications: Basics to BDD-style testing and mocking.
+* Dependency management for Go: Dep and Vgo.
 * Debugging, Profiling and Tracing Go programs. 
 *	Building next-generation APIs with gRPC.
 * Working with cloud-native messaging systems: NATS and NATS Streaming Server.
-* A primer on building distributed systems and microservices with Go ecosystem.
+* A primer on building cloud-native distributed systems and microservices with Go ecosystem.
 
 
 ### Building Microservices and Distributed Systems in Go
