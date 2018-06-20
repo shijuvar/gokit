@@ -26,6 +26,7 @@
 * Mutexes.
 * Context package.
 * HTTP programming: Basics to building production-ready apps.
+* Building CLI applcations.
 *	Persistence with databases: MongoDB, CockroachDB, InfluxDB and SQL databases.
 *	Testing Go applications: Basics to BDD-style testing and mocking.
 * Dependency management for Go: Dep and Vgo.
