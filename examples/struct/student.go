@@ -55,4 +55,5 @@ func main() {
 
 	s.setMark(m1) // mutate the Mark value
 	s.getStudentMark()
+
 }
