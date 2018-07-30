@@ -5,15 +5,14 @@ import (
 )
 
 func main() {
-	teams := []string{"Dev", "QA", "Ops"}
-	manager := "Keerthi"
 
 	team := struct {
 		teams   []string
 		manager string
 	}{
-		teams,
-		manager,
+		[]string{"Dev", "QA", "Ops"},
+		"Keerthi",
 	}
-	fmt.Printf("%+v", team)
+	fmt.Printf("%+v\n", team)
+
 }
