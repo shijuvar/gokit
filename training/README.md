@@ -19,7 +19,7 @@
 **Summary of Course Contents:** 
 *	Go programming language and its core fundamentals.
 * Package ecosystem and tooling.
-*	Functional programming.
+*	First-class functions.
 *	Struct and Interface.
 *	Concurrency primitives: Goroutines and Channels.
 *	Advanced Concurrency patterns.
@@ -56,6 +56,24 @@
 *	Introduction to Docker and Kubernetes.
 *	Introduction to service mesh and Istio.
 
+### Go Crash Course 
+-------------------------------
+**Course Duration:**  2 Days 
+
+**Prerequisite:**  Knowledge in one programming language  
+
+**Level:** Beginner to Advanced 
+
+**Summary of Course Contents:** 
+*	Go programming language and its core fundamentals.
+* Package ecosystem and tooling.
+*	Struct and Interface.
+*	Concurrency primitives: Goroutines and Channels.
+* Mutexes.
+* HTTP programming: Basics to building production-ready apps.
+* Building next-generation APIs with gRPC and Protocol Buffers
 
 ### About the Trainer
+<a href="(https://medium.com/@shijuvar"><img src="https://avatars0.githubusercontent.com/u/1546448" height="25%" width="25%"></a> 
+
 Shiju Varghese is a solutions architect, consultant, published author and speaker. He is focused on building highly scalable cloud-native applications with a special interest on APIs, distributed systems architectures, microservices and blockchain technologies. His current technology focus is on Go, Google Cloud, NATS, gRPC, CockroachDB and Kubernetes. He is an early adopter of Go programming language, and has been providing training and architecture guidance for building backend systems and microservices with Go ecosystem. Before adopting Go as the primary technology stack, he worked extensively on C# and Node.js, and was awarded Microsoft MVP seven times. He has spoken at numerous conferences including GopherCon India (Go Conference in India) and Great Indian Developer Summit. He has authored two books on Go, titled "Web Development with Go" and "Go Recipes", both published by Apress.
