@@ -36,7 +36,7 @@
 * A primer on building cloud-native distributed systems and microservices with Go ecosystem.
 
 
-### Building Microservices and Distributed Systems in Go
+### Cloud Native Microservices in Go
 --------------------------------------------------------
 **Course Duration:**  2 Days 
 
@@ -55,6 +55,7 @@
 * Building Event-Driven Microservices with NATS Streaming Server.
 *	Introduction to Docker and Kubernetes.
 *	Introduction to service mesh and Istio.
+*	Microservices development with Go kit.
 
 ### Go Crash Course 
 -------------------------------
