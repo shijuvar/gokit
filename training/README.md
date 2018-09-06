@@ -35,7 +35,7 @@
 * Building next-generation APIs using gRPC and Protocol Buffers
 * Introduction to NATS and NATS related messaging patterns
 * Building Event-Driven Microservices with NATS Streaming Server
-* Building microservices with Go kit - A toolkit for building microservices in Go 
+* Building microservices with Go-kit - A toolkit for building microservices in Go 
 
 
 ### Cloud Native Microservices in Go
@@ -58,7 +58,7 @@
 * Building Microservices with Event Sourcing and CQRS. 
 * A deep dive into cloud-native messaging systems: NATS and NATS Streaming Server. 
 * Building Event-Driven Microservices with NATS Streaming Server.
-* Microservices development with Go kit.
+* Microservices development with Go-kit.
 *	A primer on container technologies.
 *	Introduction to service mesh and Istio.
 
