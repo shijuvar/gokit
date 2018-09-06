@@ -44,7 +44,7 @@
 
 **Prerequisite:**  Experience in building real-world Go apps; Knowledge in Distributed Systems 
 
-**Target Audience:** Sr. Engineers and Architects
+**Target Audience:** Distributed Systems Engineers and Architects
 
 **Level:** Advanced 
 
