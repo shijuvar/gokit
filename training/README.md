@@ -31,16 +31,20 @@
 *	Testing Go applications: Basics to BDD-style testing and mocking.
 * Dependency management for Go: Dep and Vgo.
 * Debugging, Profiling and Tracing Go programs. 
-*	Building next-generation APIs with gRPC.
-* Working with cloud-native messaging systems: NATS and NATS Streaming Server.
-* A primer on building cloud-native distributed systems and microservices with Go ecosystem.
+*	Introduction to Cloud Native and Microservices
+* Building Next-Generation APIs using gRPC and Protocol Buffers
+* Introduction to NATS and NATS related messaging patterns
+* Building Event-Driven Microservices with NATS Streaming Server
+* Building microservices with Go kit - A toolkit for building microservices in Go 
 
 
 ### Cloud Native Microservices in Go
 --------------------------------------------------------
 **Course Duration:**  2 Days 
 
-**Prerequisite:**  Experience in building Go apps; Knowledge in Distributed Systems 
+**Prerequisite:**  Experience in building real-world Go apps; Knowledge in Distributed Systems 
+
+**Target Audience:** Sr. Engineers and Architects
 
 **Level:** Advanced 
 
@@ -48,31 +52,16 @@
 * An introduction to cloud-native distributed systems architecture patterns.
 * Introduction to Microservices Architecture.
 * Decomposition Patterns for Microservices. 
-* Inter-process communication between Microservices with gRPC and Protocol Buffers.
+* Domain-Driven Design (DDD)
+* A deep dive into gRPC and Protocol Buffers.
 * Managing Transactions in Microservices.
 * Building Microservices with Event Sourcing and CQRS. 
 * A deep dive into cloud-native messaging systems: NATS and NATS Streaming Server. 
 * Building Event-Driven Microservices with NATS Streaming Server.
-*	Introduction to Docker and Kubernetes.
+* Microservices development with Go kit.
+*	A primer on container technologies.
 *	Introduction to service mesh and Istio.
-*	Microservices development with Go kit.
 
-### Go Crash Course 
--------------------------------
-**Course Duration:**  2 Days 
-
-**Prerequisite:**  Knowledge in one programming language  
-
-**Level:** Beginner to Advanced 
-
-**Summary of Course Contents:** 
-*	Go programming language and its core fundamentals.
-* Package ecosystem and tooling.
-*	Struct and Interface.
-*	Concurrency primitives: Goroutines and Channels.
-* Mutexes.
-* HTTP programming: Basics to building production-ready apps.
-* Building next-generation APIs with gRPC and Protocol Buffers
 
 ### About the Trainer
 <a href="(https://medium.com/@shijuvar"><img src="https://avatars0.githubusercontent.com/u/1546448" height="25%" width="25%"></a> 
