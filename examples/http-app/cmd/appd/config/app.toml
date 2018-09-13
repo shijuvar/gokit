@@ -1,0 +1,17 @@
+# TOML config file.
+[devserver]
+Server      = "0.0.0.0:8080"
+LogLevel    = 2
+
+[prodserver]
+Server      = "0.0.0.0:8080"
+LogLevel    = 2
+
+[postgres]
+Host        = "localhost"
+Port        = "5433"
+User        = "postgres"
+Password    = "gopher"
+Database    = "posdb"
+
+
