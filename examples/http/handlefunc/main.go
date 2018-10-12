@@ -28,17 +28,27 @@ func index(w http.ResponseWriter, r *http.Request) {
 }
 
 func welcome(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Welcome to Go Web Programming")
+	fmt.Fprintf(w, "Welcome to Go Web Programming\n")
 }
 func message(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "net/http package is used to build web apps")
+	fmt.Fprintf(w, "net/http package is used to build web apps\n")
 }
 
 func main() {
+	// NewServeMux returns a new ServeMux.
 	mux := http.NewServeMux()
+	// HandleFunc registers the handler function for the given pattern.
 	mux.HandleFunc("/", index)
 	mux.HandleFunc("/welcome", welcome)
 	mux.HandleFunc("/message", message)
 	log.Println("Listening...")
-	http.ListenAndServe(":8080", mux)
+	// http.ListenAndServe(":8080", mux)
+	// A Server defines parameters for running an HTTP server.
+	server := &http.Server{
+		Addr:    ":8080",
+		Handler: mux, // handler to invoke, http.DefaultServeMux if nil
+	}
+	// ListenAndServe listens on the TCP network address and
+	// then calls Serve to handle requests on incoming connections.
+	server.ListenAndServe()
 }
