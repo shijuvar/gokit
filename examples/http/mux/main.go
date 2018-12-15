@@ -73,8 +73,6 @@ func PutNoteHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	if note, ok := noteStore[k]; ok {
 		noteToUpd.CreatedOn = note.CreatedOn
-		//delete existing item and add the updated item
-		delete(noteStore, k)
 		noteStore[k] = noteToUpd
 	} else {
 		log.Printf("Could not find key of Note %s to delete", k)
