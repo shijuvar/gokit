@@ -38,6 +38,12 @@ func main() {
 	http.HandleFunc("/", index)
 	http.HandleFunc("/welcome", welcome)
 	http.HandleFunc("/message", message)
+	// A Server defines parameters for running an HTTP server.
+	server := &http.Server{
+		Addr: ":8080",
+	}
 	log.Println("Listening...")
-	http.ListenAndServe(":8080", nil)
+	// ListenAndServe listens on the TCP network address and
+	// then calls Serve to handle requests on incoming connections.
+	server.ListenAndServe()
 }
