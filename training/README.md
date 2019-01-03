@@ -29,8 +29,8 @@
 * Building CLI applcations.
 *	Persistence with databases: MongoDB, CockroachDB, InfluxDB and SQL databases.
 *	Testing Go applications: Basics to BDD-style testing and mocking.
-* Dependency management for Go: Dep and Go Modules.
-* Debugging, Profiling and Tracing Go programs. 
+* Go Modules and Project Athens
+* Profiling and Tracing Go programs. 
 *	Introduction to Cloud Native and Microservices
 * Building next-generation APIs using gRPC and Protocol Buffers
 * Introduction to NATS and NATS related messaging patterns
