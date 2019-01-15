@@ -1,8 +1,7 @@
-# Go Programming Workshop 2018
+# Go Programming Workshop 2019
 <a href="(https://medium.com/@shijuvar"><img src="https://github.com/shijuvar/gokit/blob/master/img/go_logo.png" align="center" height="200" width="300" ></a>
 
-* Provides onsite training and consulting on Go, Microservices and cloud-native distributed systems architectures in PAN India.
-* Provides one-to-one mentoring via online on Go and distributed systems architectures.
+Provides onsite training and consulting on Go, Microservices and cloud-native distributed systems architectures in PAN India.
 
 **Contact: gophermonk@gmail.com**  
 
@@ -26,11 +25,10 @@
 * Mutexes.
 * Context package.
 * HTTP programming: Basics to building production-ready apps.
-* Building CLI applcations.
 *	Persistence with databases: MongoDB, CockroachDB, InfluxDB and SQL databases.
 *	Testing Go applications: Basics to BDD-style testing and mocking.
-* Dependency management for Go: Dep and Go Modules.
-* Debugging, Profiling and Tracing Go programs. 
+* Go Modules and Project Athens
+* Profiling and Tracing Go programs. 
 *	Introduction to Cloud Native and Microservices
 * Building next-generation APIs using gRPC and Protocol Buffers
 * Introduction to NATS and NATS related messaging patterns
