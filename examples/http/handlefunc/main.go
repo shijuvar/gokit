@@ -42,8 +42,8 @@ func main() {
 	mux.HandleFunc("/welcome", welcome)
 	mux.HandleFunc("/message", message)
 	log.Println("Listening...")
-	// http.ListenAndServe(":8080", mux)
-	// A Server defines parameters for running an HTTP server.
+	//http.ListenAndServe(":8080", mux)
+	//A Server defines parameters for running an HTTP server.
 	server := &http.Server{
 		Addr:    ":8080",
 		Handler: mux, // handler to invoke, http.DefaultServeMux if nil
