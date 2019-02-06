@@ -19,6 +19,6 @@ func SetProductRoutes(router *mux.Router, store postgres.DataStore) *mux.Router 
 	productRouter.Handle("/products", controller.ResponseHandler(productController.GetAllProducts)).Methods("GET")
 	productRouter.Handle("/products/{id}", controller.ResponseHandler(productController.GetProductById)).Methods("GET")
 	// Applying authorization middleware
-	productRouter.PathPrefix("/products").Handler(auth.AuthorizeRequest(productRouter))
+	router.PathPrefix("/products").Handler(auth.AuthorizeRequest(productRouter))
 	return router
 }
