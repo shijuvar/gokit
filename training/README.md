@@ -53,9 +53,9 @@ Provides onsite training and consulting on Go, Microservices and cloud-native di
 * Domain-Driven Design (DDD)
 * A deep dive into gRPC and Protocol Buffers.
 * Managing Transactions in Microservices.
-* Building Microservices with Event Sourcing and CQRS. 
 * A deep dive into cloud-native messaging systems: NATS and NATS Streaming Server. 
-* Building Event-Driven Microservices with NATS Streaming Server.
+* Building Event-Driven Microservices with NATS.
+* Building Microservices with Event Sourcing and CQRS. 
 * Microservices development with Go-kit.
 *	A primer on container technologies.
 
