@@ -36,7 +36,7 @@ Provides onsite training and consulting on Go, Microservices and cloud-native di
 * Building microservices with Go-kit - A toolkit for building microservices in Go 
 
 
-### Cloud Native Microservices in Go
+### Microservices with Go
 --------------------------------------------------------
 **Course Duration:**  2 Days 
 
