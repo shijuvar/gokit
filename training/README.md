@@ -57,7 +57,7 @@ Provides onsite training and consulting on Go, Microservices and cloud-native di
 * Building Event-Driven Microservices with NATS.
 * Building Microservices with Event Sourcing and CQRS. 
 * Microservices development with Go-kit.
-*	A primer on container technologies.
+*	An introduction to containers and service mesh.
 
 
 ### About the Trainer
