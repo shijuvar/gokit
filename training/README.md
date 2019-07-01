@@ -7,13 +7,13 @@ Provides onsite training and consulting on Go, Microservices and cloud-native di
 
 
 ## Courses
-### Professional Go Programming 
+### Professional Go  
 -------------------------------
-**Course Duration:**  5 Days 
+**Course Duration:**  3 Days 
 
 **Prerequisite:**  None
 
-**Level:** Beginner to Advanced 
+**Level:** Beginner to Intermediate 
 
 **Summary of Course Contents:** 
 *	Go programming language and its core fundamentals.
@@ -23,20 +23,13 @@ Provides onsite training and consulting on Go, Microservices and cloud-native di
 *	Concurrency primitives: Goroutines and Channels.
 *	Advanced Concurrency patterns.
 * Mutexes.
-* Context package.
 * HTTP programming: Basics to building production-ready apps.
-*	Persistence with databases: MongoDB, CockroachDB, InfluxDB and SQL databases.
 *	Testing Go applications: Basics to BDD-style testing and mocking.
 * Go Modules and Project Athens
 * Profiling and Tracing Go programs. 
-*	Introduction to Cloud Native and Microservices
-* Building next-generation APIs using gRPC and Protocol Buffers
-* Introduction to NATS and NATS related messaging patterns
-* Building Event-Driven Microservices with NATS Streaming Server
-* Building microservices with Go-kit - A toolkit for building microservices in Go 
 
 
-### Microservices with Go
+### Microservices in Go
 --------------------------------------------------------
 **Course Duration:**  2 Days 
 
@@ -52,12 +45,12 @@ Provides onsite training and consulting on Go, Microservices and cloud-native di
 * Decomposition Patterns for Microservices. 
 * Domain-Driven Design (DDD)
 * A deep dive into gRPC and Protocol Buffers.
+* Working with CockroachDB - A distributed, fault-tolerant database 
 * Managing Transactions in Microservices.
 * A deep dive into cloud-native messaging systems: NATS and NATS Streaming Server. 
 * Building Event-Driven Microservices with NATS.
 * Building Microservices with Event Sourcing and CQRS. 
-* Microservices development with Go-kit.
-*	An introduction to containers and service mesh.
+* Microservices development with Go kit.
 
 
 ### About the Trainer
