@@ -1,14 +1,18 @@
-# Go Programming Workshop 2019
-<a href="(https://medium.com/@shijuvar"><img src="https://github.com/shijuvar/gokit/blob/master/img/go_logo.png" align="center" height="200" width="300" ></a>
+# Go Programming Workshop 2020 by Shiju Varghese
+<a href="(https://medium.com/@shijuvar"><img src="https://github.com/shijuvar/gopher/blob/master/img/go_logo.png" align="center" height="200" width="300" ></a>
 
 Provides onsite training and consulting on Go, Microservices and cloud-native distributed systems architectures in PAN India.
 
 **Contact: gophermonk@gmail.com**  
 
+## [List of clients of Shiju Varghese's Golang Workshop](https://github.com/shijuvar/gopher/blob/master/golang-clients.md)
+
 
 ## Courses
-### Professional Go  
+# Professional Go  
+### *A deep dive into Go programming language and HTTP programming*
 -------------------------------
+
 **Course Duration:**  3 Days 
 
 **Prerequisite:**  None
@@ -29,7 +33,8 @@ Provides onsite training and consulting on Go, Microservices and cloud-native di
 * Profiling and Tracing Go programs. 
 
 
-### Microservices in Go
+# Microservices in Go
+### *Building highly scalable distributed systems in Go*
 --------------------------------------------------------
 **Course Duration:**  2 Days 
 
@@ -47,13 +52,12 @@ Provides onsite training and consulting on Go, Microservices and cloud-native di
 * A deep dive into gRPC and Protocol Buffers.
 * Working with CockroachDB - A distributed, fault-tolerant database 
 * Managing Transactions in Microservices.
-* A deep dive into cloud-native messaging systems: NATS and NATS Streaming Server. 
+* A deep dive into cloud-native messaging systems: NATS 2.0, NATS Streaming and NATS JetStream. 
 * Building Event-Driven Microservices with NATS.
 * Building Microservices with Event Sourcing and CQRS. 
 * Microservices development with Go kit.
 
-
-### About the Trainer
+### Shiju Varghese
 <a href="(https://medium.com/@shijuvar"><img src="https://avatars0.githubusercontent.com/u/1546448" height="25%" width="25%"></a> 
-
-Shiju Varghese is a solutions architect, consultant, published author and speaker. He is focused on building highly scalable cloud-native distributed systems in Go programming language. He is an early adopter of Go, and has been providing consulting and training for building backend systems and microservices with Go ecosystem. Before adopting Go as the primary technology stack, he worked extensively on Microsoft .Net technologies for more than a decade, and was awarded Microsoft MVP seven times. He has spoken at [numerous conferences](https://github.com/shijuvar/trainings-talks/blob/master/README.md) including GopherCon India (Go Conference in India), DevConf.IN and Great Indian Developer Summit. He has authored two books on Go, titled "Web Development with Go" and "Go Recipes", both published by Apress.
+#### Senior Consulting Solutions Architect: Go (Golang) and Cloud-Native Distributed Systems
+Shiju Varghese is a solutions architect, consultant, published author and speaker. He is focused on building highly scalable cloud-native applications in the Go programming language, with a strong focus on distributed systems, event-driven architectures, microservices and event streams. He is an early adopter of Go, and has been providing consulting and training for building backend systems and microservices with Go ecosystem. Before adopting Go as the primary technology stack, he worked extensively on Microsoft .Net technologies for more than a decade, and was awarded Microsoft MVP seven times. He has spoken at [numerous conferences](https://github.com/shijuvar/gopher/blob/master/conferences.md) including GopherCon India (Go Conference in India), DevConf.IN and Great Indian Developer Summit. He has authored two books on Go, titled "Web Development with Go" and "Go Recipes", both published by Apress.
