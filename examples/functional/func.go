@@ -29,23 +29,28 @@ func YStringer(str string) string {
 }
 
 // Prints variadic values of StringWriter func type
-func Print(fs ...StringWriter) {
+func print(str string, fs ...StringWriter) {
 	for _, v := range fs {
-		v.Write("test from variadic func values")
+		v.Write(str)
 	}
 }
 
 // Prints variadic values of Writer interface
-func PrintInterface(fs ...Writer) {
+func printInterfaceValues(str string, fs ...Writer) {
 	for _, v := range fs {
-		v.Write("test from interface values")
+		v.Write(str)
 	}
 }
 func main() {
 	// Map of func values of interface type
+	z := func(str string) string {
+		return "ZStringer: " + str
+	}
+
 	fni := map[string]Writer{
 		"X": StringWriter(XStringer),
 		"Y": StringWriter(YStringer),
+		"Z": StringWriter(z),
 	}
 
 	// Call Write method
@@ -64,15 +69,6 @@ func main() {
 	}
 	fmt.Println("*************************")
 
-	fsWriters := []Writer{
-		StringWriter(XStringer),
-		StringWriter(YStringer),
-	}
-	// Print interface values
-	PrintInterface(fsWriters...)
-	fmt.Println("*************************")
-	PrintInterface(StringWriter(XStringer), StringWriter(YStringer))
-	fmt.Println("*************************")
 	fs := []StringWriter{
 		StringWriter(XStringer),
 		StringWriter(YStringer),
@@ -89,6 +85,6 @@ func main() {
 		return "ZStringer: " + str
 	}
 	fs = append(fs, zStringer)
-	//Print
-	Print(fs...)
+	//print
+	print("test on variadic func values", fs...)
 }
