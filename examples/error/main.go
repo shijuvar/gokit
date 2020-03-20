@@ -33,7 +33,7 @@ func main() {
 		fmt.Printf("%+v\n", err)
 		werror := errors.Unwrap(err)
 		if werror != nil {
-			fmt.Printf("Wrap: %s\n", werror)
+			fmt.Printf("UnWrap Error: %s\n", werror)
 		}
 		os.Exit(1)
 	}
