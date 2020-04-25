@@ -1,7 +1,7 @@
 # Go Programming Workshop 2020 by Shiju Varghese
 <a href="(https://medium.com/@shijuvar"><img src="https://github.com/shijuvar/gopher/blob/master/img/go_logo.png" align="center" height="200" width="300" ></a>
 
-Provides onsite training and consulting on Go, Microservices and cloud-native distributed systems architectures in PAN India.
+Provides training (both class room and online) and consulting on Go, Microservices and cloud-native distributed systems architectures. Class room trainings are only available in India. 
 
 **Contact: gophermonk@gmail.com**  
 
@@ -13,7 +13,9 @@ Provides onsite training and consulting on Go, Microservices and cloud-native di
 ### *A deep dive into Go programming language and HTTP programming*
 -------------------------------
 
-**Course Duration:**  3 Days 
+**Course Duration:**  
+* Class Room Training: 3 Days 
+* Online Training: 16 hours (8 sessions of two hours) and assignments at offline 
 
 **Prerequisite:**  None
 
@@ -36,7 +38,9 @@ Provides onsite training and consulting on Go, Microservices and cloud-native di
 # Microservices in Go
 ### *Building highly scalable distributed systems in Go*
 --------------------------------------------------------
-**Course Duration:**  2 Days 
+**Course Duration:** 
+* Class Room Training: 2 Days 
+* Online Training: 10 hours (5 sessions of two hours) and assignments at offline 
 
 **Prerequisite:**  Experience in building real-world Go apps; Knowledge in Distributed Systems 
 
