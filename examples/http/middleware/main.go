@@ -50,10 +50,14 @@ func favicon(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/favicon.ico", favicon)
-	http.Handle("/", loggingHandler(http.HandlerFunc(index)))
-	http.Handle("/welcome", loggingHandler(http.HandlerFunc(welcome)))
-	http.Handle("/message", loggingHandler(http.HandlerFunc(message)))
+	mux := http.NewServeMux()
+	mux.Handle("/", loggingHandler(http.HandlerFunc(index)))
+	mux.Handle("/welcome", loggingHandler(http.HandlerFunc(welcome)))
+	mux.Handle("/message", loggingHandler(http.HandlerFunc(message)))
 	log.Println("Listening...")
-	http.ListenAndServe(":8080", nil)
+	server := &http.Server{
+		Addr:    ":8080",
+		Handler: loggingHandler(mux),
+	}
+	server.ListenAndServe()
 }

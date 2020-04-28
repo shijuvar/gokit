@@ -42,16 +42,13 @@ func message(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "HTTP Middleware is awesome")
 }
 
-func iconHandler(w http.ResponseWriter, r *http.Request) {
-}
-
 func main() {
-
-	http.HandleFunc("/favicon.ico", iconHandler)
-	http.Handle("/", middlewareFirst(middlewareSecond(http.HandlerFunc(index))))
-	http.Handle("/message", middlewareFirst(middlewareSecond(http.HandlerFunc(message))))
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", index)
+	mux.HandleFunc("/message", message)
 	server := &http.Server{
-		Addr: ":8080",
+		Addr:    ":8080",
+		Handler: middlewareFirst(middlewareSecond(mux)),
 	}
 	log.Println("Listening...")
 	server.ListenAndServe()
