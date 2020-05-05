@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Writer interface {
 	Write(string)
@@ -23,7 +25,7 @@ func XStringer(str string) string {
 	return "XStringer: " + str
 }
 
-// XStringer can plug into StringWriter adapter
+// YStringer can plug into StringWriter adapter
 func YStringer(str string) string {
 	return "YStringer: " + str
 }
@@ -42,6 +44,7 @@ func printInterfaceValues(str string, fs ...Writer) {
 	}
 }
 func main() {
+
 	z := func(str string) string {
 		return "ZStringer: " + str
 	}
@@ -62,6 +65,7 @@ func main() {
 	fnf := map[string]StringWriter{
 		"X": StringWriter(XStringer),
 		"Y": StringWriter(YStringer),
+		"Z": StringWriter(z),
 	}
 	// Call Write method
 	for _, v := range fnf {
