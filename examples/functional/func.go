@@ -42,11 +42,11 @@ func printInterfaceValues(str string, fs ...Writer) {
 	}
 }
 func main() {
-	// Map of func values of interface type
 	z := func(str string) string {
 		return "ZStringer: " + str
 	}
 
+	// Map of func values of interface type
 	fni := map[string]Writer{
 		"X": StringWriter(XStringer),
 		"Y": StringWriter(YStringer),
