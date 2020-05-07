@@ -11,6 +11,7 @@ import (
 
 	util "github.com/shijuvar/gokit/examples/http-app/pkg/apputil"
 	"github.com/shijuvar/gokit/examples/http-app/pkg/bootstrapper"
+	"github.com/shijuvar/gokit/examples/http-app/pkg/middleware"
 	"github.com/shijuvar/gokit/examples/http-app/pkg/router"
 )
 
@@ -25,6 +26,8 @@ func main() {
 	// all origins accepted with simple methods (GET, POST). See
 	// documentation below for more options.
 	handler := cors.Default().Handler(router)
+	// Adding panic recovery middleware
+	handler = middleware.PanicRecovery(handler, util.Error)
 	// Create the Server
 	server := &http.Server{
 		Addr:     util.AppConfig.Server,

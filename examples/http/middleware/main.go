@@ -46,8 +46,6 @@ func welcome(w http.ResponseWriter, r *http.Request) {
 func message(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "net/http package is used to build web apps")
 }
-func favicon(w http.ResponseWriter, r *http.Request) {
-}
 
 func main() {
 	mux := http.NewServeMux()
@@ -57,7 +55,7 @@ func main() {
 	log.Println("Listening...")
 	server := &http.Server{
 		Addr:    ":8080",
-		Handler: loggingHandler(mux),
+		Handler: mux,
 	}
 	server.ListenAndServe()
 }

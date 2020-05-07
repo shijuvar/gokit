@@ -29,6 +29,35 @@
   version = "v1.4.7"
 
 [[projects]]
+  branch = "master"
+  digest = "1:b7cb6054d3dff43b38ad2e92492f220f57ae6087ee797dca298139776749ace8"
+  name = "github.com/golang/groupcache"
+  packages = ["lru"]
+  pruneopts = "UT"
+  revision = "8c9f03a8e57eb486e42badaed3fb287da51807ba"
+
+[[projects]]
+  digest = "1:ebc2bc3ac242ffed003f48ee039f7260c1b09e78aabe86395401c679469cc3fd"
+  name = "github.com/google/go-cloud"
+  packages = [
+    "health",
+    "requestlog",
+    "server",
+    "server/driver",
+  ]
+  pruneopts = "UT"
+  revision = "e981f0586e2290f34ecf78282261b3693a894ec8"
+  version = "v0.7.0"
+
+[[projects]]
+  digest = "1:6f1e965aa0368edc7f9c11e0192a8b880055d6719e4a569821c0da1701f3a58c"
+  name = "github.com/google/wire"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "578b29ef42c1970b9853962dd1c4308fd7eb5387"
+  version = "v0.4.0"
+
+[[projects]]
   digest = "1:160eabf7a69910fd74f29c692718bc2437c1c1c7d4c9dea9712357752a70e5df"
   name = "github.com/gorilla/context"
   packages = ["."]
@@ -169,6 +198,20 @@
   version = "v1.0.2"
 
 [[projects]]
+  digest = "1:f8e5e0d6157eb26a86b0c1c2316b086f4738492043ace8cc6dd39c8ffd4d96ee"
+  name = "go.opencensus.io"
+  packages = [
+    ".",
+    "internal",
+    "trace",
+    "trace/internal",
+    "trace/tracestate",
+  ]
+  pruneopts = "UT"
+  revision = "d835ff86be02193d324330acdb7d65546b05f814"
+  version = "v0.22.3"
+
+[[projects]]
   branch = "master"
   digest = "1:1ecf2a49df33be51e757d0033d5d51d5f784f35f68e5a38f797b2d3f03357d71"
   name = "golang.org/x/crypto"
@@ -217,6 +260,7 @@
     "github.com/davecgh/go-spew/spew",
     "github.com/dgrijalva/jwt-go",
     "github.com/dgrijalva/jwt-go/request",
+    "github.com/google/go-cloud/server",
     "github.com/gorilla/mux",
     "github.com/lib/pq",
     "github.com/magefile/mage/mg",
