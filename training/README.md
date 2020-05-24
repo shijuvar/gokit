@@ -25,13 +25,15 @@ Provides training (both class room and online) and consulting on Go, Microservic
 *	Go programming language and its core fundamentals.
 * Package ecosystem and tooling.
 *	First-class functions.
+* Error handling
 *	Struct and Interface.
+* Writing testable and idiomatic Go code with interface, struct and packages (architecture guidance and best practices).
 *	Concurrency primitives: Goroutines and Channels.
 *	Advanced Concurrency patterns.
 * Mutexes.
-* HTTP programming: Basics to building production-ready apps.
-*	Testing Go applications: Basics to BDD-style testing and mocking.
-* Go Modules and Project Athens
+* HTTP programming: From basics to building production-ready apps.
+*	Testing Go applications: From basics to BDD-style testing and mocking.
+* Go Modules and Project Athens.
 * Profiling and Tracing Go programs. 
 
 
