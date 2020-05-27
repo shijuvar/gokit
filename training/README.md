@@ -5,7 +5,9 @@ Provides training (both class room and online) and consulting on Go, Microservic
 
 **Contact: gophermonk@gmail.com**  
 
-## [List of clients of Shiju Varghese's Golang Workshop](https://github.com/shijuvar/gopher/blob/master/golang-clients.md)
+**[List of clients of Shiju Varghese's Golang Workshop](https://github.com/shijuvar/gopher/blob/master/golang-clients.md)**
+
+**[Active and Upcoming Masterclass for Public](https://github.com/shijuvar/gopher/blob/master/active_masterclass.md)**
 
 
 ## Courses
@@ -37,7 +39,7 @@ Provides training (both class room and online) and consulting on Go, Microservic
 * Profiling and Tracing Go programs. 
 
 
-# Microservices in Go
+# Distributed Systems and Microservices in Go
 ### *Building highly scalable distributed systems in Go*
 --------------------------------------------------------
 **Course Duration:** 
