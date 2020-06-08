@@ -5,7 +5,7 @@ Provides training (both class room and online) and consulting on Go, Microservic
 
 **Contact: gophermonk@gmail.com**  
 
-**[List of clients of Shiju Varghese's Golang Workshop](https://github.com/shijuvar/gopher/blob/master/golang-clients.md)**
+**[List of clients of Shiju Varghese's Masterclass on Go](https://github.com/shijuvar/gopher/blob/master/golang-clients.md)**
 
 **[Active and Upcoming Masterclass for Public](https://github.com/shijuvar/gopher/blob/master/active_masterclass.md)**
 
@@ -21,7 +21,7 @@ Provides training (both class room and online) and consulting on Go, Microservic
 
 **Prerequisite:**  None
 
-**Level:** Beginner to Intermediate 
+**Level:** Beginner to Advanced 
 
 **Summary of Course Contents:** 
 *	Go programming language and its core fundamentals.
@@ -44,9 +44,9 @@ Provides training (both class room and online) and consulting on Go, Microservic
 --------------------------------------------------------
 **Course Duration:** 
 * Class Room Training: 2 Days 
-* Online Training: 10 hours (5 sessions of two hours) and assignments at offline 
+* Online Training: 12 hours (6 sessions of two hours) and assignments at offline 
 
-**Prerequisite:**  Experience in building real-world Go apps; Knowledge in Distributed Systems 
+**Prerequisite:**  Completion of "Professional Go" course or Go developers with deep knowledge on SOLID principles 
 
 **Target Audience:** Distributed Systems Engineers and Architects
 
