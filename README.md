@@ -12,3 +12,14 @@
 * [Building High Performance APIs In Go Using gRPC And Protocol Buffers](https://medium.com/@shijuvar/building-high-performance-apis-in-go-using-grpc-and-protocol-buffers-2eda5b80771b)
 
 Read more articles from [Shiju Varghese's Blog](https://medium.com/@shijuvar)
+
+## Links
+* [Shiju Varghese's Masterclass on Go and Distributed Systems](https://github.com/shijuvar/gopher/blob/master/golang-training.md)
+* [Clients of Shiju Varghese's Golang Workshop](https://github.com/shijuvar/gopher/blob/master/golang-clients.md)
+* [Shiju Varghese's Conference Talks](https://github.com/shijuvar/gopher/blob/master/conferences.md)
+* [Active and Upcoming Masterclass for Public](https://github.com/shijuvar/gopher/blob/master/active_masterclass.md)
+* [Blog](https://medium.com/@shijuvar)
+* [Twitter](https://twitter.com/shijucv)
+* [Github](https://github.com/shijuvar)
+* [LinkedIn](https://linkedin.com/in/shijuvar)
+* [Instagram](https://www.instagram.com/shijuvar/)

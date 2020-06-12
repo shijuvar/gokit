@@ -1,11 +1,13 @@
-# Go Programming Workshop 2020 by Shiju Varghese
+# Shiju Varghese's Masterclass on Go Programming Language and Distributed Systems
 <a href="(https://medium.com/@shijuvar"><img src="https://github.com/shijuvar/gopher/blob/master/img/go_logo.png" align="center" height="200" width="300" ></a>
 
 Provides training (both class room and online) and consulting on Go, Microservices and cloud-native distributed systems architectures. Class room trainings are only available in India. 
 
 **Contact: gophermonk@gmail.com**  
 
-## [List of clients of Shiju Varghese's Golang Workshop](https://github.com/shijuvar/gopher/blob/master/golang-clients.md)
+**[List of clients of Shiju Varghese's Masterclass on Go](https://github.com/shijuvar/gopher/blob/master/golang-clients.md)**
+
+**[Active and Upcoming Masterclass for Public](https://github.com/shijuvar/gopher/blob/master/active_masterclass.md)**
 
 
 ## Courses
@@ -19,30 +21,32 @@ Provides training (both class room and online) and consulting on Go, Microservic
 
 **Prerequisite:**  None
 
-**Level:** Beginner to Intermediate 
+**Level:** Beginner to Advanced 
 
 **Summary of Course Contents:** 
 *	Go programming language and its core fundamentals.
 * Package ecosystem and tooling.
 *	First-class functions.
+* Error handling
 *	Struct and Interface.
+* Writing testable and idiomatic Go code with interface, struct and packages (architecture guidance and best practices).
 *	Concurrency primitives: Goroutines and Channels.
 *	Advanced Concurrency patterns.
 * Mutexes.
-* HTTP programming: Basics to building production-ready apps.
-*	Testing Go applications: Basics to BDD-style testing and mocking.
-* Go Modules and Project Athens
+* HTTP programming: From basics to building production-ready apps.
+*	Testing Go applications: From basics to BDD-style testing and mocking.
+* Go Modules and Project Athens.
 * Profiling and Tracing Go programs. 
 
 
-# Microservices in Go
+# Distributed Systems and Microservices in Go
 ### *Building highly scalable distributed systems in Go*
 --------------------------------------------------------
 **Course Duration:** 
 * Class Room Training: 2 Days 
-* Online Training: 10 hours (5 sessions of two hours) and assignments at offline 
+* Online Training: 12 hours (6 sessions of two hours) and assignments at offline 
 
-**Prerequisite:**  Experience in building real-world Go apps; Knowledge in Distributed Systems 
+**Prerequisite:**  Completion of "Professional Go" course or Go developers with deep knowledge on SOLID principles 
 
 **Target Audience:** Distributed Systems Engineers and Architects
 
@@ -64,4 +68,4 @@ Provides training (both class room and online) and consulting on Go, Microservic
 ### Shiju Varghese
 <a href="(https://medium.com/@shijuvar"><img src="https://avatars0.githubusercontent.com/u/1546448" height="25%" width="25%"></a> 
 #### Senior Consulting Solutions Architect: Go (Golang) and Cloud-Native Distributed Systems
-Shiju Varghese is a solutions architect, consultant, published author and speaker. He is focused on building highly scalable cloud-native applications in the Go programming language, with a strong focus on distributed systems, event-driven architectures, microservices and event streams. He is an early adopter of Go, and has been providing consulting and training for building backend systems and microservices with Go ecosystem. Before adopting Go as the primary technology stack, he worked extensively on Microsoft .Net technologies for more than a decade, and was awarded Microsoft MVP seven times. He has spoken at [numerous conferences](https://github.com/shijuvar/gopher/blob/master/conferences.md) including GopherCon India (Go Conference in India), DevConf.IN and Great Indian Developer Summit. He has authored two books on Go, titled "Web Development with Go" and "Go Recipes", both published by Apress.
+Shiju Varghese is a solutions architect, consultant, published author and speaker. He is focused on building highly scalable cloud-native applications in the Go programming language, with a strong focus on distributed systems, event-driven architectures, distributed streaming and microservices. He is an early adopter of Go, and has been providing consulting and training for building backend systems and microservices with Go ecosystem. Before adopting Go as the primary technology stack, he worked extensively on Microsoft .Net technologies for more than a decade, and was awarded Microsoft MVP seven times. He has spoken at [numerous conferences](https://github.com/shijuvar/gopher/blob/master/conferences.md) including GopherCon India (Go Conference in India), DevConf.IN and Great Indian Developer Summit. He has authored two books on Go, titled "Web Development with Go" and "Go Recipes", both published by Apress.
