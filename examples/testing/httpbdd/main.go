@@ -11,9 +11,13 @@ import (
 
 func setUserRoutes() *mux.Router {
 	r := mux.NewRouter()
+	// Resolve dependencies
 	userStore := &store.MongoUserStore{}
-	r.Handle("/users", controllers.CreateUser(userStore)).Methods("POST")
-	r.Handle("/users", controllers.GetUsers(userStore)).Methods("GET")
+	controller := controllers.Handler{
+		Store: userStore, // Injecting dependencies
+	}
+	r.HandleFunc("/users", controller.CreateUser).Methods("POST")
+	r.HandleFunc("/users", controller.GetUsers).Methods("GET")
 	return r
 }
 

@@ -18,16 +18,22 @@ var _ = Describe("UserController", func() {
 	var r *mux.Router
 	var w *httptest.ResponseRecorder
 	var store *FakeUserStore
+	var controller controllers.Handler
 	BeforeEach(func() {
 		r = mux.NewRouter()
 		store = newFakeUserStore()
+		controller = controllers.Handler{
+			// Injecting a test stub
+			// In production code, this would be a persistent store
+			Store: store,
+		}
 	})
 
 	// Specs for HTTP Get to "/users"
 	Describe("Get list of Users", func() {
 		Context("Get all Users from data store", func() {
 			It("Should get list of Users", func() {
-				r.Handle("/users", controllers.GetUsers(store)).Methods("GET")
+				r.HandleFunc("/users", controller.GetUsers).Methods("GET")
 				req, err := http.NewRequest("GET", "/users", nil)
 				Expect(err).NotTo(HaveOccurred())
 				w = httptest.NewRecorder()
@@ -45,7 +51,7 @@ var _ = Describe("UserController", func() {
 	Describe("Post a new User", func() {
 		Context("Provide a valid User data", func() {
 			It("Should create a new User and get HTTP Status: 201", func() {
-				r.Handle("/users", controllers.CreateUser(store)).Methods("POST")
+				r.HandleFunc("/users", controller.CreateUser).Methods("POST")
 				userJson := `{"firstname": "Alex", "lastname": "John", "email": "alex@xyz.com"}`
 
 				req, err := http.NewRequest(
@@ -61,7 +67,7 @@ var _ = Describe("UserController", func() {
 		})
 		Context("Provide a User data that contains duplicate email id", func() {
 			It("Should get HTTP Status: 400", func() {
-				r.Handle("/users", controllers.CreateUser(store)).Methods("POST")
+				r.HandleFunc("/users", controller.CreateUser).Methods("POST")
 				userJson := `{"firstname": "Shiju", "lastname": "Varghese", "email": "shiju@xyz.com"}`
 
 				req, err := http.NewRequest(
