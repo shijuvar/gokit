@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	finish := make(chan struct{})
+	finish := make(chan struct{}) // Empty Struct occupies zero bytes
 	var done sync.WaitGroup
 	done.Add(1)
 	go func() {
@@ -16,7 +16,7 @@ func main() {
 		select {
 		case <-time.After(5 * time.Minute):
 			fmt.Println("time out")
-		case <-finish:
+		case <-finish: // non-blocking when you close the channel
 		}
 	}()
 	t0 := time.Now()

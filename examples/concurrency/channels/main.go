@@ -22,12 +22,16 @@ func main() {
 		nums <- 50
 	}()
 	// Read the value from unbuffered channel
-	fmt.Println(<-counter)
+	v, exists := <-counter
+	fmt.Println(v)
+	fmt.Println(exists)
 	val, ok := <-counter // Trying to read from closed channel
 	if ok {
 		fmt.Println(val) // This won't execute
 	}
 	// Read the 3 buffered values from the buffered channel
+	l := len(nums)
+	fmt.Println(l)
 	fmt.Println(<-nums)
 	fmt.Println(<-nums)
 	fmt.Println(<-nums)
