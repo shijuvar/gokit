@@ -11,7 +11,7 @@ import (
 )
 
 type Note struct {
-	Title       string    `json:"title"`
+	Title       string    `json:"title" xml:"note_title"`
 	Description string    `json:"description"`
 	CreatedOn   time.Time `json:"createdon"`
 }
