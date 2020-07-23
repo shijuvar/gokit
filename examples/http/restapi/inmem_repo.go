@@ -1,12 +1,16 @@
 package main
 
 import (
+	// internal
 	"errors"
 	"time"
 
+	// external
 	"github.com/gofrs/uuid"
 )
 
+// inmemoryRepository provides concrete implementation
+// for repository interface
 type inmemoryRepository struct  {
 	noteStore map[string]note
 }
@@ -32,6 +36,7 @@ func (i *inmemoryRepository) update(id string, n note) error {
 	if _, ok := i.noteStore[id]; !ok {
 		return errors.New("Id doesn't exist")
 	}
+	n.CreatedOn = time.Now()
 	i.noteStore[id] =n
 	return nil
 }
