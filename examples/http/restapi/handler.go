@@ -95,6 +95,7 @@ func (h *handler) get(w http.ResponseWriter, r *http.Request) {
 
 //HTTP Put - /api/notes/{id}
 func (h *handler) put(w http.ResponseWriter, r *http.Request) {
+	defer h.logger.Sync()
 	vars := mux.Vars(r)
 	id := vars["id"]
 	var note note
@@ -125,6 +126,7 @@ func (h *handler) put(w http.ResponseWriter, r *http.Request) {
 
 //HTTP Delete - /api/notes/{id}
 func (h *handler) delete(w http.ResponseWriter, r *http.Request) {
+	defer h.logger.Sync()
 	vars := mux.Vars(r)
 	id := vars["id"]
 	// delete
