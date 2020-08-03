@@ -4,11 +4,11 @@ import (
 	"fmt"
 )
 
-type Calculator struct {
+type SwCalculator struct {
 	acc float64
 }
 
-func (c *Calculator) Do(input float64, op string) float64 {
+func (c *SwCalculator) Do(input float64, op string) float64 {
 	switch op {
 	case "+":
 		c.acc = c.acc + input
@@ -21,7 +21,7 @@ func (c *Calculator) Do(input float64, op string) float64 {
 	return c.acc
 }
 func main() {
-	var c Calculator
+	var c SwCalculator
 	fmt.Println(c.Do(5, "+"))
 	fmt.Println(c.Do(2, "*"))
 	fmt.Println(c.Do(4, "-"))
