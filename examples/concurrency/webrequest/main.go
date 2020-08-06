@@ -18,7 +18,7 @@ var wg sync.WaitGroup
 
 func main() {
 	urls := []string{
-		"https://golang.org",
+		"https://github.com/shijuvar",
 		"https://www.google.com",
 		"https://twitter.com",
 	}
