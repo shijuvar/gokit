@@ -7,7 +7,7 @@ Provides training (both class room and online) and consulting on Go, Microservic
 
 **[List of clients of Shiju Varghese's Masterclass on Go](https://github.com/shijuvar/shijuvar/blob/master/golang-clients.md)**
 
-**[Upcoming Masterclass for Public](https://github.com/shijuvar/shijuvar/blob/master/active_masterclass.md)**
+## [Dates and Time, Fee, Enrolment and FAQ for the Masterclass for Public](https://github.com/shijuvar/shijuvar/blob/master/active_masterclass.md)
 
 # Courses
 # Professional Go  
@@ -35,7 +35,6 @@ Provides training (both class room and online) and consulting on Go, Microservic
 * HTTP programming: From basics to building production-ready apps.
 *	Testing Go applications: From basics to BDD-style testing and mocking.
 * Go Modules and Project Athens.
-* Profiling and Tracing Go programs. 
 
 
 # Distributed Systems and Microservices in Go
@@ -65,14 +64,17 @@ Provides training (both class room and online) and consulting on Go, Microservic
 * Microservices development with Go kit.
 * Distributed Tracing with OpenCensus and Zipkin.
 
+  
+  
+<a href="(https://medium.com/@shijuvar"><img src="https://github.com/shijuvar/shijuvar/blob/master/img/tech_stack_go.png" align="center" height="50%" width="50%" ></a>
 
-<a href="(https://medium.com/@shijuvar"><img src="https://github.com/shijuvar/shijuvar/blob/master/img/tech_stack.png" align="center" height="200" width="300" ></a>
 
 ### Shiju Varghese
-<a href="(https://medium.com/@shijuvar"><img src="https://avatars0.githubusercontent.com/u/1546448" height="25%" width="25%"></a> 
-#### Senior Consulting Solutions Architect: Go (Golang) and Cloud-Native Distributed Systems
-Shiju Varghese is a solutions architect, consultant, published author and speaker. He is focused on building large-scale distributed systems in the Go programming language, with a strong focus on clean architecture, domain-driven microservices architecture and event-driven streaming architecture. He is an early adopter of Go, and has been providing [consulting and training](https://github.com/shijuvar/shijuvar/blob/master/masterclass.md) for building highly-scalable backend APIs and distributed systems with Go ecosystem. Before adopting Go as the primary technology stack, he worked extensively on Microsoft .Net technologies for more than a decade, and was awarded Microsoft MVP seven times. He has spoken at [numerous conferences](https://github.com/shijuvar/shijuvar/blob/master/conferences.md) including GopherCon India (Go Conference in India), DevConf.IN and Great Indian Developer Summit. He has authored two books on Go, titled "Web Development with Go" and "Go Recipes", both published by Apress.
+--------------------------------------------------------
 
+<a href="(https://medium.com/@shijuvar"><img src="https://avatars0.githubusercontent.com/u/1546448" align="left" height="20%" width="20%"></a> 
+#### Senior Consulting Solutions Architect: Go (Golang) and Cloud-Native Distributed Systems 
+Shiju Varghese is a solutions architect, consultant, published author and speaker. He is focused on building large-scale distributed systems in the Go programming language, with a strong focus on clean architecture, domain-driven microservices architecture and event-driven streaming architecture. He is an early adopter of Go, and has been providing consulting and training for building highly-scalable backend APIs and distributed systems with Go ecosystem. Before adopting Go as the primary technology stack, he worked extensively on Microsoft .Net technologies for more than a decade, and was awarded Microsoft MVP seven times. He has spoken at [numerous conferences](https://github.com/shijuvar/shijuvar/blob/master/conferences.md) including GopherCon India (Go Conference in India), DevConf.IN and Great Indian Developer Summit. He has authored two books on Go, titled "Web Development with Go" and "Go Recipes", both published by Apress.
 Beyond technology, Shiju's primary interest lies at the intersection of science and spirituality. He is a practioner and teacher of vipassanā meditation.
 
 * [Blog](https://medium.com/@shijuvar)
@@ -80,3 +82,6 @@ Beyond technology, Shiju's primary interest lies at the intersection of science 
 * [Github](https://github.com/shijuvar)
 * [LinkedIn](https://linkedin.com/in/shijuvar)
 * [Instagram](https://www.instagram.com/shijuvar/)
+
+###
+--------------------------
