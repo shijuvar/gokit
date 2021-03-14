@@ -5,7 +5,7 @@ import (
 	"log"
 	"runtime"
 
-	stan "github.com/nats-io/go-nats-streaming"
+	stan "github.com/nats-io/stan.go"
 
 	"github.com/shijuvar/gokit/examples/nats-streaming/pb"
 	"github.com/shijuvar/gokit/examples/nats-streaming/store"

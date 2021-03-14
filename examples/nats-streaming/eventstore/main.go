@@ -5,7 +5,7 @@ import (
 	"log"
 	"net"
 
-	stan "github.com/nats-io/go-nats-streaming"
+	stan "github.com/nats-io/stan.go"
 	"google.golang.org/grpc"
 
 	"github.com/shijuvar/gokit/examples/nats-streaming/pb"

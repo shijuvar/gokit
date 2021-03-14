@@ -9,7 +9,7 @@ import (
 	"google.golang.org/grpc"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/nats-io/go-nats"
+	nats "github.com/nats-io/nats.go"
 	"github.com/satori/go.uuid"
 
 	pb "github.com/shijuvar/gokit/examples/grpc-nats/order"
