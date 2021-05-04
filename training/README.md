@@ -5,7 +5,7 @@ Provides training (both class room and online) and consulting on Go, Microservic
 
 **Contact: shijuvar@gophermonk.in**
 
-**[List of clients of Shiju Varghese's Masterclass on Go](https://github.com/shijuvar/shijuvar/blob/master/golang-clients.md)**
+**[List of clients of Shiju Varghese's Masterclass on Go and Distributed Systems](https://github.com/shijuvar/shijuvar/blob/master/golang-clients.md)**
 
 ## [Dates and Time, Fee, Enrolment and FAQ for the Masterclass for Public](https://github.com/shijuvar/shijuvar/blob/master/active_masterclass.md)
 
