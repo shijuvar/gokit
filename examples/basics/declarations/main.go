@@ -10,7 +10,7 @@ var Country = "USA"
 
 func main() {
 	fname, lname := "Shiju", "Varghese"
-	age := 35
+	age := 40
 	// Print constant variable
 	fmt.Println(Title)
 	// Print local variables
