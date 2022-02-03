@@ -14,5 +14,4 @@ func main() {
 	num2 := Number(-50)
 	fmt.Printf("%d is positive: %t\n", num1, num1.Positive())
 	fmt.Printf("%d is positive: %t\n", num2, num2.Positive())
-
 }
