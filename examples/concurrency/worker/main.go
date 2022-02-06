@@ -1,5 +1,5 @@
 // This sample program demonstrates how to use a buffered
-// channel to work on multiple tasks with a predefined number
+// channel to work on multiple taskctl with a predefined number
 // of goroutines.
 package main
 
