@@ -27,9 +27,17 @@ var promptCmd = &cobra.Command{
 			return nil
 		}
 
+		templates := &promptui.PromptTemplates{
+			Prompt:  "{{ . }} ",
+			Valid:   "{{ . | green }} ",
+			Invalid: "{{ . | red }} ",
+			Success: "{{ . | bold }} ",
+		}
+
 		prompt := promptui.Prompt{
-			Label:    "Number",
-			Validate: validate,
+			Label:     "Number",
+			Templates: templates,
+			Validate:  validate,
 		}
 
 		result, err := prompt.Run()
