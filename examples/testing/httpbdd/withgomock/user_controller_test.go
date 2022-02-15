@@ -1,4 +1,4 @@
-package controllers_test
+package withgomock
 
 import (
 	"encoding/json"
@@ -9,32 +9,39 @@ import (
 	"github.com/shijuvar/gokit/examples/testing/httpbdd/controllers"
 	"github.com/shijuvar/gokit/examples/testing/httpbdd/model"
 
+	"github.com/golang/mock/gomock"
 	"github.com/gorilla/mux"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )
 
 var _ = Describe("UserController", func() {
+
 	var (
-		r       *mux.Router
-		w       *httptest.ResponseRecorder
-		store   *FakeUserStore
-		handler controllers.Handler
+		r         *mux.Router
+		w         *httptest.ResponseRecorder
+		handler   controllers.Handler
+		mockCtrl  *gomock.Controller
+		mockStore *MockUserStore
 	)
+
 	BeforeEach(func() {
 		r = mux.NewRouter()
-		store = newFakeUserStore()
-		handler = controllers.Handler{
-			// Injecting a test stub
-			// In production code, this would be a persistent store
-			Store: store,
-		}
+		mockCtrl = gomock.NewController(GinkgoT())
+		mockStore = NewMockUserStore(mockCtrl)
+		handler = controllers.Handler{Store: mockStore}
+	})
+
+	AfterEach(func() {
+		mockCtrl.Finish()
 	})
 
 	// Specs for HTTP Get to "/users"
 	Describe("Get list of Users", func() {
 		Context("Get all Users from data store", func() {
 			It("Should get list of Users", func() {
+				mockUsers := getMockUsersList()
+				mockStore.EXPECT().GetUsers().Return(mockUsers)
 				r.HandleFunc("/users", handler.GetUsers).Methods("GET")
 				req, err := http.NewRequest("GET", "/users", nil)
 				Expect(err).NotTo(HaveOccurred())
@@ -53,8 +60,9 @@ var _ = Describe("UserController", func() {
 	Describe("Post a new User", func() {
 		Context("Provide a valid User data", func() {
 			It("Should create a new User and get HTTP Status: 201", func() {
+				mockStore.EXPECT().AddUser(getMockUser()).Return(nil)
 				r.HandleFunc("/users", handler.CreateUser).Methods("POST")
-				userJson := `{"firstname": "Alex", "lastname": "John", "email": "alex@xyz.com"}`
+				userJson := `{"firstname": "Shiju", "lastname": "Varghese", "email": "shiju@xyz.com"}`
 
 				req, err := http.NewRequest(
 					"POST",
@@ -69,6 +77,8 @@ var _ = Describe("UserController", func() {
 		})
 		Context("Provide a User data that contains duplicate email id", func() {
 			It("Should get HTTP Status: 400", func() {
+				mockStore.EXPECT().AddUser(getMockUser()).Return(model.ErrorEmailExists).Times(2)
+				mockStore.AddUser(getMockUser())
 				r.HandleFunc("/users", handler.CreateUser).Methods("POST")
 				userJson := `{"firstname": "Shiju", "lastname": "Varghese", "email": "shiju@xyz.com"}`
 
@@ -86,41 +96,26 @@ var _ = Describe("UserController", func() {
 	})
 })
 
-// FakeUserStore provides a mocked implementation of interface model.UserStore
-type FakeUserStore struct {
-	userStore []model.User
-}
-
-// GetUsers returns all users
-func (store *FakeUserStore) GetUsers() []model.User {
-	return store.userStore
-}
-
-// AddUser inserts a User
-func (store *FakeUserStore) AddUser(user model.User) error {
-	// Check whether email is exists
-	for _, u := range store.userStore {
-		if u.Email == user.Email {
-			return model.ErrorEmailExists
-		}
+func getMockUsersList() []model.User {
+	mockUsers := []model.User{
+		model.User{
+			FirstName: "Shiju",
+			LastName:  "Varghese",
+			Email:     "shiju@xyz.com",
+		},
+		model.User{
+			FirstName: "Irene",
+			LastName:  "Rose",
+			Email:     "irene@xyz.com",
+		},
 	}
-	store.userStore = append(store.userStore, user)
-	return nil
+	return mockUsers
 }
 
-// newFakeUserStore provides two dummy data for Users
-func newFakeUserStore() *FakeUserStore {
-	store := &FakeUserStore{}
-	store.AddUser(model.User{
+func getMockUser() model.User {
+	return model.User{
 		FirstName: "Shiju",
 		LastName:  "Varghese",
 		Email:     "shiju@xyz.com",
-	})
-
-	store.AddUser(model.User{
-		FirstName: "Irene",
-		LastName:  "Rose",
-		Email:     "irene@xyz.com",
-	})
-	return store
+	}
 }

@@ -7,6 +7,7 @@ import (
 	"testing"
 
 	"github.com/gorilla/mux"
+	"github.com/stretchr/testify/assert"
 )
 
 // TestGetUsers test HTTP Get to "/users" using ResponseRecorder
@@ -20,9 +21,9 @@ func TestGetUsers(t *testing.T) {
 	w := httptest.NewRecorder()
 
 	r.ServeHTTP(w, req)
-	if w.Code != 200 {
-		t.Errorf("HTTP Status expected: 200, got: %d", w.Code)
-	}
+	assert.Equal(t, http.StatusOK, w.Code,
+		fmt.Sprintf("HTTP Status expected: 200, got: %d", w.Code),
+	)
 }
 
 // TestGetUsersWithServer test HTTP Get to "/users" using Server
@@ -40,7 +41,7 @@ func TestGetUsersWithServer(t *testing.T) {
 		t.Error(err)
 	}
 
-	if res.StatusCode != 200 {
-		t.Errorf("HTTP Status expected: 200, got: %d", res.StatusCode)
-	}
+	assert.Equal(t, http.StatusOK, res.StatusCode,
+		fmt.Sprintf("HTTP Status expected: 200, got: %d", res.StatusCode),
+	)
 }

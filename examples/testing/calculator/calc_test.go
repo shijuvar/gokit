@@ -69,6 +69,11 @@ func TestCalcMultipleOps(t *testing.T) {
 			in:   in{input: 30, op: "-"},
 			out:  20,
 		},
+		Test{
+			name: "third input for subtraction",
+			in:   in{input: 4, op: "/"},
+			out:  5,
+		},
 	}
 	c := &Calculator{}
 	for _, test := range tests {
@@ -100,6 +105,11 @@ func TestCalcMultipleOpsWithSubTest(t *testing.T) {
 			name: "input for subtraction",
 			in:   in{input: 30, op: "-"},
 			out:  20,
+		},
+		Test{
+			name: "third input for subtraction",
+			in:   in{input: 4, op: "/"},
+			out:  5,
 		},
 	}
 	c := &Calculator{}
@@ -144,6 +154,11 @@ func BenchmarkCalcMultipleOpsWithSubTest(b *testing.B) {
 			name: "input for subtraction",
 			in:   in{input: 30, op: "-"},
 			out:  20,
+		},
+		Test{
+			name: "third input for subtraction",
+			in:   in{input: 4, op: "/"},
+			out:  5,
 		},
 	}
 	for _, test := range tests {
