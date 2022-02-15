@@ -52,6 +52,13 @@ var _ = Describe("UserController", func() {
 				json.Unmarshal(w.Body.Bytes(), &users)
 				// Verifying mocked data of 2 users
 				Expect(len(users)).To(Equal(2))
+				Expect(users).Should(ContainElement(getMockUser()))
+				Expect(users).Should(ContainElement(model.User{
+					FirstName: "Irene",
+					LastName:  "Rose",
+					Email:     "irene@xyz.com",
+				}))
+
 			})
 		})
 	})
