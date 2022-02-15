@@ -1,3 +1,15 @@
+/*
+ BDD-style unit tests with Ginkgo
+
+ Mocking is implemented using the GoMock library
+ Install Mockgen: go install github.com/golang/mock/mockgen@latest
+
+ Usage of GoMock follows the below basic steps:
+ 1: Use mockgen to generate a mock for the interface you wish to mock.
+ 2: In your test, create an instance of gomock.Controller and
+ pass it to your mock object’s constructor to obtain a mock object.
+ 3: Call EXPECT() on your mocks to set up their expectations and return values
+*/
 package withgomock
 
 import (
@@ -33,7 +45,13 @@ var _ = Describe("UserController", func() {
 	})
 
 	AfterEach(func() {
-		mockCtrl.Finish()
+		/*
+			The below code is no more required
+			Since GinkgoT() implements Cleanup() (using DeferCleanup() under the hood)
+			Gomock will automatically register a call to mockCtrl.Finish()
+			when the controller is created.
+		*/
+		//mockCtrl.Finish()
 	})
 
 	// Specs for HTTP Get to "/users"
@@ -67,7 +85,7 @@ var _ = Describe("UserController", func() {
 	Describe("Post a new User", func() {
 		Context("Provide a valid User data", func() {
 			It("Should create a new User and get HTTP Status: 201", func() {
-				mockStore.EXPECT().AddUser(getMockUser()).Return(nil)
+				mockStore.EXPECT().AddUser(getMockUser()).Return(nil).Times(1)
 				r.HandleFunc("/users", handler.CreateUser).Methods("POST")
 				userJson := `{"firstname": "Shiju", "lastname": "Varghese", "email": "shiju@xyz.com"}`
 
