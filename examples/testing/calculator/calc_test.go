@@ -132,48 +132,48 @@ func TestCalcMultipleOpsWithSubTest(t *testing.T) {
 	}
 }
 
-//// BenchmarkCalc benchmarks Calc
-//func BenchmarkCalc(b *testing.B) {
-//	test := Test{
-//		in:  in{input: 5, op: "+"},
-//		out: 5,
-//	}
-//	for i := 0; i < b.N; i++ {
-//		c := &Calculator{}
-//		c.Do(test.in.input, test.in.op)
-//	}
-//}
-//
-//// BenchmarkCalcMultipleOpsWithSubTest benchmarks with sub-level benchmark
-//func BenchmarkCalcMultipleOpsWithSubTest(b *testing.B) {
-//	var tests = []Test{
-//		Test{
-//			name: "input for addition",
-//			in:   in{input: 10, op: "+"},
-//			out:  10,
-//		},
-//		Test{
-//			name: "input for multiplication",
-//			in:   in{input: 5, op: "*"},
-//			out:  50,
-//		},
-//		Test{
-//			name: "input for subtraction",
-//			in:   in{input: 30, op: "-"},
-//			out:  20,
-//		},
-//		Test{
-//			name: "third input for subtraction",
-//			in:   in{input: 4, op: "/"},
-//			out:  5,
-//		},
-//	}
-//	for _, test := range tests {
-//		b.Run(test.name, func(b *testing.B) {
-//			for i := 0; i < b.N; i++ {
-//				c := &Calculator{}
-//				c.Do(test.in.input, test.in.op)
-//			}
-//		})
-//	}
-//}
+// BenchmarkCalc benchmarks Calc
+func BenchmarkCalc(b *testing.B) {
+	test := Test{
+		in:  in{input: 5, op: "+"},
+		out: 5,
+	}
+	for i := 0; i < b.N; i++ {
+		c := &Calculator{}
+		c.Do(test.in.input, test.in.op)
+	}
+}
+
+// BenchmarkCalcMultipleOpsWithSubTest benchmarks with sub-level benchmark
+func BenchmarkCalcMultipleOpsWithSubTest(b *testing.B) {
+	var tests = []Test{
+		Test{
+			name: "input for addition",
+			in:   in{input: 10, op: "+"},
+			out:  10,
+		},
+		Test{
+			name: "input for multiplication",
+			in:   in{input: 5, op: "*"},
+			out:  50,
+		},
+		Test{
+			name: "input for subtraction",
+			in:   in{input: 30, op: "-"},
+			out:  20,
+		},
+		Test{
+			name: "third input for subtraction",
+			in:   in{input: 4, op: "/"},
+			out:  5,
+		},
+	}
+	for _, test := range tests {
+		b.Run(test.name, func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				c := &Calculator{}
+				c.Do(test.in.input, test.in.op)
+			}
+		})
+	}
+}
