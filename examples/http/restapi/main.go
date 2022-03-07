@@ -11,9 +11,14 @@ import (
 
 //Entry point of the program
 func main() {
-	logger, _ := zap.NewProduction() // Create Uber's Zap logger
+	logger, _ := zap.NewProduction()     // Create Uber's Zap logger
+	repo, err := newInmemoryRepository() // With in-memory database
+	//repo, err := newMongoNoteRepository() // With MongoDB database
+	if err != nil {
+		log.Fatal("Error:", err)
+	}
 	h := &handler{
-		repository: newInmemoryRepository(), // Injecting dependency
+		repository: repo, // Injecting dependency
 		logger:     logger,
 	}
 	r := initializeRoutes(h) // configure routes

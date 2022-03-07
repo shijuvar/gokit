@@ -51,6 +51,10 @@ func (h *handler) getAll(w http.ResponseWriter, r *http.Request) {
 		h.logger.Error(err.Error(),
 			zap.String("url", r.URL.String()),
 		)
+		if err == errNotFound {
+			http.Error(w, err.Error(), http.StatusBadRequest)
+			return
+		}
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 
@@ -78,6 +82,10 @@ func (h *handler) get(w http.ResponseWriter, r *http.Request) {
 			zap.String("note id", id),
 			zap.String("url", r.URL.String()),
 		)
+		if err == errNotFound {
+			http.Error(w, err.Error(), http.StatusBadRequest)
+			return
+		}
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	} else {

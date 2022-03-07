@@ -44,4 +44,19 @@ func main() {
 	p1.PrintName()
 	p1.PrintDetails()
 
+	// Pointer to Person
+	p2 := &Person{
+		FirstName: "Russ",
+		LastName:  "Cox",
+	}
+	p2.PrintName()
+
+	// The new built-in function allocates memory.
+	// The first argument is a type, not a value,
+	// and the value returned is a pointer to a newly allocated
+	// zero value of that type.
+	p3 := new(Person) // &Person{}
+	p3.FirstName = "Robert"
+	p3.LastName = "Griesemer"
+	p3.PrintName()
 }
