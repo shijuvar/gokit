@@ -7,36 +7,39 @@ import (
 	// external
 	"github.com/gorilla/mux"
 	"go.uber.org/zap"
+
+	apphttp "github.com/shijuvar/gokit/examples/http/restapi/http"
+	"github.com/shijuvar/gokit/examples/http/restapi/memstore"
 )
 
 //Entry point of the program
 func main() {
-	logger, _ := zap.NewProduction()     // Create Uber's Zap logger
-	repo, err := newInmemoryRepository() // With in-memory database
+	logger, _ := zap.NewProduction()              // Create Uber's Zap logger
+	repo, err := memstore.NewInmemoryRepository() // With in-memory database
 	//repo, err := newMongoNoteRepository() // With MongoDB database
 	if err != nil {
 		log.Fatal("Error:", err)
 	}
-	h := &handler{
-		repository: repo, // Injecting dependency
-		logger:     logger,
+	h := &apphttp.NoteHandler{
+		Repository: repo, // Injecting dependency
+		Logger:     logger,
 	}
-	r := initializeRoutes(h) // configure routes
+	router := initializeRoutes(h) // configure routes
 
 	server := &http.Server{
 		Addr:    ":8080",
-		Handler: r,
+		Handler: router,
 	}
 	log.Println("Listening...")
 	server.ListenAndServe() // Run the http server
 }
 
-func initializeRoutes(h *handler) *mux.Router {
+func initializeRoutes(h *apphttp.NoteHandler) *mux.Router {
 	r := mux.NewRouter()
-	r.HandleFunc("/api/notes", h.getAll).Methods("GET")
-	r.HandleFunc("/api/notes/{id}", h.get).Methods("GET")
-	r.HandleFunc("/api/notes", h.post).Methods("POST")
-	r.HandleFunc("/api/notes/{id}", h.put).Methods("PUT")
-	r.HandleFunc("/api/notes/{id}", h.delete).Methods("DELETE")
+	r.HandleFunc("/api/notes", h.GetAll).Methods("GET")
+	r.HandleFunc("/api/notes/{id}", h.Get).Methods("GET")
+	r.HandleFunc("/api/notes", h.Post).Methods("POST")
+	r.HandleFunc("/api/notes/{id}", h.Put).Methods("PUT")
+	r.HandleFunc("/api/notes/{id}", h.Delete).Methods("DELETE")
 	return r
 }
