@@ -23,7 +23,6 @@ func NewInmemoryRepository() (model.Repository, error) {
 }
 
 func (i *inmemoryRepository) isNoteTitleExists(title string) bool {
-	var exists bool
 	for _, v := range i.noteStore {
 		if v.Title == title {
 			return true
