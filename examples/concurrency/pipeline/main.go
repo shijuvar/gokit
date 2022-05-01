@@ -26,6 +26,21 @@ func randomCounter(out chan<- int) {
 func generateFibonacci(out chan<- fibvalue, in <-chan int) {
 	defer wg.Done()
 	var input float64
+	/*
+			for {
+				v, ok:= <-in
+				if !ok {
+					fmt.Println("Channel was closed")
+					return
+				}
+				// find out fibonacci value using v
+				// Once fibonacci value is generated
+				out <- fibvalue{
+					input: v,
+					value:0, //fibonacci value
+				}
+		  }
+	*/
 	for v := range in {
 		input = float64(v)
 		// Fibonacci using Binet's formula
