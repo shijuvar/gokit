@@ -22,7 +22,7 @@ var taskCmd = &cobra.Command{
 			return
 		}
 		category := chooseCategory()
-		fmt.Println(category)
+		fmt.Println("Category:", category)
 		fmt.Println("Task ID: ", args[0])
 		//name, _ := cmd.Flags().GetString("name")
 		title, _ := cmd.Flags().GetString("title")
