@@ -23,6 +23,16 @@ func main() {
 	}()
 	// Read the value from unbuffered channel
 	v, exists := <-counter
+	/*
+	   1: exists==true
+	   	Data received from the channel.
+	   2: exists==false
+	   	Channel was closed, no more data left in the channel
+	   	Receive default value
+	   3: Blocking code because send is not happened
+	      No data available in the channel
+	      Waiting for send operation
+	*/
 	fmt.Println(v)
 	fmt.Println(exists)
 	val, ok := <-counter // Trying to read from closed channel
