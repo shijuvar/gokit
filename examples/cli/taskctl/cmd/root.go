@@ -15,7 +15,7 @@ var rootCmd = &cobra.Command{
 	Use:   "taskctl",
 	Short: "Create tasks",
 	Long: `taskctl lets you create tasks, example:
-	create task meeting m101 -t="Go coding meeting" -d=01-02-2022`,
+	create task m101 -t="Go Masterclass" -d=01-02-2022`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	// Run: func(cmd *cobra.Command, args []string) { },
