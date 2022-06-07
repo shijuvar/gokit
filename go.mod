@@ -1,6 +1,6 @@
 module github.com/shijuvar/gokit
 
-go 1.16
+go 1.18
 
 require (
 	github.com/bitly/go-hostpool v0.1.0 // indirect
