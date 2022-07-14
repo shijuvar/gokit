@@ -22,6 +22,7 @@ func main() {
 	// Middleware
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
+	e.Use(middleware.RateLimiter(middleware.NewRateLimiterMemoryStore(20)))
 	// Routes
 	e.GET("/api/notes", h.GetAll)
 	e.GET("/api/notes/:id", h.Get)
