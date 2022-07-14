@@ -16,7 +16,7 @@ import (
 func main() {
 	logger, _ := zap.NewProduction()              // Create Uber's Zap logger
 	repo, err := memstore.NewInmemoryRepository() // With in-memory database
-	//repo, err := newMongoNoteRepository() // With MongoDB database
+	//repo, err := mongodb.NewMongoNoteRepository() // With MongoDB database
 	if err != nil {
 		log.Fatal("Error:", err)
 	}
