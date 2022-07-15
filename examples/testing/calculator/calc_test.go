@@ -23,6 +23,7 @@ type Test struct {
 
 // TestCalcAdd tests the behavior of Calc with Add operation
 func TestCalcAdd(t *testing.T) {
+
 	var tests = []Test{
 		Test{
 			name: "first input",
@@ -77,7 +78,7 @@ func TestCalcMultipleOps(t *testing.T) {
 			out:  20,
 		},
 		Test{
-			name: "fourth input for subtraction",
+			name: "fourth input for division",
 			in:   in{input: 4, op: "/"},
 			out:  5,
 		},
@@ -114,7 +115,7 @@ func TestCalcMultipleOpsWithSubTest(t *testing.T) {
 			out:  20,
 		},
 		Test{
-			name: "fourth input for subtraction",
+			name: "fourth input for division",
 			in:   in{input: 4, op: "/"},
 			out:  5,
 		},
