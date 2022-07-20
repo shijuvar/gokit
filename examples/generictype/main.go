@@ -14,7 +14,7 @@ func getSliceData[K comparable, V any](m map[K]V) []Data[K, V] {
 	d := make([]Data[K, V], len(m))
 	i := 0
 	for k, v := range m {
-		// creating value using new keyword
+		// creating value of generic type of Data
 		newData := Data[K, V]{}
 		newData.Key = k
 		newData.Value = v
