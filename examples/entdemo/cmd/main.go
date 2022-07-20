@@ -55,6 +55,11 @@ func main() {
 	if err := QueryGroupWithUsers(ctx, client); err != nil {
 		log.Fatal(err)
 	}
+	// Transaction
+	if err := GenTx(ctx, client); err != nil {
+		log.Fatal(err)
+	}
+
 }
 
 func CreateUser(ctx context.Context, client *ent.Client) (*ent.User, error) {
@@ -95,6 +100,7 @@ func CreateCars(ctx context.Context, client *ent.Client) (*ent.User, error) {
 	if err != nil {
 		return nil, fmt.Errorf("failed creating car: %w", err)
 	}
+	log.Println("car was created: ", tesla)
 
 	// Create a new car with model "Ford".
 	ford, err := client.Car.
@@ -278,4 +284,65 @@ func QueryGroupWithUsers(ctx context.Context, client *ent.Client) error {
 	log.Println("groups returned:", groups)
 	// Output: (Group(Name=GitHub), Group(Name=GitLab),)
 	return nil
+}
+
+// GenTx generates group of entities in a transaction.
+func GenTx(ctx context.Context, client *ent.Client) error {
+	tx, err := client.Tx(ctx)
+	if err != nil {
+		return fmt.Errorf("starting a transaction: %w", err)
+	}
+	hub, err := tx.Group.
+		Create().
+		SetName("Github").
+		Save(ctx)
+	if err != nil {
+		return rollback(tx, fmt.Errorf("failed creating the group: %w", err))
+	}
+	// Create the admin of the group.
+	dan, err := tx.User.
+		Create().
+		SetAge(29).
+		SetName("Dan").
+		Save(ctx)
+	if err != nil {
+		return rollback(tx, err)
+	}
+	// Create user "Ariel".
+	a8m, err := tx.User.
+		Create().
+		SetAge(30).
+		SetName("Ariel").
+		AddGroups(hub).
+		Save(ctx)
+	if err != nil {
+		return rollback(tx, err)
+	}
+	fmt.Println(dan)
+	fmt.Println(a8m)
+	return tx.Commit()
+}
+
+// rollback calls to tx.Rollback and wraps the given error
+// with the rollback error if occurred.
+func rollback(tx *ent.Tx, err error) error {
+	if rerr := tx.Rollback(); rerr != nil {
+		err = fmt.Errorf("%w: %v", err, rerr)
+	}
+	return err
+}
+
+// WrapCreateGraph wraps the existing "CreateGraph" function in a transaction.
+func WrapCreateGraph(ctx context.Context, client *ent.Client) error {
+	tx, err := client.Tx(ctx)
+	if err != nil {
+		return err
+	}
+	txClient := tx.Client()
+	// Use the "CreateGraph" below, but give it the transactional client;
+	// no code changes to "CreateGraph".
+	if err := CreateGraph(ctx, txClient); err != nil {
+		return rollback(tx, err)
+	}
+	return tx.Commit()
 }
