@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"sync"
 )
@@ -46,7 +46,7 @@ func getWebResponses(urls []string, webResponses chan<- webResponse) {
 				responseVal.status = http.StatusInternalServerError
 			} else {
 				defer response.Body.Close()
-				body, err := ioutil.ReadAll(response.Body)
+				body, err := io.ReadAll(response.Body)
 				if err == nil {
 					responseVal.responseText = string(body)
 				}
