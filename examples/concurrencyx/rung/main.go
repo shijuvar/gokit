@@ -5,12 +5,16 @@ import (
 	"fmt"
 	"net"
 	"net/http"
+	"os"
+	"os/signal"
+	"syscall"
 	"time"
 
 	"github.com/oklog/run"
 )
 
 func main() {
+	ln, _ := net.Listen("tcp", ":0")
 	var g run.Group
 	{
 		cancel := make(chan struct{})
@@ -39,13 +43,30 @@ func main() {
 		})
 	}
 	{
-		ln, _ := net.Listen("tcp", ":0")
 		g.Add(func() error {
 			defer fmt.Printf("http.Serve returned\n")
 			return http.Serve(ln, http.NewServeMux())
 		}, func(err error) {
 			ln.Close()
-			fmt.Printf("The third actor was interrupted with: %v\n", err)
+			fmt.Printf("HTTP Listener actor was interrupted with: %v\n", err)
+		})
+	}
+	{
+		cancelInterrupt := make(chan struct{})
+		g.Add(func() error {
+			c := make(chan os.Signal, 1)
+			signal.Notify(c, syscall.SIGINT, syscall.SIGTERM)
+			select {
+			case sig := <-c:
+				ln.Close()
+				return fmt.Errorf("received signal %s", sig)
+			case <-cancelInterrupt:
+				return nil
+			}
+		}, func(err error) {
+			close(cancelInterrupt)
+			fmt.Printf("Interruption Listener actor was interrupted with: %v\n", err)
+
 		})
 	}
 	fmt.Printf("The group was terminated with: %v\n", g.Run())
