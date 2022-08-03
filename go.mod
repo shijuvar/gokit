@@ -1,6 +1,6 @@
 module github.com/shijuvar/gokit
 
-go 1.18
+go 1.19
 
 require (
 	github.com/cockroachdb/cockroach-go v2.0.1+incompatible
@@ -32,6 +32,7 @@ require (
 	go.uber.org/zap v1.17.0
 	golang.org/x/crypto v0.0.0-20210817164053-32db794688a5
 	golang.org/x/net v0.0.0-20210813160813-60bc85c4be6d
+	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 	google.golang.org/grpc v1.43.0
 	google.golang.org/protobuf v1.27.1
 	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
