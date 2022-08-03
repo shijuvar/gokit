@@ -18,6 +18,7 @@ require (
 	github.com/manifoldco/promptui v0.9.0
 	github.com/nats-io/nats.go v1.10.0
 	github.com/nats-io/stan.go v0.8.3
+	github.com/oklog/run v1.1.0
 	github.com/onsi/ginkgo v1.16.4
 	github.com/onsi/ginkgo/v2 v2.0.0
 	github.com/onsi/gomega v1.17.0
