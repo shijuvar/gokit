@@ -2,9 +2,8 @@ package controller
 
 import (
 	"encoding/json"
+	"fmt"
 	"net/http"
-
-	"github.com/pkg/errors"
 
 	"github.com/shijuvar/gokit/examples/http-app/pkg/domain"
 )
@@ -19,12 +18,12 @@ func (handler ProductController) PostProduct(w http.ResponseWriter, r *http.Requ
 	// Decode the incoming json data to note struct
 	err := json.NewDecoder(r.Body).Decode(&product)
 	if err != nil {
-		return nil, http.StatusBadRequest, errors.Wrap(err, "Unable to decode JSON request body")
+		return nil, http.StatusBadRequest, fmt.Errorf("Unable to decode JSON request body: %w", err)
 	}
 	// Persistence
 	newProduct, err := handler.Store.Create(product)
 	if err != nil {
-		return nil, http.StatusInternalServerError, errors.Wrap(err, "Error on inserting Product")
+		return nil, http.StatusInternalServerError, fmt.Errorf("rrror on inserting Product: %w", err)
 	}
 	return newProduct, http.StatusCreated, nil
 }

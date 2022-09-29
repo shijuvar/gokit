@@ -1,10 +1,9 @@
 package postgres
 
 import (
-	"github.com/pkg/errors"
-	"golang.org/x/crypto/bcrypt"
-
 	"database/sql"
+	"fmt"
+	"golang.org/x/crypto/bcrypt"
 	"log"
 
 	"github.com/shijuvar/gokit/examples/http-app/pkg/domain"
@@ -20,7 +19,7 @@ func (userStore UserStore) Create(user domain.User, password string) (domain.Use
 
 	hpass, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
 	if err != nil {
-		return user, errors.Wrap(err, "Error on hashing password")
+		return user, fmt.Errorf("error on hashing password: %w", err)
 	}
 	user.HashPassword = hpass
 	sqlStatement := `
@@ -32,7 +31,7 @@ func (userStore UserStore) Create(user domain.User, password string) (domain.Use
 	err = userStore.Store.Db.QueryRow(sqlStatement, user.Email, user.FirstName, user.LastName, user.HashPassword).Scan(&id)
 	if err != nil {
 		user.ID = id // assign returning ID
-		return user, errors.Wrap(err, "Error while inserting on users")
+		return user, fmt.Errorf("Error while inserting on users: %w", err)
 	}
 	return user, nil
 }
@@ -47,15 +46,15 @@ func (userStore UserStore) Login(email, password string) (domain.User, error) {
 
 	switch err = row.Scan(&user.FirstName, &user.LastName, &user.HashPassword); err {
 	case sql.ErrNoRows:
-		err = errors.Wrap(err, "Invalid Email Id")
+		err = fmt.Errorf("Invalid Email Id: %w", err)
 	case nil:
 		// Validate password
 		err = bcrypt.CompareHashAndPassword(user.HashPassword, []byte(password))
 		if err != nil {
-			err = errors.Wrap(err, "Invalid Password")
+			err = fmt.Errorf("Invalid Password: %w", err)
 		}
 	default:
-		err = errors.Wrap(err, "Error on querying data")
+		err = fmt.Errorf("Error on querying data: %w", err)
 	}
 
 	return user, err
