@@ -28,7 +28,7 @@ func (t *Task) Run() {
 // wg is used to wait for the program to finish.
 var wg sync.WaitGroup
 
-// Arbitrary number of workers for the sake example
+// Arbitrary number of workers for the sake of example
 // It can be big in a real-world scenario
 const noOfWorkers = 3
 
@@ -65,6 +65,26 @@ func main() {
 func worker(taskQueue <-chan *Task, workerId int) {
 	// Schedule the call to Done method of WaitGroup.
 	defer wg.Done()
+	/*
+		for {
+		// Read the value from channel
+		   v, exists := <-taskQueue
+			if !exists {
+			   return // channel was closed and that exit from goroutine
+			}
+		  // Else execute task of v
+		}
+		// Three behaviors
+		 v, exists := <-taskQueue
+		   1: exists==true
+			Data received from the channel.
+		   2: exists==false
+			Channel was closed, no more data left in the channel
+			Receive default value
+		   3: Blocking code because send is not happened
+			  No data available in the channel
+			  Waiting for send operation
+	*/
 	for v := range taskQueue {
 		fmt.Printf("Worker%d: received request for Task:%d - Job:%d\n", workerId, v.Id, v.JobId)
 		v.Run()
