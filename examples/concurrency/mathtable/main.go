@@ -27,8 +27,6 @@ func addTable(wg *sync.WaitGroup) {
 	// Schedule the call to WaitGroup's Done to tell goroutine is completed.
 	defer wg.Done()
 	for i := 1; i <= 10; i++ {
-		go func() {
-		}()
 		sleep := rand.Int63n(1000)
 		time.Sleep(time.Duration(sleep) * time.Millisecond)
 		fmt.Println("Addition Table for:", i)
