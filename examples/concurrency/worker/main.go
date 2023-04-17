@@ -28,6 +28,8 @@ func (t *Task) Run() {
 // wg is used to wait for the program to finish.
 var wg sync.WaitGroup
 
+// Arbitrary number of workers for the sake example
+// It can be big in a real-world scenario
 const noOfWorkers = 3
 
 // main is the entry point for all Go programs.
