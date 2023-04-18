@@ -53,7 +53,6 @@ require (
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/magiconair/properties v1.8.5 // indirect
 	github.com/mitchellh/mapstructure v1.4.3 // indirect
-	github.com/nats-io/jwt v1.1.0 // indirect
 	github.com/nats-io/nats-server/v2 v2.1.9 // indirect
 	github.com/nats-io/nats-streaming-server v0.21.1 // indirect
 	github.com/nats-io/nkeys v0.1.4 // indirect
