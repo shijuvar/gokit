@@ -35,6 +35,8 @@ func getWebResponse(urls []string) ([]response, error) {
 		// Launch a goroutine to fetch the URL.
 		i := i
 		url := url // https://golang.org/doc/faq#closures_and_goroutines
+		// The first call to return a non-nil error cancels the group;
+		// its error will be returned by Wait.
 		g.Go(func() error {
 			// Fetch the URL.
 			resp, err := http.Get(url)

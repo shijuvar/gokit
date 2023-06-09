@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"golang.org/x/sync/errgroup"
 	"sync"
+
+	"golang.org/x/sync/errgroup"
 )
 
 var values []string = []string{"a", "b", "c"}
@@ -20,7 +21,9 @@ func errOnClosure() {
 	fmt.Println("errOnClosure")
 	done := make(chan struct{})
 	defer close(done)
-
+	// data race: the variable v is shared by len(values) of goroutines.
+	// each iteration of the loop uses the same instance of the variable v,
+	// so each closure shares that single variable.
 	for _, v := range values {
 		go func() {
 			fmt.Println(v)
@@ -35,7 +38,7 @@ func errOnClosure() {
 }
 
 func closureWithNewVar() {
-	fmt.Println("closureWithVar")
+	fmt.Println("closureWithNewVar")
 	done := make(chan struct{})
 	defer close(done)
 	for _, v := range values {
@@ -52,17 +55,17 @@ func closureWithNewVar() {
 	}
 }
 
+// closureWithParam uses a local variable and pass the string
+// as a parameter when starting the goroutine
 func closureWithParam() {
 	fmt.Println("closureWithParam")
-
 	done := make(chan struct{})
 	defer close(done)
 	for _, v := range values {
-		v := v
-		go func() {
-			fmt.Println(v)
+		go func(s string) { // Use a local variable.
+			fmt.Println(s)
 			done <- struct{}{}
-		}()
+		}(v)
 	}
 
 	//wait for all goroutines to complete before exiting
@@ -75,12 +78,11 @@ func closureWithWaitGroup() {
 	fmt.Println("closureWithWaitGroup")
 	var wg sync.WaitGroup
 	for _, v := range values {
-		v := v
 		wg.Add(1)
-		go func() {
+		go func(s string) {
 			defer wg.Done()
-			fmt.Println(v)
-		}()
+			fmt.Println(s)
+		}(v)
 	}
 	wg.Wait()
 }

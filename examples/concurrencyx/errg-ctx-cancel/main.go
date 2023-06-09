@@ -15,6 +15,12 @@ import (
 func main() {
 
 	ctx, done := context.WithTimeout(context.Background(), 10*time.Second)
+	/*
+		WithContext returns a new Group and an associated Context derived from ctx.
+		The derived Context is canceled the first time a function passed
+		to Go returns a non-nil error or the first time Wait returns,
+		whichever occurs first.
+	*/
 	g, gctx := errgroup.WithContext(ctx)
 	defer done()
 	// goroutine to check for signals to gracefully finish all functions
@@ -25,7 +31,7 @@ func main() {
 		select {
 		case sig := <-signalChannel:
 			fmt.Printf("Received signal: %s\n", sig)
-			done()
+			//done()
 		case <-gctx.Done():
 			fmt.Printf("closing signal goroutine\n")
 			return gctx.Err()
@@ -41,8 +47,8 @@ func main() {
 			select {
 			case <-ticker.C:
 				fmt.Printf("ticker 2s ticked\n")
-				// test error
-				return fmt.Errorf("test error ticker 2s")
+				// test error: Uncomment the below code to test returning non-error value
+				//return fmt.Errorf("test error ticker 2s")
 			case <-gctx.Done():
 				fmt.Printf("closing ticker 2s goroutine\n")
 				return gctx.Err()
@@ -82,8 +88,8 @@ func main() {
 		fmt.Println("finished clean")
 	}
 
-	if err := g.Wait(); err != nil {
-		fmt.Println("from last: ", err)
-	}
+	//if err := g.Wait(); err != nil {
+	//	fmt.Println("from last: ", err)
+	//}
 
 }
