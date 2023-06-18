@@ -88,14 +88,29 @@ func closureWithWaitGroup() {
 }
 func closureWithErrGroup() {
 	fmt.Println("closureWithErrGroup")
+	/*
+		Package errgroup provides synchronization, error propagation, and Context cancelation
+		for groups of goroutines working on subtasks of a common task.
+		A Group is a collection of goroutines working on subtasks that are part of the same overall task.
+	*/
 	g := new(errgroup.Group)
 	for _, v := range values {
 		v := v
+		/*
+			Go calls the given function in a new goroutine.
+			The first call to return a non-nil error cancels the group's context,
+			if the group was created by calling WithContext.
+			The error will be returned by Wait.
+		*/
 		g.Go(func() error {
 			fmt.Println(v)
 			return nil
 		})
 	}
+	/*
+		Wait blocks until all function calls from the Go method have returned,
+		then returns the first non-nil error (if any) from them.
+	*/
 	if err := g.Wait(); err != nil {
 		fmt.Println("Error from ErrGroup:", err)
 	}

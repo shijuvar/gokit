@@ -61,9 +61,11 @@ func MD5All(ctx context.Context, root string) (map[string][md5.Size]byte, error)
 	// Start a fixed number of goroutines to read and digest files.
 	c := make(chan result)
 	const numDigesters = 20
-	for i := 0; i < numDigesters; i++ {
+	for i := 1; i <= numDigesters; i++ {
+		i := i
 		g.Go(func() error {
 			for path := range paths {
+				fmt.Println("Goroutine #:  ", i)
 				data, err := os.ReadFile(path)
 				if err != nil {
 					return err
