@@ -2,6 +2,7 @@ package mongodb
 
 import (
 	"context"
+	"errors"
 	"time"
 
 	"github.com/gofrs/uuid"
@@ -38,6 +39,9 @@ func NewMongoNoteRepository() (model.Repository, error) {
 }
 
 func (m *MongoNoteRepository) Create(n model.Note) error {
+	if en, _ := getNoteByTitle(m.noteCollection, n.Title); en.Title == n.Title {
+		return model.ErrNoteExists
+	}
 	// Create a Version 4 UUID.
 	uid, _ := uuid.NewV4()
 	n.NoteID = uid.String()
@@ -47,7 +51,24 @@ func (m *MongoNoteRepository) Create(n model.Note) error {
 	return err
 }
 
+func getNoteByTitle(c *mongo.Collection, title string) (model.Note, error) {
+	filter := bson.D{{"title", title}}
+	var n model.Note
+	err := c.FindOne(ctx, filter).Decode(&n)
+	if err != nil {
+		if err == mongo.ErrNoDocuments {
+			return n, model.ErrNotFound
+		}
+		return n, err
+	}
+
+	return n, nil
+}
+
 func (m *MongoNoteRepository) Update(id string, n model.Note) error {
+	if _, err := m.GetById(id); errors.Is(err, model.ErrNotFound) {
+		return err
+	}
 	filter := bson.D{{"noteid", id}}
 	update := bson.D{{"$set",
 		bson.D{
@@ -59,6 +80,9 @@ func (m *MongoNoteRepository) Update(id string, n model.Note) error {
 	return err
 }
 func (m *MongoNoteRepository) Delete(id string) error {
+	if _, err := m.GetById(id); errors.Is(err, model.ErrNotFound) {
+		return err
+	}
 	filter := bson.D{{"noteid", id}}
 	_, err := m.noteCollection.DeleteOne(ctx, filter)
 	return err
@@ -77,6 +101,7 @@ func (m *MongoNoteRepository) GetById(id string) (model.Note, error) {
 
 	return n, nil
 }
+
 func (m *MongoNoteRepository) GetAll() ([]model.Note, error) {
 	filter := bson.D{{}}
 	var notes []model.Note
