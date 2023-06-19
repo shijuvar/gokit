@@ -1,6 +1,5 @@
 /*
 Copyright © 2022 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
@@ -15,7 +14,7 @@ var createCmd = &cobra.Command{
 	Use:   "create <task><task-id>",
 	Short: "Command to create taskctl",
 	Long: `This command creates taskctl. example:
-	create task meeting22 -t="Go coding meeting" -d=01-02-2022`,
+	create task meeting22 -t="Go coding meeting" -d="01-02-2022"`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("create called")
 	},

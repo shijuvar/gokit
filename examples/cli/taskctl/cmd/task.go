@@ -1,6 +1,5 @@
 /*
 Copyright © 2022 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
@@ -15,7 +14,7 @@ import (
 var taskCmd = &cobra.Command{
 	Use:   "task <ID>",
 	Short: "This command creates new task",
-	Long:  `task code01 -t="create new repo" -d=01-feb-2022`,
+	Long:  `task code01 -t="create new repo" -d="01-feb-2022"`,
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) == 0 {
 			fmt.Println("Task ID must be provided")
@@ -54,7 +53,6 @@ func chooseCategory() string {
 		}
 
 		index, result, err = prompt.Run()
-
 		if index == -1 {
 			items = append(items, result)
 		}
