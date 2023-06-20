@@ -26,8 +26,8 @@ var taskCmd = &cobra.Command{
 		//name, _ := cmd.Flags().GetString("name")
 		title, _ := cmd.Flags().GetString("title")
 		due, _ := cmd.Flags().GetString("due")
-		fmt.Println("Title of the task :" + title)
-		fmt.Println("Due date of the task :" + due)
+		fmt.Println("Title of the task :", title)
+		fmt.Println("Due date of the task :", due)
 	},
 }
 
