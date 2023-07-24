@@ -1,7 +1,11 @@
 # Shiju Varghese's Masterclass on Go Programming Language and Distributed Systems
 <a href="(https://medium.com/@shijuvar"><img src="https://github.com/shijuvar/shijuvar/blob/master/img/go_red_logo.png" align="center" height="200" width="350" ></a>
 
-Provides training (both class room and online) and consulting on Go, Microservices and cloud-native distributed systems architectures. Class room trainings are only available in India. Note that corporate trainings are conducted with customizable contents of two Masterclass for giving real-world guidance for building highly-scalable production-ready backend and distributed systems.    
+Provides training (both class room and online) and consulting on Go, Microservices and cloud-native distributed systems architectures. Class room trainings are only available in India. 
+
+* Providing training and consulting for the successful adoption of Go programming language 
+* Providing One-on-One Mentoring to individuals on Go and distributed systems 
+* Architecture guidance for building highly scalable distributed systems and microservices
 
 **Contact: shijuvar@gophermonk.in**
 
@@ -15,7 +19,8 @@ Provides training (both class room and online) and consulting on Go, Microservic
 -------------------------------
 
 **Course Duration:**  
-* Online Training: 20 hours (8 sessions of two and half hours) and assignments at offline 
+* Online Training for Public: 20 hours (8 sessions of two and half hours) and assignments at offline
+* Classroom/Online Training for Corporate Organizations: 4 Days
 
 **Prerequisite:**  None
 
@@ -35,7 +40,6 @@ Provides training (both class room and online) and consulting on Go, Microservic
 * HTTP programming: From basics to building production-ready apps.
 *	Testing Go applications: From basics to BDD-style testing and mocking.
 * Go 1.18 Generics
-* Ent: An entity framework for Go
 * Building CLI applications
 
 
@@ -43,7 +47,8 @@ Provides training (both class room and online) and consulting on Go, Microservic
 ### *Building highly scalable distributed systems in Go*
 --------------------------------------------------------
 **Course Duration:** 
-* Online Training: 15 hours (6 sessions of two and half hours) and assignments at offline 
+* Online Training for Public: 20 hours (8 sessions of two and half hours) and assignments at offline
+* Classroom/Online Training for Corporate Organizations: 4 Days
 
 **Prerequisite:**  Completion of "Professional Go" course or Go developers with deep knowledge on SOLID principles 
 
@@ -52,23 +57,22 @@ Provides training (both class room and online) and consulting on Go, Microservic
 **Level:** Advanced 
 
 **Summary of Course Contents:**  
-* An introduction to cloud-native distributed systems architecture patterns.
-* Introduction to Microservices Architecture.
-* Decomposition Patterns for Microservices. 
+* An introduction to cloud-native distributed systems architecture patterns
+* Introduction to Microservices Architecture
+* Decomposition Patterns for Microservices 
 * Domain-Driven Design (DDD)
-* A deep dive into gRPC and Protocol Buffers.
+* A deep dive into gRPC and Protocol Buffers
 * Working with CockroachDB - A distributed, fault-tolerant database 
-* Managing Transactions in Microservices.
-* A deep dive into cloud-native messaging systems: NATS 2.0, NATS Streaming and NATS JetStream. 
-* Building Event-Driven Microservices with NATS.
-* Building Microservices with Event Sourcing and CQRS. 
-* Microservices development with Go kit.
-* Distributed Tracing with OpenCensus and Zipkin.
+* Managing Transactions in Microservices
+* A deep dive into cloud-native messaging systems: NATS and NATS JetStream 
+* Building Event-Driven Microservices with NATS
+* Building Microservices with Event Sourcing and CQRS
+* Building distributed applications using Service Weaver
+* Microservices development with Go kit
+* Encore – Backend Development Engine
 
   
   
-<a href="(https://medium.com/@shijuvar"><img src="https://github.com/shijuvar/shijuvar/blob/master/img/tech_stack_go.png" align="center" height="50%" width="50%" ></a>
-
 
 ### Shiju Varghese
 --------------------------------------------------------
