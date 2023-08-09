@@ -13,7 +13,7 @@ require (
 	github.com/gorilla/rpc v1.2.0
 	github.com/influxdata/influxdb v1.8.4
 	github.com/jinzhu/gorm v1.9.16
-	github.com/lib/pq v1.10.0
+	github.com/lib/pq v1.10.6
 	github.com/magefile/mage v1.11.0
 	github.com/manifoldco/promptui v0.9.0
 	github.com/nats-io/nats.go v1.10.0
@@ -30,7 +30,7 @@ require (
 	github.com/sirupsen/logrus v1.8.1
 	github.com/spf13/cobra v1.3.0
 	github.com/spf13/viper v1.10.1
-	github.com/stretchr/testify v1.8.0
+	github.com/stretchr/testify v1.8.1
 	go.uber.org/zap v1.23.0
 	golang.org/x/crypto v0.10.0
 	golang.org/x/net v0.11.0
@@ -56,6 +56,7 @@ require (
 	github.com/hashicorp/hcl v1.0.0 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
+	github.com/jinzhu/now v1.1.4 // indirect
 	github.com/magiconair/properties v1.8.5 // indirect
 	github.com/mitchellh/mapstructure v1.4.3 // indirect
 	github.com/nats-io/jwt v1.1.0 // indirect

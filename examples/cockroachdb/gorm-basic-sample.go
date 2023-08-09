@@ -26,7 +26,6 @@ func main() {
 
 	// Automatically create the "accounts" table based on the Account model.
 	db.AutoMigrate(&Account{})
-
 	// Insert two rows into the "accounts" table.
 	db.Create(&Account{ID: 3, Balance: 2000})
 	db.Create(&Account{ID: 4, Balance: 2250})

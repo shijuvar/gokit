@@ -66,7 +66,7 @@ func getProducts() {
 	var products []*Product
 	for rows.Next() {
 		prd := &Product{}
-		err := rows.Scan(&prd.Title, &prd.Description, &prd.Price)
+		err := rows.Scan(&prd.ID, &prd.Title, &prd.Description, &prd.Price)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -77,7 +77,7 @@ func getProducts() {
 	}
 
 	for _, pr := range products {
-		fmt.Printf("%s, %s, $%.2f\n", pr.Title, pr.Description, pr.Price)
+		fmt.Printf("%d, %s, %s, $%.2f\n", pr.ID, pr.Title, pr.Description, pr.Price)
 	}
 }
 
