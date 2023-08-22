@@ -17,6 +17,5 @@ func ReadFile(filename string) ([]byte, error) {
 
 func main() {
 	f, _ := ReadFile("test.txt")
-	fmt.Println("%s", f)
 	fmt.Println(string(f))
 }
