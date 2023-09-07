@@ -33,7 +33,7 @@ func doLog(logger *slog.Logger, o Order) {
 	logger.Info("New Order has been created", "Order ID", o.ID, "CustomerID", o.CustomerID)
 	// With Attr type. Attr is a key-value pair.
 	logger.Info("Order", slog.Int("Order ID", o.ID), slog.String("CustomerID", o.CustomerID))
-
+	// LogAttrs is a more efficient version of Logger.Log that accepts only Attrs.
 	logger.LogAttrs(context.Background(), slog.LevelInfo, "Order is created by",
 		slog.String("user", os.Getenv("USER")))
 }
