@@ -23,3 +23,6 @@ Read more articles from [Shiju Varghese's Blog](https://medium.com/@shijuvar)
 * [Github](https://github.com/shijuvar)
 * [LinkedIn](https://linkedin.com/in/shijuvar)
 * [Instagram](https://www.instagram.com/shijuvar/)
+
+## Training and Consulting in India
+As a Consulting Solutions Architect, I do provide [training and consulting on Go programming language and distributed systems architectures](https://github.com/shijuvar/shijuvar/blob/master/masterclass.md), in India.
