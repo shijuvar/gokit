@@ -1,5 +1,5 @@
 # gokit: Guidance on Go Programming Language
-* Code examples for the [Go Programming Workshop by Shiju Varghese](https://github.com/shijuvar/gokit/blob/master/training/README.md)
+* Code examples for the [Go Programming Workshop by Shiju Varghese](https://github.com/shijuvar/shijuvar/blob/master/masterclass.md)
 * Check out [go-distributed-sys](https://github.com/shijuvar/go-distributed-sys) for Microservices based architectural patterns such as Event Sourcing/CQRS wih gRPC, NATS Streaming and CockroachDB
 
 ## Articles
@@ -23,3 +23,6 @@ Read more articles from [Shiju Varghese's Blog](https://medium.com/@shijuvar)
 * [Github](https://github.com/shijuvar)
 * [LinkedIn](https://linkedin.com/in/shijuvar)
 * [Instagram](https://www.instagram.com/shijuvar/)
+
+## Training and Consulting in India
+As a Consulting Solutions Architect, I do provide [training and consulting on Go programming language and distributed systems architectures](https://github.com/shijuvar/shijuvar/blob/master/masterclass.md), in India.
