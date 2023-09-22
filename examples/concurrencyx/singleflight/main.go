@@ -7,6 +7,7 @@ import (
 	"golang.org/x/sync/singleflight"
 )
 
+// singleflight provides a duplicate function call suppression mechanism
 var group singleflight.Group
 
 func main() {
