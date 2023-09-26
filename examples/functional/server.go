@@ -22,11 +22,13 @@ func WithProtocol(protocol string) ServerOption {
 }
 
 func NewServer(host string, opts ...ServerOption) *Server {
+	// Server with default options
 	server := &Server{
 		host:     host,
 		port:     8080,
 		protocol: "http",
 	}
+	// Modifying the sever configurations
 	for _, opt := range opts {
 		opt(server)
 	}
