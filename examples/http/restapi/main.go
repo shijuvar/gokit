@@ -9,14 +9,14 @@ import (
 	"go.uber.org/zap"
 
 	apphttp "github.com/shijuvar/gokit/examples/http/restapi/http"
-	"github.com/shijuvar/gokit/examples/http/restapi/mongodb"
+	"github.com/shijuvar/gokit/examples/http/restapi/memstore"
 )
 
 // Entry point of the program
 func main() {
-	logger, _ := zap.NewProduction() // Create Uber's Zap logger
-	//repo, err := memstore.NewInmemoryRepository() // With in-memory database
-	repo, err := mongodb.NewMongoNoteRepository() // With MongoDB database
+	logger, _ := zap.NewProduction()              // Create Uber's Zap logger
+	repo, err := memstore.NewInmemoryRepository() // With in-memory database
+	//repo, err := mongodb.NewMongoNoteRepository() // With MongoDB database
 	if err != nil {
 		log.Fatal("Error:", err)
 	}

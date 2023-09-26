@@ -3,11 +3,12 @@ package memstore
 import (
 	// internal
 	"errors"
-	"github.com/shijuvar/gokit/examples/http/restapi/model"
 	"time"
 
 	// external
 	"github.com/gofrs/uuid"
+
+	"github.com/shijuvar/gokit/examples/http/restapi/model"
 )
 
 // inmemoryRepository provides concrete implementation
@@ -49,6 +50,7 @@ func (i *inmemoryRepository) Update(id string, n model.Note) error {
 	if _, ok := i.noteStore[id]; !ok {
 		return errors.New("NoteID doesn't exist")
 	}
+	n.NoteID = id
 	n.CreatedOn = time.Now()
 	i.noteStore[id] = n
 	return nil
@@ -71,7 +73,7 @@ func (i *inmemoryRepository) GetById(id string) (model.Note, error) {
 }
 
 func (i *inmemoryRepository) GetAll() ([]model.Note, error) {
-	notes := make([]model.Note, 0)
+	notes := make([]model.Note, 0, len(i.noteStore))
 	for _, v := range i.noteStore {
 		notes = append(notes, v)
 	}
