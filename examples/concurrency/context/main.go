@@ -1,3 +1,4 @@
+// Example code updated for Go 1.21
 package main
 
 import (
@@ -8,8 +9,6 @@ import (
 )
 
 func generateValues(ctx context.Context, counter chan int) {
-	defer close(counter)
-
 	n := 1
 	for {
 		time.Sleep(1 * time.Second)
@@ -29,33 +28,19 @@ func generateValues(ctx context.Context, counter chan int) {
 }
 
 func main() {
-	/*
-		WithCancel returns a copy of parent with a new Done channel.
-		The returned context's Done channel is closed when the returned cancel function is called or
-		when the parent context's Done channel is closed, whichever happens first.
-
-		Canceling this context releases resources associated with it,
-		so code should call cancel as soon as the operations running in this Context complete.
-	*/
-
-	//ctx, cancel := context.WithCancel(context.Background())
-	//ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-
-	/*
-		WithCancelCause behaves like WithCancel but returns a CancelCauseFunc instead of a CancelFunc.
-		Calling cancel with a non-nil error (the "cause") records that error in ctx;
-		it can then be retrieved using Cause(ctx).
-		Calling cancel with nil sets the cause to Canceled.
-	*/
-	ctx, cancel := context.WithCancelCause(context.Background())
-	causeError := errors.New("this is a leaking goroutine")
-
+	causeError := errors.New("timeout of goroutine")
+	ctx, cancel := context.WithTimeoutCause(context.Background(), time.Second*5, causeError)
+	defer cancel()
 	counter := make(chan int)
+	stop := context.AfterFunc(ctx, func() {
+		fmt.Println("executing stop function")
+		// closing the channel
+		close(counter)
+
+	})
+	defer stop()
 	go generateValues(ctx, counter)
 	for n := range counter {
-		if n == 10 {
-			cancel(causeError)
-		}
 		fmt.Println(n)
 	}
 	fmt.Println("done")
