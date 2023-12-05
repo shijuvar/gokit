@@ -25,6 +25,8 @@ func main() {
 		Logger:     logger,
 	}
 	router := initializeRoutes(h) // configure routes
+	// applying CORS middleware
+	router.Use(mux.CORSMethodMiddleware(router))
 
 	server := &http.Server{
 		Addr:    ":8080",
