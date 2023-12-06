@@ -10,7 +10,7 @@ func doSomething(ctx context.Context) {
 		fmt.Println("Unauthorized from doSomething")
 		return
 	}
-	fmt.Println("Authorized from doSomething")
+	fmt.Println("Authorized from doSomething for user:", ctx.Value("user"))
 }
 
 func doAnother(ctx context.Context) {
@@ -18,12 +18,14 @@ func doAnother(ctx context.Context) {
 		fmt.Println("Unauthorized from doAnother")
 		return
 	}
-	fmt.Println("Authorized from doAnother")
+	fmt.Println("Authorized from doAnother:", ctx.Value("user"))
 }
 
 func main() {
 	ctx := context.Background()
 	ctx = context.WithValue(ctx, "authorization", "my-auth-token")
+	ctx = context.WithValue(ctx, "user", "shijuvar")
+
 	doSomething(ctx)
 	doAnother(ctx)
 }
