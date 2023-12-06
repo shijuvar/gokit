@@ -9,16 +9,19 @@ import (
 )
 
 func generateValues(ctx context.Context, counter chan int) {
+
+	defer close(counter)
 	n := 1
 	for {
 		time.Sleep(1 * time.Second)
 		select {
 		case <-ctx.Done():
+			fmt.Println("Done channel received")
 			if err := ctx.Err(); err != nil {
-				fmt.Println("context error:", err)
+				fmt.Println("ctx-cancel error:", err)
 			}
 			if err := context.Cause(ctx); err != nil {
-				fmt.Println("context cause:", err)
+				fmt.Println("ctx-cancel cause:", err)
 			}
 			return
 		case counter <- n:
@@ -28,19 +31,15 @@ func generateValues(ctx context.Context, counter chan int) {
 }
 
 func main() {
-	causeError := errors.New("timeout of goroutine")
-	ctx, cancel := context.WithTimeoutCause(context.Background(), time.Second*5, causeError)
-	defer cancel()
+	causeError := errors.New("goroutine is leaking")
+	ctx, cancel := context.WithCancelCause(context.Background())
 	counter := make(chan int)
-	stop := context.AfterFunc(ctx, func() {
-		fmt.Println("executing stop function")
-		// closing the channel
-		close(counter)
-
-	})
-	defer stop()
+	// calling goroutine with ctx-cancel value
 	go generateValues(ctx, counter)
 	for n := range counter {
+		if n == 10 {
+			cancel(causeError)
+		}
 		fmt.Println(n)
 	}
 	fmt.Println("done")

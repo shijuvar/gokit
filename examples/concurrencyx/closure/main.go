@@ -98,7 +98,7 @@ func closureWithErrGroup() {
 		v := v
 		/*
 			Go calls the given function in a new goroutine.
-			The first call to return a non-nil error cancels the group's context,
+			The first call to return a non-nil error cancels the group's ctx-cancel,
 			if the group was created by calling WithContext.
 			The error will be returned by Wait.
 		*/

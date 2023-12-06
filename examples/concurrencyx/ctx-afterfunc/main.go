@@ -29,7 +29,7 @@ func main() {
 		defer stopf()
 
 		// Since the wakeups are using Broadcast instead of Signal, this call to
-		// Wait may unblock due to some other goroutine's context becoming done,
+		// Wait may unblock due to some other goroutine's ctx-cancel becoming done,
 		// so to be sure that ctx is actually done we need to check it in a loop.
 		for !conditionMet() {
 			cond.Wait()

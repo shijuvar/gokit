@@ -18,7 +18,7 @@ func SugaredLogger() {
 	// flushes buffer, if any
 	sugar := logger.Sugar()
 	sugar.Infow("Failed to fetch URL.",
-		// Structured context as loosely-typed key-value pairs.
+		// Structured ctx-cancel as loosely-typed key-value pairs.
 		"url", url,
 		"attempt", 3,
 		"backoff", time.Second,
@@ -30,7 +30,7 @@ func Logger() {
 	logger, _ := zap.NewDevelopment()
 	defer logger.Sync()
 	logger.Info("Failed to fetch URL.",
-		// Structured context as strongly-typed Field values.
+		// Structured ctx-cancel as strongly-typed Field values.
 		zap.String("url", url),
 		zap.Int("attempt", 3),
 		zap.Duration("backoff", time.Second),

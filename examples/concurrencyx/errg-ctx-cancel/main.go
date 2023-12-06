@@ -80,7 +80,7 @@ func main() {
 	err := g.Wait()
 	if err != nil {
 		if errors.Is(err, context.Canceled) {
-			fmt.Println("context was canceled")
+			fmt.Println("ctx-cancel was canceled")
 		} else {
 			fmt.Printf("received error: %v\n", err)
 		}
