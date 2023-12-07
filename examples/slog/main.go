@@ -134,6 +134,8 @@ func doLog(logger *slog.Logger, o Order) {
 // customizeHandler customizes log handler by providing slog.HandlerOptions value
 func customizeHandler() {
 	fmt.Println("-------customizeHandler-------")
+	// AddSource causes the handler to compute the source code position of the log statement
+	// and add a SourceKey attribute to the output.
 	opts := &slog.HandlerOptions{
 		AddSource: true,
 		Level:     slog.LevelDebug, // Levels: DEBUG (-4), INFO (0), WARN (4), and ERROR (8).
