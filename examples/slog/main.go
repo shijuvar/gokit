@@ -6,11 +6,51 @@ import (
 	"log/slog"
 	"net/http"
 	"os"
+
+	"go.uber.org/zap"
+	"go.uber.org/zap/exp/zapslog"
 )
 
 type Order struct {
 	ID         int
 	CustomerID string
+}
+
+type User struct {
+	ID        string `json:"id"`
+	FirstName string `json:"first_name"`
+	LastName  string `json:"last_name"`
+	Password  string `json:"password"`
+}
+
+/*
+If a type implements the LogValuer interface,
+the Value returned from its LogValue method is used for logging
+
+	type LogValuer interface {
+		LogValue() slog.Value
+	}
+*/
+
+func (u User) LogValue() slog.Value {
+	return slog.GroupValue(
+		slog.String("id", u.ID),
+		slog.String("name", u.FirstName+" "+u.LastName),
+	)
+}
+
+func logWithLogValuer() {
+	handler := slog.NewJSONHandler(os.Stdout, nil)
+	logger := slog.New(handler)
+
+	u := User{
+		ID:        "shijuvar",
+		FirstName: "shiju",
+		LastName:  "varghese",
+		Password:  "my-password",
+	}
+
+	logger.Info("info", "user", u)
 }
 
 // withOldLogAPIs demonstrates how to use slog with older API which need log.Logger
@@ -28,6 +68,8 @@ func withOldLogAPIs() {
 	server.ListenAndServe()
 	defer server.Close()
 }
+
+// logWithLevels demonstrates basic logging all levels
 func logWithLevels() {
 	// log using the default logger
 	slog.Debug("Debug log")
@@ -50,16 +92,24 @@ func main() {
 		ID:         100,
 		CustomerID: "shijuvar",
 	}
+	logger.Info("Order has been created", "order", order)
+	// logging with different approaches
+	fmt.Println("Logging with default logger")
 	doLog(logger, order)
 	// New creates a new Logger with the given non-nil Handler.
+	fmt.Println("Logging with TextHandler")
 	logger = slog.New(slog.NewTextHandler(os.Stdout, nil))
 	doLog(logger, order)
+	fmt.Println("Logging with JSONHandler")
 	logger = slog.New(slog.NewJSONHandler(os.Stdout, nil))
 	doLog(logger, order)
+	// customizing log handler by providing slog.HandlerOptions value
 	customizeHandler()
-
+	// logging with LogValuer interface to hide sensitive data
+	logWithLogValuer()
 }
 
+// doLog demonstrates logging with different ways which includes slog.Attr type, LogAttrs, slog.Group
 func doLog(logger *slog.Logger, o Order) {
 	logger.Info("New Order has been created", "Order ID", o.ID, "CustomerID", o.CustomerID)
 	// With slog.Attr type. slog.Attr is a key-value pair.
@@ -81,6 +131,7 @@ func doLog(logger *slog.Logger, o Order) {
 	)
 }
 
+// customizeHandler customizes log handler by providing slog.HandlerOptions value
 func customizeHandler() {
 	fmt.Println("-------customizeHandler-------")
 	opts := &slog.HandlerOptions{
@@ -89,4 +140,19 @@ func customizeHandler() {
 	}
 	logger := slog.New(slog.NewJSONHandler(os.Stdout, opts))
 	logger.Debug("debugging message")
+}
+
+// zapAsTheBackEnd demonstrates how to use Uber Zap as the backend for slog
+func zapAsTheBackEnd() {
+	zapLogger := zap.Must(zap.NewProduction())
+
+	defer zapLogger.Sync()
+	// creating a slog frontend
+	logger := slog.New(zapslog.NewHandler(zapLogger.Core(), nil))
+
+	logger.Info(
+		"New Order has been created",
+		slog.Int("Order ID", 10001),
+		slog.String("CustomerID", "shijuvar"),
+	)
 }
