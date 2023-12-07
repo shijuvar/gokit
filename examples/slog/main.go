@@ -53,22 +53,6 @@ func logWithLogValuer() {
 	logger.Info("info", "user", u)
 }
 
-// withOldLogAPIs demonstrates how to use slog with older API which need log.Logger
-func withOldLogAPIs() {
-	// NewJSONHandler creates a JSONHandler
-	handler := slog.NewJSONHandler(os.Stdout, nil)
-	// NewLogLogger returns a new log.Logger
-	// The logger acts as a bridge from the older log API to newer structured logging handlers
-	logger := slog.NewLogLogger(handler, slog.LevelError)
-	server := http.Server{
-		Addr:     ":8080",
-		Handler:  nil,
-		ErrorLog: logger,
-	}
-	server.ListenAndServe()
-	defer server.Close()
-}
-
 // logWithLevels demonstrates basic logging all levels
 func logWithLevels() {
 	// log using the default logger
@@ -142,6 +126,22 @@ func customizeHandler() {
 	}
 	logger := slog.New(slog.NewJSONHandler(os.Stdout, opts))
 	logger.Debug("debugging message")
+}
+
+// withOldLogAPIs demonstrates how to use slog with older API which need log.Logger
+func withOldLogAPIs() {
+	// NewJSONHandler creates a JSONHandler
+	handler := slog.NewJSONHandler(os.Stdout, nil)
+	// NewLogLogger returns a new log.Logger
+	// The logger acts as a bridge from the older log API to newer structured logging handlers
+	logger := slog.NewLogLogger(handler, slog.LevelError)
+	server := http.Server{
+		Addr:     ":8080",
+		Handler:  nil,
+		ErrorLog: logger,
+	}
+	server.ListenAndServe()
+	defer server.Close()
 }
 
 // zapAsTheBackEnd demonstrates how to use Uber Zap as the backend for slog
