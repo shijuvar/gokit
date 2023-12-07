@@ -2,6 +2,7 @@ package main
 
 import (
 	"os"
+
 	log "github.com/sirupsen/logrus"
 )
 
@@ -37,7 +38,7 @@ func main() {
 	// the logrus.Entry returned from WithFields()
 	contextLogger := log.WithFields(log.Fields{
 		"common": "this is a common field",
-		"other": "I also should be logged always",
+		"other":  "I also should be logged always",
 	})
 
 	contextLogger.Info("I'll be logged with common and other field")

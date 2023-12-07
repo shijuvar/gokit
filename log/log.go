@@ -2,7 +2,6 @@ package log
 
 import (
 	"io"
-	"io/ioutil"
 	"log"
 	"os"
 )
@@ -69,18 +68,18 @@ func SetLogLevel(level Level, logFile string) {
 		return
 
 	case INFO:
-		initLog(ioutil.Discard, f, f, f, true)
+		initLog(io.Discard, f, f, f, true)
 		return
 
 	case WARNING:
-		initLog(ioutil.Discard, ioutil.Discard, f, f, true)
+		initLog(io.Discard, io.Discard, f, f, true)
 		return
 	case ERROR:
-		initLog(ioutil.Discard, ioutil.Discard, ioutil.Discard, f, true)
+		initLog(io.Discard, io.Discard, io.Discard, f, true)
 		return
 
 	default:
-		initLog(ioutil.Discard, ioutil.Discard, ioutil.Discard, ioutil.Discard, false)
+		initLog(io.Discard, io.Discard, io.Discard, io.Discard, false)
 		f.Close()
 		return
 
