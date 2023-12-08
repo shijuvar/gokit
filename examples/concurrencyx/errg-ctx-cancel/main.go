@@ -47,7 +47,7 @@ func main() {
 			select {
 			case <-ticker.C:
 				fmt.Printf("ticker 2s ticked\n")
-				// test error: Uncomment the below code to test returning non-error value
+				// test error: Uncomment the below code to test returning non-nil error value
 				//return fmt.Errorf("test error ticker 2s")
 			case <-gctx.Done():
 				fmt.Printf("closing ticker 2s goroutine\n")

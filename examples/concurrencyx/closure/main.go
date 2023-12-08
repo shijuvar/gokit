@@ -30,7 +30,6 @@ func errOnClosure() {
 			done <- struct{}{}
 		}()
 	}
-
 	//wait for all goroutines to complete before exiting
 	for _ = range values {
 		<-done

@@ -15,9 +15,11 @@ import (
 
 func main() {
 	ln, _ := net.Listen("tcp", ":0")
-	var g run.Group
+	var g run.Group // watch this video: https://www.youtube.com/watch?v=LHe1Cb_Ud_M&t=15m45s
 	{
 		cancel := make(chan struct{})
+		// Add actors into Group
+		// Actors are defined as a pair of functions: an execute function, and an interrupt function
 		g.Add(func() error {
 			select {
 			case <-time.After(time.Second):
@@ -69,5 +71,12 @@ func main() {
 
 		})
 	}
+	/*
+		Run, which concurrently runs all of the actors, waits until the first actor exits,
+		invokes the interrupt functions, and finally returns control to the caller
+		only once all actors have returned.
+		This general-purpose API allows callers to model pretty much any runnable task,
+		and achieve well-defined lifecycle semantics for the group.
+	*/
 	fmt.Printf("The group was terminated with: %v\n", g.Run())
 }
