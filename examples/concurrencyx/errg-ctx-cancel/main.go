@@ -24,6 +24,8 @@ func main() {
 	g, gctx := errgroup.WithContext(ctx)
 	defer done()
 	// goroutine to check for signals to gracefully finish all functions
+	// The first call to return a non-nil error cancels the group's context,
+	// if the group was created by calling WithContext. The error will be returned by Wait.
 	g.Go(func() error {
 		signalChannel := make(chan os.Signal, 1)
 		signal.Notify(signalChannel, os.Interrupt, syscall.SIGTERM)

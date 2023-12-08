@@ -78,5 +78,8 @@ func main() {
 		This general-purpose API allows callers to model pretty much any runnable task,
 		and achieve well-defined lifecycle semantics for the group.
 	*/
-	fmt.Printf("The group was terminated with: %v\n", g.Run())
+	//fmt.Printf("The group was terminated with: %v\n", g.Run())
+	if err := g.Run(); err != nil {
+		fmt.Printf("group was terminated with error: %s", err)
+	}
 }
