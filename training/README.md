@@ -11,7 +11,7 @@ Provides training (both class room and online) and consulting on Go, Microservic
 
 **[List of clients of Shiju Varghese's Masterclass on Go and Distributed Systems](https://github.com/shijuvar/shijuvar/blob/master/golang-clients.md)**
 
-## [Dates and Time, Fee, Enrolment and FAQ for the Masterclass for Public](https://github.com/shijuvar/shijuvar/blob/master/active_masterclass.md)
+## **[Date and Time, Fees and FAQ of Public Masterclass](https://github.com/shijuvar/shijuvar/blob/master/active_masterclass.md)**
 
 # Courses
 # Professional Go  
@@ -19,35 +19,32 @@ Provides training (both class room and online) and consulting on Go, Microservic
 -------------------------------
 
 **Course Duration:**  
-* Online Training for Public: 20 hours (8 sessions of two and half hours) and assignments at offline
 * Classroom/Online Training for Corporate Organizations: 4 Days
 
-**Prerequisite:**  None
+**Prerequisite:**  Basic foundation on programming with any programming language
 
 **Level:** Beginner to Advanced 
 
 **Summary of Course Contents:** 
 *	Go programming language and its core fundamentals.
-* Package ecosystem and tooling.
 *	First-class functions.
-* Error handling
+* Package ecosystem and Go Modules.
+* Error handling.
 *	Struct and Interface.
 * Writing testable and idiomatic Go code with interface, struct and packages (architecture guidance and best practices).
 *	Concurrency primitives: Goroutines and Channels.
 *	Advanced Concurrency patterns.
 * Mutexes.
-* Go Modules.
 * HTTP programming: From basics to building production-ready apps.
-*	Testing Go applications: From basics to BDD-style testing and mocking.
-* Go 1.18 Generics
-* Building CLI applications
+*	Testing Go applications.
+* Generics.
+* Context package.
+* Structured Logging with slog.
 
-
-# Distributed Systems and Microservices in Go
-### *Building highly scalable distributed systems in Go*
+# Distributed Systems Programming in Go
+### *Building highly scalable distributed systems and microservices in Go*
 --------------------------------------------------------
 **Course Duration:** 
-* Online Training for Public: 20 hours (8 sessions of two and half hours) and assignments at offline
 * Classroom/Online Training for Corporate Organizations: 4 Days
 
 **Prerequisite:**  Completion of "Professional Go" course or Go developers with deep knowledge on SOLID principles 
@@ -57,23 +54,21 @@ Provides training (both class room and online) and consulting on Go, Microservic
 **Level:** Advanced 
 
 **Summary of Course Contents:**  
-* An introduction to cloud-native distributed systems architecture patterns
-* Introduction to Microservices Architecture
+* An overview of Microservices architecture
 * Decomposition Patterns for Microservices 
 * Domain-Driven Design (DDD)
 * A deep dive into gRPC and Protocol Buffers
 * Working with CockroachDB - A distributed, fault-tolerant database 
-* Managing Transactions in Microservices
-* A deep dive into cloud-native messaging systems: NATS and NATS JetStream 
-* Building Event-Driven Microservices with NATS
-* Building Microservices with Event Sourcing and CQRS
-* Building distributed applications using Service Weaver
+* A deep dive into distributed messaging/streaming systems: NATS and NATS JetStream 
+* Building event-driven streaming systems with NATS JetStream 
 * Microservices development with Go kit
-* Encore – Backend Development Engine
+* Modular Monolith architecture
+* Building distributed applications using Google Service Weaver
+
 
   
 # Building Distributed Applications in Go with Service Weaver
-### *Building modern distributed applications in Go with Service Weaver*  
+### *Monolith or Microservices, or Both: Building modern distributed applications in Go using Google Service Weaver*  
 --------------------------------------------------------
 **Course Duration:** 
 * Classroom/Online Training for Corporate Organizations: 1 Day
