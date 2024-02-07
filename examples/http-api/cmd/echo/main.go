@@ -6,8 +6,8 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 
-	apphttp "github.com/shijuvar/gokit/examples/http-echo/http"
-	"github.com/shijuvar/gokit/examples/http-echo/memstore"
+	apphttp "github.com/shijuvar/gokit/examples/http-api/httpecho"
+	"github.com/shijuvar/gokit/examples/http-api/memstore"
 )
 
 func main() {

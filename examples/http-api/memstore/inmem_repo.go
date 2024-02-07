@@ -8,11 +8,10 @@ import (
 	// external
 	"github.com/gofrs/uuid"
 
-	"github.com/shijuvar/gokit/examples/http-echo/model"
+	"github.com/shijuvar/gokit/examples/http-api/model"
 )
 
-// inmemoryRepository provides concrete implementation
-// for repository interface
+// inmemoryRepository provides concrete implementation for repository interface
 type inmemoryRepository struct {
 	noteStore map[string]model.Note
 }
