@@ -5,6 +5,8 @@ import (
 	"time"
 )
 
+//go:generate mockgen -destination=../mocks/mock_repository.go -package=mocks github.com/shijuvar/gokit/examples/http-api/model Repository
+
 var ErrNotFound = errors.New("No records found")
 var ErrNoteExists = errors.New("Note title exists")
 

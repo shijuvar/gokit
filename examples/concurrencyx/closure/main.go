@@ -18,19 +18,15 @@ func main() {
 }
 
 func errOnClosure() {
-	fmt.Println("errOnClosure")
 	done := make(chan struct{})
 	defer close(done)
-	// data race: the variable v is shared by len(values) of goroutines.
-	// each iteration of the loop uses the same instance of the variable v,
-	// so each closure shares that single variable.
 	for _, v := range values {
 		go func() {
 			fmt.Println(v)
 			done <- struct{}{}
 		}()
 	}
-	//wait for all goroutines to complete before exiting
+	// wait for all goroutines to complete before exiting
 	for _ = range values {
 		<-done
 	}
@@ -61,8 +57,8 @@ func closureWithParam() {
 	done := make(chan struct{})
 	defer close(done)
 	for _, v := range values {
-		go func(s string) { // Use a local variable.
-			fmt.Println(s)
+		go func(v string) { // Use a local variable.
+			fmt.Println(v)
 			done <- struct{}{}
 		}(v)
 	}

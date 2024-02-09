@@ -1,6 +1,6 @@
 module github.com/shijuvar/gokit
 
-go 1.21
+go 1.22.0
 
 require (
 	github.com/cockroachdb/cockroach-go v2.0.1+incompatible
