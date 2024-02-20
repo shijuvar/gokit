@@ -134,7 +134,7 @@ func (cc CustomerController) Add(c domain.Customer) {
 // Inside the main function
 func main() {
     controller := CustomerController{ // initialize customer controller
-        repository: inmemory.NewCustomerRepository(),
+        repository: memstore.NewCustomerRepository(),
         //repository: mongodb.NewCustomerRepository(), // switching to another persistent store
     }
     customer1 := domain.Customer{
