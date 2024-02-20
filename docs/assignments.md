@@ -150,7 +150,7 @@ controller.Add(customer1)
 ▪ By using CustomerController, make CRUD operations on Customer into an in-memory store.
 
 ## Assignment 4: HTTP Programming
-### Objective: Write RESTful APIs with Gorilla Mux package
+### Objective: Write RESTful APIs  
 
 **From assignment 3:**
 * Create a package named controller and move the CustomerController type into this package in order to implement
