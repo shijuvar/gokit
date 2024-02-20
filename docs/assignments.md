@@ -111,7 +111,7 @@ func NewCustomerRepository() *CustomerRepository {
 ```
 * Implement interface methods of domain.CustomerStore
 
-### Create package main
+***Create package main***
 
 * Create a CustomerController struct to organise the CRUD operations at UI layer
 ```go
