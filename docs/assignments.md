@@ -69,7 +69,7 @@ accept" — Robustness principle
 
 **Create package named domain**
 * Create a struct named Customer. 
-* Create an interface named CustomerStore to specify behaviours for CRUD on Customer.
+* Create an interface named CustomerRepository to specify behaviours for CRUD on Customer.
 
 ```go
 package domain 
@@ -89,7 +89,7 @@ type CustomerRepository interface {
 ```
 
 **Create package named memstore**
-* Implement interface CustomerRepository to persist domain.Customer data into a ```map[string]Customer```
+* Implement interface domain.CustomerRepository to persist domain.Customer data into a ```map[string]Customer```
 
 ```go
 package memstore
@@ -109,7 +109,7 @@ func NewCustomerRepository() *CustomerRepository {
 }
 
 ```
-* Implement interface methods of domain.CustomerStore
+* Implement interface methods of domain.CustomerRepository
 
 **Create package main**
 
