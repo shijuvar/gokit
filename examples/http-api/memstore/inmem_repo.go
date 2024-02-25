@@ -30,24 +30,24 @@ func (i *inmemoryRepository) isNoteTitleExists(title string) bool {
 	}
 	return false
 }
-func (i *inmemoryRepository) Create(n model.Note) error {
+func (i *inmemoryRepository) Create(n model.Note) (string, error) {
 	if _, ok := i.noteStore[n.NoteID]; ok {
-		return errors.New("NoteID exists")
+		return "", errors.New("NoteID exists")
 	}
 	if i.isNoteTitleExists(n.Title) {
-		return model.ErrNoteExists
+		return "", model.ErrNoteExists
 	}
 	n.CreatedOn = time.Now()
 	// Create a Version 4 UUID.
 	uid, _ := uuid.NewV4()
 	n.NoteID = uid.String()
 	i.noteStore[n.NoteID] = n
-	return nil
+	return n.NoteID, nil
 }
 
 func (i *inmemoryRepository) Update(id string, n model.Note) error {
 	if _, ok := i.noteStore[id]; !ok {
-		return errors.New("NoteID doesn't exist")
+		return model.ErrNoteNotExists
 	}
 	n.CreatedOn = time.Now()
 	i.noteStore[id] = n
@@ -56,14 +56,14 @@ func (i *inmemoryRepository) Update(id string, n model.Note) error {
 
 func (i *inmemoryRepository) Delete(id string) error {
 	if _, ok := i.noteStore[id]; !ok {
-		return errors.New("NoteID doesn't exist")
+		return model.ErrNoteNotExists
 	}
 	delete(i.noteStore, id)
 	return nil
 }
 func (i *inmemoryRepository) GetById(id string) (model.Note, error) {
 	if v, ok := i.noteStore[id]; !ok {
-		return model.Note{}, errors.New("NoteID doesn't exist")
+		return model.Note{}, model.ErrNoteNotExists
 	} else {
 		return v, nil
 	}

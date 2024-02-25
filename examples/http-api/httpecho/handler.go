@@ -1,9 +1,11 @@
 package httpecho
 
 import (
-	"github.com/labstack/echo/v4"
-	"github.com/shijuvar/gokit/examples/http-echo/model"
+	"errors"
 	"net/http"
+
+	"github.com/labstack/echo/v4"
+	"github.com/shijuvar/gokit/examples/http-api/model"
 )
 
 type NoteHandler struct {
@@ -16,8 +18,8 @@ func (h *NoteHandler) Post(c echo.Context) error {
 		return err
 	}
 	// Create note
-	if err := h.Repository.Create(note); err != nil {
-		if err == model.ErrNoteExists {
+	if _, err := h.Repository.Create(note); err != nil {
+		if errors.Is(err, model.ErrNoteExists) {
 			return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 
 		}
@@ -27,7 +29,7 @@ func (h *NoteHandler) Post(c echo.Context) error {
 }
 func (h *NoteHandler) GetAll(c echo.Context) error {
 	if notes, err := h.Repository.GetAll(); err != nil {
-		if err == model.ErrNotFound {
+		if errors.Is(err, model.ErrNotFound) {
 			return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 		}
 		return echo.NewHTTPError(http.StatusInternalServerError, err.Error())
@@ -39,7 +41,7 @@ func (h *NoteHandler) GetAll(c echo.Context) error {
 func (h *NoteHandler) Get(c echo.Context) error {
 	id := c.Param("id")
 	if note, err := h.Repository.GetById(id); err != nil {
-		if err == model.ErrNotFound {
+		if errors.Is(err, model.ErrNotFound) {
 			return echo.NewHTTPError(http.StatusBadRequest, err.Error())
 		}
 		return echo.NewHTTPError(http.StatusInternalServerError, err.Error())

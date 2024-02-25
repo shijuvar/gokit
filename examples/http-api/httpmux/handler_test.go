@@ -8,6 +8,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/gofrs/uuid"
 	"github.com/stretchr/testify/assert"
 	"go.uber.org/mock/gomock"
 
@@ -41,7 +42,9 @@ func setUp(t *testing.T) {
 
 func TestNoteHandler_Post_Valid_Note(t *testing.T) {
 	setUp(t)
-	mockRepository.EXPECT().Create(getMockNote()).Return(nil).Times(1)
+	uid, _ := uuid.NewV4()
+
+	mockRepository.EXPECT().Create(getMockNote()).Return(uid.String(), nil).Times(1)
 	noteJson := `{"title": "mux", "description": "Gorilla mux is a router library"}`
 	r.HandleFunc("POST /api/notes", handler.Post)
 	req, err := http.NewRequest(
@@ -64,7 +67,7 @@ func TestNoteHandler_Post_Valid_Note(t *testing.T) {
 
 func TestNoteHandler_Post_Duplicate_Note_Title(t *testing.T) {
 	setUp(t)
-	mockRepository.EXPECT().Create(getMockNote()).Return(model.ErrNoteExists).Times(2)
+	mockRepository.EXPECT().Create(getMockNote()).Return("", model.ErrNoteExists).Times(2)
 	mockRepository.Create(getMockNote())
 	noteJson := `{"title": "mux", "description": "Gorilla mux is a router library"}`
 	r.HandleFunc("POST /api/notes", handler.Post)

@@ -24,7 +24,7 @@ func (h *NoteHandler) Post(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Create note
-	if err := h.Repository.Create(note); err != nil {
+	if _, err := h.Repository.Create(note); err != nil {
 		if errors.Is(err, model.ErrNoteExists) {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
@@ -32,7 +32,6 @@ func (h *NoteHandler) Post(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-
 	w.WriteHeader(http.StatusCreated)
 }
 

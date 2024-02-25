@@ -2,10 +2,12 @@ package main
 
 import (
 	"log"
+	"log/slog"
 	"net/http"
 
 	apphttp "github.com/shijuvar/gokit/examples/http-api/httpmux"
 	"github.com/shijuvar/gokit/examples/http-api/memstore"
+	"github.com/shijuvar/gokit/examples/http-api/middleware"
 )
 
 // Entry point of the program
@@ -19,6 +21,12 @@ func main() {
 	}
 	router := initializeRoutes(h) // configure routes
 
+	logger := slog.Default()
+	// Adding middleware handlers
+	router = middleware.Apply(router,
+		middleware.RateLimiter(200),
+		middleware.PanicRecovery(logger),
+	)
 	server := &http.Server{
 		Addr:    ":8080",
 		Handler: router,
@@ -27,7 +35,7 @@ func main() {
 	server.ListenAndServe() // Run the http server
 }
 
-func initializeRoutes(h *apphttp.NoteHandler) *http.ServeMux {
+func initializeRoutes(h *apphttp.NoteHandler) http.Handler {
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /api/notes", h.GetAll)
 	mux.HandleFunc("GET /api/notes/{id}", h.Get)
