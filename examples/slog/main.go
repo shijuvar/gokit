@@ -133,7 +133,7 @@ func withOldLogAPIs() {
 	// NewJSONHandler creates a JSONHandler
 	handler := slog.NewJSONHandler(os.Stdout, nil)
 	// NewLogLogger returns a new log.Logger
-	// The logger acts as a bridge from the older log API to newer structured logging handlers
+	// The logger acts as a bridge from the older log API to newer structured logging http
 	logger := slog.NewLogLogger(handler, slog.LevelError)
 	server := http.Server{
 		Addr:     ":8080",

@@ -5,7 +5,7 @@ import (
 	"log/slog"
 	"net/http"
 
-	apphttp "github.com/shijuvar/gokit/examples/http-api/httpmux"
+	apphttp "github.com/shijuvar/gokit/examples/http-api/http/servemux"
 	"github.com/shijuvar/gokit/examples/http-api/memstore"
 	"github.com/shijuvar/gokit/examples/http-api/middleware"
 )
@@ -22,7 +22,7 @@ func main() {
 	router := initializeRoutes(h) // configure routes
 
 	logger := slog.Default()
-	// Adding middleware handlers
+	// Adding middleware http
 	router = middleware.Apply(router,
 		middleware.RateLimiter(200),
 		middleware.PanicRecovery(logger),

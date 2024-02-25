@@ -6,7 +6,7 @@ import (
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 
-	apphttp "github.com/shijuvar/gokit/examples/http-api/httpecho"
+	apphttp "github.com/shijuvar/gokit/examples/http-api/http/echo"
 	"github.com/shijuvar/gokit/examples/http-api/memstore"
 )
 

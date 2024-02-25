@@ -1,4 +1,4 @@
-package httpecho
+package echo
 
 import (
 	"errors"

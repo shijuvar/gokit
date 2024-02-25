@@ -25,11 +25,11 @@ func main() {
 	// cors.Default() setup the middleware with default options being
 	// all origins accepted with simple methods (GET, POST).
 	handler := cors.Default().Handler(router)
-	// Adding middleware handlers
+	// Adding middleware http
 	handler = middleware.Apply(handler,
 		middleware.PanicRecovery(util.Error),
 		middleware.RateLimiter(200),
-		)
+	)
 	// Create the Server
 	server := &http.Server{
 		Addr:     util.AppConfig.Server,

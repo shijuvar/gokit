@@ -1,4 +1,4 @@
-package httpmux
+package servemux
 
 import (
 	"encoding/json"
