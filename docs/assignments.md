@@ -159,7 +159,7 @@ http handlers as shown in the function signature below:
 ```go
 func (ctl CustomerController) Post(w http.ResponseWriter, r *http.Request))
 ```
-* Create a **package main** and start a new http server from it.
+* Create a **package main** and start a new http server from it after configuring the routes with http.ServeMux.
 
 ## Assignment 5: TDD Unit Tests
 ### Objective: Write TDD unit tests
