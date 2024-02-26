@@ -153,6 +153,7 @@ controller.Add(customer1)
 ### Objective: Write RESTful APIs  
 
 **From assignment 3:**
+* Add struct tag for JSON encoding package in the Customer entity of domain package.
 * Create a package named controller and move the CustomerController type into this package in order to implement
 http handlers as shown in the function signature below:
 ```go
