@@ -32,14 +32,16 @@ func generateValues(ctx context.Context, counter chan int) {
 
 func main() {
 	causeError := errors.New("goroutine is leaking")
-	ctx, cancel := context.WithCancelCause(context.Background())
+	//ctx, cancel := context.WithCancelCause(context.Background())
+	ctx, cancel := context.WithTimeoutCause(context.Background(), 3*time.Second, causeError)
+	defer cancel()
 	counter := make(chan int)
 	// calling goroutine with ctx-cancel value
 	go generateValues(ctx, counter)
 	for n := range counter {
-		if n == 10 {
-			cancel(causeError)
-		}
+		//if n == 5 {
+		//	cancel(causeError)
+		//}
 		fmt.Println(n)
 	}
 	fmt.Println("done")

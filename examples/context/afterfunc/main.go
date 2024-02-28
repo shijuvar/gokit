@@ -23,7 +23,7 @@ func main() {
 	go doSomething(ctx, wg)
 	cancel()
 	// Calling the returned stop function stops the association of ctx with f
-	stop()
+	//stop()
 	if !stop() {
 		fmt.Println("stop func has been started in its own goroutine; or stop func was already stopped.")
 	}
