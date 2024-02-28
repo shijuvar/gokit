@@ -23,7 +23,7 @@ func doAnother(ctx context.Context) {
 		fmt.Println("Unauthorized from doAnother")
 		return
 	}
-	fmt.Println("Authorized from doAnother:", ctx.Value("user"))
+	fmt.Println("Authorized from doAnother for User:", ctx.Value("user"))
 }
 func doAdmin(ctx context.Context) {
 	if ctx.Value("authorization") == "my-auth-token" {
