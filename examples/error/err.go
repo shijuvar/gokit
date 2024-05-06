@@ -7,9 +7,9 @@ import (
 )
 
 var (
-	errEmptyFname = errors.New("First Name is empty ")
-	errEmptyLname = errors.New("Last Name is empty ")
-	errAgeMinor   = errors.New("Age is less than 18")
+	errEmptyFname = errors.New("first name is empty")
+	errEmptyLname = errors.New("last name is empty")
+	errAgeMinor   = errors.New("age is less than 18")
 )
 
 func getDetails(fname string, lname string, age int) (string, error) {
