@@ -13,20 +13,20 @@ type Person struct {
 	Email, Location     string
 }
 
-//A person method with value receiver
+// A person method with value receiver
 func (p Person) PrintName() {
 	fmt.Printf("\n%s %s\n", p.FirstName, p.LastName)
 }
 
-//A person method with value receiver
+// A person method with value receiver
 func (p Person) PrintDetails() {
 	fmt.Printf("[Date of Birth: %s, Email: %s, Location: %s ]\n", p.Dob.String(), p.Email, p.Location)
 }
 
-//A person method with value receiver
+// A person method with value receiver
 func (p Person) ChangeLocation(newLocation string) {
-	p.Location = newLocation
-
+	p.Location = newLocation // mutating location
+	fmt.Println(p.Location)
 }
 func main() {
 	p := Person{

@@ -25,7 +25,7 @@ type Developer struct {
 }
 
 func main() {
-	steve := Developer{
+	steve := Developer{ // using literal expression
 		Employee: Employee{
 			FirstName: "Steve",
 			LastName:  "John",
@@ -37,4 +37,13 @@ func main() {
 	}
 	steve.PrintName()
 	steve.PrintDetails()
+
+	var d Developer
+	d.Employee = Employee{
+		FirstName: "John",
+		LastName:  "Doe",
+	}
+	d.Skills = []string{"Go", "Docker"}
+	d.PrintName()
+	d.PrintDetails()
 }
