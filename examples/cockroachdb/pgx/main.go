@@ -2,10 +2,11 @@ package main
 
 import (
 	"context"
+	"log"
+
 	"github.com/cockroachdb/cockroach-go/v2/crdb/crdbpgx"
 	"github.com/google/uuid"
 	"github.com/jackc/pgx/v4"
-	"log"
 )
 
 func insertRows(ctx context.Context, tx pgx.Tx, accts [4]uuid.UUID) error {
