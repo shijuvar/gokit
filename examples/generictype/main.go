@@ -2,6 +2,10 @@ package main
 
 import "fmt"
 
+type GenType[T any] struct {
+	Data []T
+}
+
 // Data is a generic struct with two generic types
 type Data[K comparable, V any] struct {
 	Key   K
@@ -25,6 +29,15 @@ func getSliceData[K comparable, V any](m map[K]V) []Data[K, V] {
 }
 
 func main() {
+
+	// passing int as type parameter for GenType
+	modelInt := GenType[int]{Data: []int{1, 2, 3, 4}}
+	fmt.Println(modelInt.Data) // [1 2 3 4]
+
+	// passing string as type parameter for GenType
+	modelStr := GenType[string]{Data: []string{"a", "b", "c", "d"}}
+	fmt.Println(modelStr.Data) // [a b c d]
+
 	data := getSliceData(map[string]string{
 		"go":  "Go programming language",
 		"rs":  "Rust programming language",
