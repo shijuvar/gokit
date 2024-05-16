@@ -24,10 +24,12 @@ func NewNoteRepository() (model.Repository, error) {
 	if mongoClient == nil {
 		clientOptions := options.Client().ApplyURI("mongodb://localhost:27017/")
 		var err error
+		// Connect creates a new Client
 		mongoClient, err = mongo.Connect(ctx, clientOptions)
 		if err != nil {
 			return nil, err
 		}
+		// Ping sends a ping command to verify that the client can connect to the deployment.
 		err = mongoClient.Ping(ctx, nil)
 		if err != nil {
 			return nil, err
