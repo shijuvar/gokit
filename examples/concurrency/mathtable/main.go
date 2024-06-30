@@ -10,13 +10,13 @@ import (
 
 func main() {
 	// WaitGroup is used to wait for the program to finish goroutines.
-	var wg sync.WaitGroup
+	wg := new(sync.WaitGroup) // a pointer
 	// Add a count of two, one for each goroutine.
 	wg.Add(2)
 	fmt.Println("Start Goroutines")
 	// Launch functions as goroutines
-	go addTable(&wg)
-	go multiTable(&wg)
+	go addTable(wg)
+	go multiTable(wg)
 	// Wait for the goroutines to finish.
 	//fmt.Println("Waiting To Finish")
 	wg.Wait()
