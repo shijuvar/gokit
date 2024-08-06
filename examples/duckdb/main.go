@@ -10,6 +10,7 @@ import (
 )
 
 var db *sql.DB
+var ctx = context.Background()
 
 type user struct {
 	name    string
@@ -29,17 +30,17 @@ func main() {
 
 	check(db.Ping())
 
-	setting := db.QueryRowContext(context.Background(), "SELECT current_setting('access_mode')")
+	setting := db.QueryRowContext(ctx, "SELECT current_setting('access_mode')")
 	var am string
 	check(setting.Scan(&am))
 	log.Printf("DB opened with access mode %s", am)
 
-	check(db.ExecContext(context.Background(), "CREATE TABLE users(name VARCHAR, age INTEGER, height FLOAT, awesome BOOLEAN, bday DATE)"))
-	check(db.ExecContext(context.Background(), "INSERT INTO users VALUES('marc', 99, 1.91, true, '1970-01-01')"))
-	check(db.ExecContext(context.Background(), "INSERT INTO users VALUES('macgyver', 70, 1.85, true, '1951-01-23')"))
+	check(db.ExecContext(ctx, "CREATE TABLE IF NOT EXISTS users(name VARCHAR, age INTEGER, height FLOAT, awesome BOOLEAN, bday DATE)"))
+	check(db.ExecContext(ctx, "INSERT INTO users VALUES('marc', 99, 1.91, true, '1970-01-01')"))
+	check(db.ExecContext(ctx, "INSERT INTO users VALUES('macgyver', 70, 1.85, true, '1951-01-23')"))
 
 	rows, err := db.QueryContext(
-		context.Background(), `
+		ctx, `
 		SELECT name, age, height, awesome, bday
 		FROM users
 		WHERE (name = ? OR name = ?) AND age > ? AND awesome = ?`,
@@ -61,7 +62,7 @@ func main() {
 	}
 	check(rows.Err())
 
-	res, err := db.ExecContext(context.Background(), "DELETE FROM users")
+	res, err := db.ExecContext(ctx, "DELETE FROM users")
 	check(err)
 
 	ra, _ := res.RowsAffected()
@@ -85,11 +86,11 @@ func runTransaction() {
 
 	check(
 		tx.ExecContext(
-			context.Background(),
+			ctx,
 			"INSERT INTO users VALUES('gru', 25, 1.35, false, '1996-04-03')",
 		),
 	)
-	row := tx.QueryRowContext(context.Background(), "SELECT COUNT(*) FROM users WHERE name = ?", "gru")
+	row := tx.QueryRowContext(ctx, "SELECT COUNT(*) FROM users WHERE name = ?", "gru")
 	var count int64
 	check(row.Scan(&count))
 	if count > 0 {
@@ -99,7 +100,7 @@ func runTransaction() {
 	log.Println("Rolling back transaction...")
 	check(tx.Rollback())
 
-	row = db.QueryRowContext(context.Background(), "SELECT COUNT(*) FROM users WHERE name = ?", "gru")
+	row = db.QueryRowContext(ctx, "SELECT COUNT(*) FROM users WHERE name = ?", "gru")
 	check(row.Scan(&count))
 	if count > 0 {
 		log.Println("Found user Gru")
@@ -109,18 +110,18 @@ func runTransaction() {
 }
 
 func testPreparedStmt() {
-	stmt, err := db.PrepareContext(context.Background(), "INSERT INTO users VALUES(?, ?, ?, ?, ?)")
+	stmt, err := db.PrepareContext(ctx, "INSERT INTO users VALUES(?, ?, ?, ?, ?)")
 	check(err)
 	defer stmt.Close()
 
-	check(stmt.ExecContext(context.Background(), "Kevin", 11, 0.55, true, "2013-07-06"))
-	check(stmt.ExecContext(context.Background(), "Bob", 12, 0.73, true, "2012-11-04"))
-	check(stmt.ExecContext(context.Background(), "Stuart", 13, 0.66, true, "2014-02-12"))
+	check(stmt.ExecContext(ctx, "Kevin", 11, 0.55, true, "2013-07-06"))
+	check(stmt.ExecContext(ctx, "Bob", 12, 0.73, true, "2012-11-04"))
+	check(stmt.ExecContext(ctx, "Stuart", 13, 0.66, true, "2014-02-12"))
 
-	stmt, err = db.PrepareContext(context.Background(), "SELECT * FROM users WHERE age > ?")
+	stmt, err = db.PrepareContext(ctx, "SELECT * FROM users WHERE age > ?")
 	check(err)
 
-	rows, err := stmt.QueryContext(context.Background(), 1)
+	rows, err := stmt.QueryContext(ctx, 1)
 	check(err)
 	defer rows.Close()
 
