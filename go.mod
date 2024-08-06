@@ -26,18 +26,20 @@ require (
 	github.com/pkg/profile v1.5.0
 	github.com/satori/go.uuid v1.2.0
 	github.com/shijuvar/go-recipes v0.0.0-20170411094924-1ae756665620
+	github.com/shijuvar/gokit/examples/http-api v0.0.0-20240806031717-b91792050389
 	github.com/shijuvar/gokit/examples/http/restapi v0.0.0-20230616040806-66daa34d3f49
 	github.com/sirupsen/logrus v1.8.1
 	github.com/spf13/cobra v1.3.0
 	github.com/spf13/viper v1.10.1
-	github.com/stretchr/testify v1.8.1
+	github.com/stretchr/testify v1.8.4
+	go.uber.org/mock v0.4.0
 	go.uber.org/zap v1.24.0
 	go.uber.org/zap/exp v0.2.0
-	golang.org/x/crypto v0.10.0
-	golang.org/x/net v0.11.0
+	golang.org/x/crypto v0.19.0
+	golang.org/x/net v0.21.0
 	golang.org/x/sync v0.3.0
 	google.golang.org/grpc v1.43.0
-	google.golang.org/protobuf v1.28.0
+	google.golang.org/protobuf v1.32.0
 	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22
 )
 
@@ -77,8 +79,8 @@ require (
 	go.mongodb.org/mongo-driver v1.10.2 // indirect
 	go.uber.org/atomic v1.10.0 // indirect
 	go.uber.org/multierr v1.10.0 // indirect
-	golang.org/x/sys v0.9.0 // indirect
-	golang.org/x/text v0.10.0 // indirect
+	golang.org/x/sys v0.17.0 // indirect
+	golang.org/x/text v0.14.0 // indirect
 	golang.org/x/tools v0.10.0 // indirect
 	google.golang.org/genproto v0.0.0-20211208223120-3a66f561d7aa // indirect
 	gopkg.in/fatih/pool.v2 v2.0.0 // indirect
