@@ -27,7 +27,7 @@ func (h *NoteHandler) Post(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
-	c.Status(http.StatusNoContent)
+	c.Status(http.StatusCreated)
 }
 
 func (h *NoteHandler) GetAll(c *gin.Context) {
