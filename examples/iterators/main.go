@@ -6,39 +6,94 @@ import (
 	"sync"
 )
 
-func main() {
-	iterateOverSMap()
-	iterateWithSeq()
+type Slice[V any] []V
+
+func (s Slice[V]) All() iter.Seq[V] {
+	return func(yield func(V) bool) {
+		for i := range s {
+			if !yield(s[i]) {
+				return
+			}
+		}
+	}
 }
-func iterateWithSeq() {
-	s := []int{1, 2, 3, 4, 5}
-	PrintAll(Reversed(s))
+func (s Slice[V]) ReversedAll() iter.Seq[V] {
+	return func(yield func(V) bool) {
+		for i := len(s) - 1; i >= 0; i-- {
+			if !yield(s[i]) {
+				return
+			}
+		}
+	}
 }
 
-// PrintAll prints all elements in a sequence.
-func PrintAll[V any](s iter.Seq[V]) {
-	for v := range s {
-		fmt.Print(v, " ")
+// Pairs returns an iterator over successive pairs of values from seq.
+func Pairs[V any](seq iter.Seq[V]) iter.Seq2[V, V] {
+	return func(yield func(V, V) bool) {
+		next, stop := iter.Pull(seq)
+		defer stop()
+		for {
+			v1, ok1 := next()
+			if !ok1 {
+				return
+			}
+			v2, ok2 := next()
+			// If ok2 is false, v2 should be the
+			// zero value; yield one last pair.
+			if !yield(v1, v2) {
+				return
+			}
+			if !ok2 {
+				return
+			}
+		}
+	}
+}
+func Pull[V any](seq iter.Seq[V]) {
+	// Pull converts the “push-style” iterator sequence seq into a “pull-style” iterator
+	// accessed by the two functions next and stop.
+	next, stop := iter.Pull(seq)
+	defer stop()
+	for {
+		v, ok := next()
+		if !ok {
+			break
+		}
+		fmt.Printf("%v\t", v)
 	}
 	fmt.Println()
 }
 
-// Reversed returns an iterator that loops over a slice in reverse order.
-/*
-An iterator is a function that passes successive elements of a sequence to a callback function,
-conventionally named yield.
-The function stops either when the sequence is finished or when yield returns false,
-indicating to stop the iteration early.
-This package defines Seq and Seq2 (pronounced like seek—the first syllable of sequence)
-as shorthands for iterators that pass 1 or 2 values per sequence element to yield:
-*/
-// pushing values to the yield function.
-func Reversed[V any](s []V) iter.Seq[V] {
-	return func(yield func(V) bool) {
-		for i := len(s) - 1; i >= 0; i-- {
-			// Yield returns true if the iterator should continue with the next element in the sequence,
-			// false if it should stop.
-			if !yield(s[i]) {
+// Print prints all elements in a sequence.
+func Print2[V any](seq iter.Seq2[V, V]) {
+	for k, v := range seq {
+		fmt.Printf("%v:%v\t", k, v)
+	}
+	fmt.Println()
+}
+
+// Print prints all elements in a sequence.
+func Print[V any](seq iter.Seq[V]) {
+	for v := range seq {
+		fmt.Printf("%v\t", v)
+	}
+	fmt.Println()
+}
+func main() {
+
+	s := Slice[int]([]int{10, 20, 30, 40, 50})
+	Print(s.All())
+	Print(s.ReversedAll())
+	Pull(s.All())
+	Print2(Pairs(s.All()))
+	fmt.Println("\niterateOverSMap")
+	iterateOverSMap()
+}
+
+func Numbers(n int) iter.Seq[int] {
+	return func(yield func(int) bool) {
+		for i := range n {
+			if !yield(i + 1) {
 				return
 			}
 		}

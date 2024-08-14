@@ -10,7 +10,7 @@ type (
 
 Seq2 represents a sequence of paired values, conventionally key-value or index-value pairs.
 
-Yield returns true if the iterator should continue with the next element in the sequence, false if it should stop.
+Yield returns true if the iterator should continue with the next element in the sequence, false if it should stop. The yield function accepted by a for-range iterator is what invokes the body of the loop. The standard iterators can be thought of as “push iterators”, which push values to the yield function.
 
 Here's an iterator with Seq[V any]: 
 ```go
