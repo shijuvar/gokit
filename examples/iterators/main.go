@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 	"iter"
-	"sync"
 )
 
 type Slice[V any] []V
 
+// All creates the iterator that yields all values of slices
 func (s Slice[V]) All() iter.Seq[V] {
 	return func(yield func(V) bool) {
 		for i := range s {
@@ -17,6 +17,8 @@ func (s Slice[V]) All() iter.Seq[V] {
 		}
 	}
 }
+
+// ReversedAll creates the iterator that yields values of slices in reverse order
 func (s Slice[V]) ReversedAll() iter.Seq[V] {
 	return func(yield func(V) bool) {
 		for i := len(s) - 1; i >= 0; i-- {
@@ -49,8 +51,10 @@ func Pairs[V any](seq iter.Seq[V]) iter.Seq2[V, V] {
 		}
 	}
 }
+
+// Pull converts the “push-style” iterator sequence seq into a “pull-style” iterator
 func Pull[V any](seq iter.Seq[V]) {
-	// Pull converts the “push-style” iterator sequence seq into a “pull-style” iterator
+	// Pull function converts the “push-style” iterator sequence seq into a “pull-style” iterator
 	// accessed by the two functions next and stop.
 	next, stop := iter.Pull(seq)
 	defer stop()
@@ -64,7 +68,7 @@ func Pull[V any](seq iter.Seq[V]) {
 	fmt.Println()
 }
 
-// Print prints all elements in a sequence.
+// Print2 prints all elements in a sequence of iter.Seq2.
 func Print2[V any](seq iter.Seq2[V, V]) {
 	for k, v := range seq {
 		fmt.Printf("%v:%v\t", k, v)
@@ -86,37 +90,4 @@ func main() {
 	Print(s.ReversedAll())
 	Pull(s.All())
 	Print2(Pairs(s.All()))
-	fmt.Println("\niterateOverSMap")
-	iterateOverSMap()
-}
-
-func Numbers(n int) iter.Seq[int] {
-	return func(yield func(int) bool) {
-		for i := range n {
-			if !yield(i + 1) {
-				return
-			}
-		}
-	}
-}
-func iterateOverSMap() {
-	// sync.Map type is part of the sync package and provides built-in
-	// synchronization to prevent race conditions without the explicit use of mutexes.
-	var m sync.Map
-
-	m.Store("alice", 11)
-	m.Store("bob", 12)
-	m.Store("cindy", 13)
-
-	/*
-		go 1.22 explicit call
-		m.Range(func(key, val any) bool {
-			fmt.Println(key, val)
-			return true
-		})
-	*/
-	// go 1.23 - becomes implicit call
-	for key, val := range m.Range {
-		fmt.Println(key, val)
-	}
 }
