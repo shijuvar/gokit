@@ -71,6 +71,9 @@ func (i *inmemoryRepository) GetById(id string) (model.Note, error) {
 }
 
 func (i *inmemoryRepository) GetAll() ([]model.Note, error) {
+	if len(i.noteStore) == 0 {
+		return nil, model.ErrNotFound
+	}
 	notes := make([]model.Note, 0)
 	for _, v := range i.noteStore {
 		notes = append(notes, v)
