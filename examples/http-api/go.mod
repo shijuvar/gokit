@@ -6,6 +6,7 @@ require (
 	github.com/gin-gonic/gin v1.9.1
 	github.com/gofrs/uuid v4.2.0+incompatible
 	github.com/labstack/echo/v4 v4.7.2
+	github.com/rs/cors v1.11.1
 	github.com/stretchr/testify v1.8.4
 	go.uber.org/mock v0.4.0
 	golang.org/x/time v0.0.0-20201208040808-7e3f01d25324

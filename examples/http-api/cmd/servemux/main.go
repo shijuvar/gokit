@@ -5,6 +5,8 @@ import (
 	"log/slog"
 	"net/http"
 
+	"github.com/rs/cors"
+
 	apphttp "github.com/shijuvar/gokit/examples/http-api/http/servemux"
 	"github.com/shijuvar/gokit/examples/http-api/memstore"
 	"github.com/shijuvar/gokit/examples/http-api/middleware"
@@ -27,6 +29,8 @@ func main() {
 		middleware.RateLimiter(200),
 		middleware.PanicRecovery(logger),
 	)
+	// CORS middleware
+	router = cors.Default().Handler(router)
 	server := &http.Server{
 		Addr:    ":8080",
 		Handler: router,
