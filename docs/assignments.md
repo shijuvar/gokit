@@ -181,3 +181,29 @@ Customer entity, a user should provide a valid JWT token (JWT
 received after login to the system using user name and password) to
 access the REST API endpoints of Customer entity.
 * Write TDD styled unit tests for new functionalities.
+
+## Case Study: REST API services for a cloud bookmark manager
+### Problem: Build REST API services for a cloud bookmark manager application, similar like https://raindrop.io
+
+**Here’re the high level functional requirements:**
+1. Users should be able to register to the system.
+2. Users should login to the system using a user name and
+password.
+3. Once the user is logged into the system using user name and
+password, all subsequent requests should be authorized
+using JWT token (https://jwt.io).
+4. Authorized users should be able to create collections for
+their bookmarks.
+5. Authorized users should be able to create bookmarks under
+a collection name.
+6. When an authorized user creates bookmarks, it should be
+able to associate with a group of tags (one or more tags) as
+an optional capability.
+7. Bookmarks should be able to edit and delete.
+8. Bookmarks should be listed for a collection name.
+9. Bookmarks should be listed for a tag.
+    
+**Here’re few technical notes:**
+1. Code should be organized based on SOLID principles.
+2. Unit tests should be written for http handler functions.
+3. A database (SQL or NoSQL) should be used for persistence.
