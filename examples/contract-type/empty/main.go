@@ -34,8 +34,11 @@ func main() {
 	p = person{name: "shijuvar"}
 	p.getName()
 	// type assertion: assert into concrete type
-	asserted := p.(person)
-	asserted.getName()
-	asserted.toString()
+	asserted, ok := p.(person)
+	if ok {
+		fmt.Println("assertion is successful")
+		asserted.getName()
+		asserted.toString()
+	}
 
 }
