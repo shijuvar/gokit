@@ -34,13 +34,18 @@ func message(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "net/http package is used to build web apps\n")
 }
 
+func test(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "from Handler method\n")
+}
+
 func main() {
 	// NewServeMux returns a new ServeMux.
 	mux := http.NewServeMux()
 	// HandleFunc registers the handler function for the given pattern.
 	mux.HandleFunc("/", index)
 	mux.HandleFunc("/welcome", welcome)
-	mux.HandleFunc("/message", message)
+	mux.HandleFunc("/message", message) // -> mux.Handle("message", http.HandlerFunc(message))
+	mux.Handle("test", http.HandlerFunc(test))
 	log.Println("Listening...")
 	//http.ListenAndServe(":8080", mux)
 	//A Server defines parameters for running an HTTP server.
