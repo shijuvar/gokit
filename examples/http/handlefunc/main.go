@@ -45,7 +45,7 @@ func main() {
 	mux.HandleFunc("/", index)
 	mux.HandleFunc("/welcome", welcome)
 	mux.HandleFunc("/message", message) // -> mux.Handle("message", http.HandlerFunc(message))
-	mux.Handle("test", http.HandlerFunc(test))
+	mux.Handle("/test", http.HandlerFunc(test))
 	log.Println("Listening...")
 	//http.ListenAndServe(":8080", mux)
 	//A Server defines parameters for running an HTTP server.
