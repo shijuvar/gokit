@@ -3,8 +3,7 @@ package main
 import (
 	"encoding/json"
 	"net/http"
-
-	"github.com/gorilla/mux"
+	//"github.com/gorilla/mux"
 )
 
 // User model
@@ -40,7 +39,11 @@ func getUsers(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	r := mux.NewRouter()
-	r.HandleFunc("/users", getUsers).Methods("GET")
-	http.ListenAndServe(":8080", r)
+	r := http.NewServeMux()
+	r.HandleFunc("GET /users", getUsers)
+	server := &http.Server{
+		Addr:    ":8080",
+		Handler: r,
+	}
+	server.ListenAndServe()
 }

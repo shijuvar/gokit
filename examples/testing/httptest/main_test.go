@@ -6,14 +6,14 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/gorilla/mux"
+	//"github.com/gorilla/mux"
 	"github.com/stretchr/testify/assert"
 )
 
 // TestGetUsers test HTTP Get to "/users" using ResponseRecorder
 func TestGetUsers(t *testing.T) {
-	r := mux.NewRouter()
-	r.HandleFunc("/users", getUsers).Methods("GET")
+	r := http.NewServeMux()
+	r.HandleFunc("GET /users", getUsers)
 	req, err := http.NewRequest("GET", "/users", nil)
 	if err != nil {
 		t.Error(err)
@@ -28,8 +28,8 @@ func TestGetUsers(t *testing.T) {
 
 // TestGetUsersWithServer test HTTP Get to "/users" using Server
 func TestGetUsersWithServer(t *testing.T) {
-	r := mux.NewRouter()
-	r.HandleFunc("/users", getUsers).Methods("GET")
+	r := http.NewServeMux()
+	r.HandleFunc("GET /users", getUsers)
 	server := httptest.NewServer(r)
 	defer server.Close()
 	usersURL := fmt.Sprintf("%s/users", server.URL)
