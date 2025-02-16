@@ -25,6 +25,7 @@ func generateSquare(sqrs chan<- squarevalue) {
 			value: num * num,
 		}
 	}
+	close(sqrs)
 }
 func generateFibonacci(fibs chan<- fibvalue) {
 	defer wg.Done()
@@ -39,15 +40,27 @@ func generateFibonacci(fibs chan<- fibvalue) {
 			value: int(result),
 		}
 	}
+	close(fibs)
 }
 func printValues(fibs <-chan fibvalue, sqrs <-chan squarevalue) {
 	defer wg.Done()
-	for i := 1; i <= 20; i++ {
+	for {
+		if fibs == nil && sqrs == nil {
+			break
+		}
 		select {
-		case fib := <-fibs:
-			fmt.Printf("Fibonacci value of %d is %d\n", fib.input, fib.value)
-		case sqr := <-sqrs:
-			fmt.Printf("Square value of %d is %d\n", sqr.input, sqr.value)
+		case fib, ok := <-fibs:
+			if ok {
+				fmt.Printf("Fibonacci value of %d is %d\n", fib.input, fib.value)
+			} else {
+				fibs = nil
+			}
+		case sqr, ok := <-sqrs:
+			if ok {
+				fmt.Printf("Square value of %d is %d\n", sqr.input, sqr.value)
+			} else {
+				sqrs = nil
+			}
 		}
 	}
 }
