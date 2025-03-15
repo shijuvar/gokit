@@ -1,3 +1,7 @@
+/*
+Package errgroup provides synchronization, error propagation, and Context cancelation
+for groups of goroutines working on subtasks of a common task.
+*/
 package main
 
 import (
@@ -79,6 +83,10 @@ func main() {
 	//})
 
 	// wait for all errg-ctx-cancel goroutines
+	/*
+		Wait blocks until all function calls from the Go method have returned,
+		then returns the first non-nil error (if any) from them.
+	*/
 	err := g.Wait()
 	if err != nil {
 		if errors.Is(err, context.Canceled) {
@@ -89,9 +97,4 @@ func main() {
 	} else {
 		fmt.Println("finished clean")
 	}
-
-	//if err := g.Wait(); err != nil {
-	//	fmt.Println("from last: ", err)
-	//}
-
 }

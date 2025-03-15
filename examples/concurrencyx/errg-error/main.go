@@ -16,7 +16,7 @@ func main() {
 	var urls = []string{
 		"http://www.golang.org/",
 		"http://www.google.com/",
-		"https://www.xyzwitter.com/",
+		"https://shijuvar.medium.com",
 	}
 	responses, err := getWebResponse(urls)
 	if err != nil {
@@ -28,15 +28,12 @@ func main() {
 }
 
 func getWebResponse(urls []string) ([]response, error) {
+	// A Group is a collection of goroutines working on subtasks that are part of the same overall task.
 	g := new(errgroup.Group)
 	responses := make([]response, len(urls))
 
 	for i, url := range urls {
 		// Launch a goroutine to fetch the URL.
-		i := i
-		url := url // https://golang.org/doc/faq#closures_and_goroutines
-		// The first call to return a non-nil error cancels the group;
-		// its error will be returned by Wait.
 		g.Go(func() error {
 			// Fetch the URL.
 			resp, err := http.Get(url)
@@ -52,6 +49,8 @@ func getWebResponse(urls []string) ([]response, error) {
 		})
 	}
 	// Wait for all HTTP fetches to complete.
+	// Wait blocks until all function calls from the Go method have returned,
+	// then returns the first non-nil error (if any) from them.
 	if err := g.Wait(); err != nil {
 		return nil, err
 	}

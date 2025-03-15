@@ -18,6 +18,7 @@ type (
 
 func generateSquare(sqrs chan<- squarevalue) {
 	defer wg.Done()
+	defer close(sqrs)
 	for i := 1; i <= 10; i++ {
 		num := rand.Intn(50)
 		sqrs <- squarevalue{
@@ -25,10 +26,11 @@ func generateSquare(sqrs chan<- squarevalue) {
 			value: num * num,
 		}
 	}
-	close(sqrs)
+
 }
 func generateFibonacci(fibs chan<- fibvalue) {
 	defer wg.Done()
+	defer close(fibs)
 	for i := 1; i <= 10; i++ {
 		num := float64(rand.Intn(50))
 		// Fibonacci using Binet's formula
@@ -40,26 +42,24 @@ func generateFibonacci(fibs chan<- fibvalue) {
 			value: int(result),
 		}
 	}
-	close(fibs)
 }
 func printValues(fibs <-chan fibvalue, sqrs <-chan squarevalue) {
 	defer wg.Done()
-	for {
-		if fibs == nil && sqrs == nil {
-			break
-		}
+	for fibs != nil || sqrs != nil {
 		select {
 		case fib, ok := <-fibs:
 			if ok {
 				fmt.Printf("Fibonacci value of %d is %d\n", fib.input, fib.value)
 			} else {
 				fibs = nil
+				fmt.Println("Fibonacci channel closed")
 			}
 		case sqr, ok := <-sqrs:
 			if ok {
 				fmt.Printf("Square value of %d is %d\n", sqr.input, sqr.value)
 			} else {
 				sqrs = nil
+				fmt.Println("Square channel closed")
 			}
 		}
 	}

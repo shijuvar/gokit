@@ -42,7 +42,6 @@ func Google(ctx context.Context, query string) ([]Result, error) {
 	searches := []Search{Web, Image, Video}
 	results := make([]Result, len(searches))
 	for i, search := range searches {
-		i, search := i, search // https://golang.org/doc/faq#closures_and_goroutines
 		g.Go(func() error {
 			result, err := search(ctx, query)
 			if err == nil {
