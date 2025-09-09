@@ -49,6 +49,8 @@ func (i *inmemoryRepository) Update(id string, n model.Note) error {
 	if _, ok := i.noteStore[id]; !ok {
 		return model.ErrNoteNotExists
 	}
+
+	n.NoteID = id
 	n.CreatedOn = time.Now()
 	i.noteStore[id] = n
 	return nil
