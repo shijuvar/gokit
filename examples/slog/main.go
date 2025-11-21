@@ -56,6 +56,7 @@ func logWithLogValuer() {
 // logWithLevels demonstrates basic logging all levels
 func logWithLevels() {
 	// log using the default logger
+	slog.SetLogLoggerLevel(slog.Level(slog.LevelDebug))
 	slog.Debug("Debug log")
 	slog.Info("Info log")
 	slog.Warn("Warning log")

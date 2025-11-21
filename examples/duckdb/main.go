@@ -72,6 +72,7 @@ func main() {
 	testPreparedStmt()
 }
 
+// check functions checks error value
 func check(args ...interface{}) {
 	err := args[len(args)-1]
 	if err != nil {
