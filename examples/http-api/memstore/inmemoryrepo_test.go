@@ -59,6 +59,7 @@ func TestNoteRepository_Create(t *testing.T) {
 		},
 	}
 	for _, tt := range tests {
+		// sub-level test
 		t.Run(tt.name, func(t *testing.T) {
 			id, err := repository.Create(tt.note)
 			assert.Equalf(t, tt.wantErr, err, "Create() error = %v, wantErr %v", err, tt.wantErr)
