@@ -16,7 +16,7 @@ func main() {
 	var urls = []string{
 		"http://www.golang.org/",
 		"http://www.google.com/",
-		"https://shijuvar.medium.com",
+		"https://github.com/shijuvar",
 	}
 	responses, err := getWebResponse(urls)
 	if err != nil {
