@@ -9,6 +9,7 @@ import (
 type Number interface {
 	~int | ~int32 | ~int64 | ~float64
 }
+
 // SumNumbers sums the values of map m. Its supports both integers
 // and floats as map values.
 func SumNumbers[K comparable, V Number](m map[K]V) V {
@@ -18,6 +19,17 @@ func SumNumbers[K comparable, V Number](m map[K]V) V {
 	}
 	return s
 }
+
+// SumIntsOrFloats sums the values of map m. It supports both int64 and float64
+// as types for map values.
+func SumIntsOrFloats[K comparable, V int64 | float64](m map[K]V) V {
+	var s V
+	for _, v := range m {
+		s += v
+	}
+	return s
+}
+
 // SumInts adds together the values of m.
 func SumInts(m map[string]int64) int64 {
 	var s int64
@@ -65,20 +77,20 @@ func main() {
 		SumNumbers(ints),
 		SumNumbers(floats))
 
-	fmt.Printf("Max with integer: %v\n",Max([]num{10, 15, 4, 25, 16, 18, 2}))
-	fmt.Printf("Max with float: %v\n",Max([]float64{6.2, 4.1, 6.2, 9.6, 8.2, 1.5, 4.7}))
-	fmt.Printf("Contains with string: %v\n", Contains([]string{"one", "two", "three"},"two"))
-	fmt.Printf("Contains with int: %v\n", Contains([]int{100, 200, 300},50))
+	fmt.Printf("Max with integer: %v\n", Max([]num{10, 15, 4, 25, 16, 18, 2}))
+	fmt.Printf("Max with float: %v\n", Max([]float64{6.2, 4.1, 6.2, 9.6, 8.2, 1.5, 4.7}))
+	fmt.Printf("Contains with string: %v\n", Contains([]string{"one", "two", "three"}, "two"))
+	fmt.Printf("Contains with int: %v\n", Contains([]int{100, 200, 300}, 50))
 
-	randomNumbers:=make([]int, 5, 5)
-	for i:=0;i<5; i++ {
-		randomNumbers[i]=rand.Intn(25)
+	randomNumbers := make([]int, 5, 5)
+	for i := 0; i < 5; i++ {
+		randomNumbers[i] = rand.Intn(25)
 	}
-   fibvalues:= MapSlice(randomNumbers,findFibonacci)
-   fmt.Println(fibvalues)
-   sqrs:= MapSlice(randomNumbers, func(num int) int {
-	   return num * num
-   })
+	fibvalues := MapSlice(randomNumbers, findFibonacci)
+	fmt.Println(fibvalues)
+	sqrs := MapSlice(randomNumbers, func(num int) int {
+		return num * num
+	})
 	fmt.Println(sqrs)
 
 }
@@ -86,28 +98,21 @@ func main() {
 type fibvalue struct {
 	input, value int
 }
+
 func findFibonacci(num int) fibvalue {
 	input := float64(num)
 	// Fibonacci using Binet's formula
 	Phi := (1 + math.Sqrt(5)) / 2
 	phi := (1 - math.Sqrt(5)) / 2
 	result := (math.Pow(Phi, input) - math.Pow(phi, input)) / math.Sqrt(5)
-	return fibvalue {
+	return fibvalue{
 		input: num,
 		value: int(result),
 	}
 }
-// SumIntsOrFloats sums the values of map m. It supports both int64 and float64
-// as types for map values.
-func SumIntsOrFloats[K comparable, V int64 | float64](m map[K]V) V {
-	var s V
-	for _, v := range m {
-		s += v
-	}
-	return s
-}
 
 type num int
+
 func Max[T Number](s []T) T {
 	if len(s) == 0 {
 		var zero T
